@@ -645,182 +645,98 @@
 
 
 
-    <!-- HERE IS THE USE CASE DESCRIPTIONS -->
-    <h2>
-        Use Case Descriptions
-    </h2>
-
-    <!-- Harsh Use Case -->
-    <p style="margin-left: 300px;">
-        Use Case: Verification
-        <br><br>
-        Context: Member needs to be verified to access provider’s services
-        <br><br>
-        Actors: Provider
-        <br><br>
-        Main Success Scenario:
-        <br><br>
-        1. The provider scans the member card through the card reader.
-        <br><br>
-        2. The member’s card number is sent to ChocAn Data Center through the terminal.
-        <br><br>
-        3. Data Centers then verifies the card number.
-        <br><br>
-        4. Upon successful verification, “Validated” is displayed on one line display.
-        <br><br>
-        Extensions:
-        <br><br>
-        2a. The card number is not valid.
-        <br><br>
-            &#8195;2a.1 “Invalid Number” is displayed on one line display.
-        <br><br>
-        2b. The member is suspended because of dues.
-        <br><br>
-            &#8195;2b.1 “Member Suspended” is displayed on one line display.
-        <br><br><br><br>
-    </p>
-
-    <p style="margin-left: 300px;">
-        Use Case: Create Service Record
-        <br><br>
-        Context: After service has been provided by the provider, a record of service provided needs to be created
-        <br><br>
-        Actors: Provider
-        <br><br>
-        Main Success Scenario:
-        <br><br>
-        1.     The provider scans the member’s card or keys in the member number manually using the terminal.
-        <br><br>
-        2.    The member number is sent to the ChocAn Data Center to be verified.
-        <br><br>
-        3.    Upon successful verification, “Validated” is displayed on one line display.
-        <br><br>
-        4.    The provider then keys in the date the service was provided in the format MM-DD-YYYY.
-        <br><br>
-        5.    The provider looks into the provider directory to look up the six-digit service code corresponding to the service provided and then keys in the service code.
-        <br><br>
-        6.    The software displays the name of the service corresponding to the code (up to 20 Characters) and asks the provider to verify that this is the service that was provided.
-        <br><br>
-        7.    Optionally, it allows the provider to add comments.
-        <br><br>
-        Extensions:
-        <br><br>
-        2a. The card number is not valid.
-        <br><br>
-            &#8195;2a.1. “Invalid Number” is displayed on one line display.
-        <br><br>
-            &#8195;2a.2. Return to step 1.
-        <br><br>
-        2b. The member is suspended because of dues.
-        <br><br>
-            &#8195;2b.1. “Member Suspended” is displayed on one line display.
-        <br><br>
-            &#8195;2b.2. Return to step 1.
-        <br><br>
-        4a. The date provided was not valid.
-        <br><br>
-            &#8195;4a.1. Error message is printed.
-        <br><br>
-            &#8195;4a.2. Return to step 4.
-        <br><br>
-        6a. The service code entered by the provider does not exist.
-        <br><br>
-            &#8195;6a.1. Error message is printed
-        <br><br>
-            &#8195;6a.2. Return to step 5.
-        <br><br><br><br>
-    </p>
-
-    <!-- Chase's Use Case-->
-    <p style="margin-left: 300px;">
-        Use Case: Create Provider Report
-        <br><br>
-        Context: The manager or the accounting procedure has requested a Provider Report
-        <br><br>
-        Actors: Manager, Accounting Process
-        <br><br>
-        Main Success Scenario:
-        <br><br>
-        1.When the system is prompted with a request it creates a report for the provider
-        <br><br>
-        2. The system then adds a list of services provided to the report with the same information on the service
-        record
-        <br><br>
-        3.The system then adds a summary of the provider’s information for the week
-        <br><br>
-        &#8195;3.1 The system adds the provider’s name
-        <br><br>
-        &#8195;3.2 The system adds the provider’s number
-        <br><br>
-        &#8195;3.3 The system adds the provider’s address
-        <br><br>
-        &#8195;3.4 The system adds the provider’s city
-        <br><br>
-        &#8195;3.5 The system adds the provider’s state
-        <br><br>
-        &#8195;3.6 The system adds the provider’s zip code
-        <br><br>
-        &#8195;3.7 The system adds the total number of consultations
-        <br><br>
-        &#8195;3.8 The system adds the total fee for the week (up to 99,999)
-        <br><br>
-        4.The system sends the report to the actor.
-        <br><br>
-        5.The system writes a EFT report including the fees to be paid to the provider.
-        <br><br>
-        <br><br>
-        Extensions:
-        <br><br>
-        3a. There is an error adding provider information
-        <br><br>
-        &#8195;3a.1 The system displays error creating report
-        <br><br>
-        &#8195;3a.2 The use case terminates
-        <br><br>
-        3b The total fee for the week is over 99,999
-        <br><br>
-        &#8195;3b.1 The system informs the actor that the fee is over the payable amount
-        <br><br>
-        &#8195;3b.1 The use case terminates
-        <br><br>
-    </p>
-    <!-- Ethan's Use Case -->
-    <br>
-    <p style="text-indent: 300px;">Use Case: Summary report request</p>
-    <p style="text-indent: 300px;">Context: A report that is sent to a manager for accounts payable.</p>
-    <p style="text-indent: 300px;">Actors: Manager, Accounting Process</p>
-    <p style="text-indent: 300px;">Main Success Scenarrio:</p>
-    <p style="text-indent: 360px;">1. The system terminal displays a summary request for the manager.</p>
-    <p style="text-indent: 360px;">2. The manager selects the summary report option.</p>
-    <p style="text-indent: 360px;">3. The system goes through ChocAn Data Center database to pull information.</p>
-    <p style="text-indent: 460px;">3.1. The system retrieves all the providers that are to be paid that week.</p>
-    <p style="text-indent: 460px;">3.2. TThe system retrieves the number of consultations from members that week.</p>
-    <p style="text-indent: 460px;">3.3. The system retrieves the total number of providers who provided services.</p>
-    <p style="text-indent: 460px;">3.4. The system retrieves the total number of consultations.</p>
-    <p style="text-indent: 460px;">3.5. The system retrieves the total overall fee for that week.</p>
-    <p style="text-indent: 360px;">4. The system creates a file entailing all of the data that was retrieved in step 3.
-    </p>
-    <p style="text-indent: 460px;">4.1. A chart is created in the file.</p>
-    <p style="text-indent: 460px;">4.2. The first column has the information in step 2.1.</p>
-    <p style="text-indent: 460px;">4.3. The second column has the information from step 2.2.</p>
-    <p style="text-indent: 460px;">4.4. The third column has the information from step 2.3.</p>
-    <p style="text-indent: 460px;">4.5. The fourth column has the information from step 2.4.</p>
-    <p style="text-indent: 460px;">4.6. The fifth column has the information from step 2.5.</p>
-    <p style="text-indent: 360px;">5. The system prints the file.</p>
-    <p style="text-indent: 300px;">Extensions:</p>
-    <p style="text-indent: 360px;">1a. There is an error pulling the request.</p>
-    <p style="text-indent: 400px;">1a.1. The system informs the manager.</p>
-    <p style="text-indent: 400px;">1a.2. The use case continues at step 1.</p>
-    <p style="text-indent: 360px;">2a. There is an error in retrieving information.</p>
-    <p style="text-indent: 400px;">2a.1. The system informs the manager.</p>
-    <p style="text-indent: 400px;">2a.2. The use case continues at step 1.</p>
-    <p style="text-indent: 360px;">3a. The system cannot create a summary report file.</p>
-    <p style="text-indent: 400px;">3a.1. The system informs the manager.</p>
-    <p style="text-indent: 400px;">3a.2. The use case continues at step 1.</p>
-    <p style="text-indent: 360px;">4a. The system cannot print the file.</p>
-    <p style="text-indent: 400px;">4a.1. The system saves all of the information.</p>
-    <p style="text-indent: 400px;">4a.2. The system informs the manager.</p>
-    <p style="text-indent: 400px;">4a.3. The use case continues at step 1.</p>
+        <!-- HERE IS THE USE CASE DESCRIPTIONS -->
+        <h2>
+            Use Case Descriptions
+        </h2>
+                                                        <!-- Chase's Use Case-->
+            <p style="margin-left: 300px;">
+                Use Case: Create Provider Report
+                <br><br>
+                Context: The manager or the accounting procedure has requested a Provider Report
+                <br><br>
+                Actors: Manager, Accounting Process
+                <br><br>
+                Main Success Scenario:
+                <br><br>
+                1.When the system is prompted with a request it creates a report for the provider
+                <br><br>
+                2. The system then adds a list of services provided to the report with the same information on the service record
+                <br><br>
+                3.The system then adds a summary of the provider’s information for the week
+                <br><br>
+                &#8195;3.1 The system adds the provider’s name
+                    <br><br>
+                    &#8195;3.2 The system adds the provider’s number
+                    <br><br>
+                    &#8195;3.3 The system adds the provider’s address
+                    <br><br>
+                    &#8195;3.4 The system adds the provider’s city
+                    <br><br>
+                    &#8195;3.5 The system adds the provider’s state
+                    <br><br>
+                    &#8195;3.6 The system adds the provider’s zip code
+                    <br><br>
+                    &#8195;3.7 The system adds the total number of consultations
+                    <br><br>
+                    &#8195;3.8 The system adds the total fee for the week (up to 99,999)
+                    <br><br>
+                4.The system sends the report to the actor.
+                <br><br>
+                5.The system writes a EFT report including the fees to be paid to the provider.
+                <br><br>
+                <br><br>
+                Extensions:
+                <br><br>
+                3a. There is an error adding provider information
+                <br><br>
+                &#8195;3a.1 The system displays error creating report
+                    <br><br>
+                    &#8195;3a.2 The use case terminates
+                    <br><br>
+                3b The total fee for the week is over 99,999
+                <br><br>
+                &#8195;3b.1 The system informs the actor that the fee is over the payable amount 
+                    <br><br>
+                    &#8195;3b.1 The use case terminates
+                    <br><br>
+                </p>
+                                                        <!-- Ethan's Use Case -->
+        <br>
+            <p style="text-indent: 300px;">Use Case: Summary report request</p>
+            <p style="text-indent: 300px;">Context: A report that is sent to a manager for accounts payable.</p>
+            <p style="text-indent: 300px;">Actors: Manager, Accounting Process</p>
+            <p style="text-indent: 300px;">Main Success Scenarrio:</p>
+            <p style="text-indent: 360px;">1. The system terminal displays a summary request for the manager.</p>
+            <p style="text-indent: 360px;">2. The manager selects the summary report option.</p>
+            <p style="text-indent: 360px;">3. The system goes through ChocAn Data Center database to pull information.</p>
+            <p style="text-indent: 460px;">3.1. The system retrieves all the providers that are to be paid that week.</p>
+            <p style="text-indent: 460px;">3.2. TThe system retrieves the number of consultations from members that week.</p>
+            <p style="text-indent: 460px;">3.3. The system retrieves the total number of providers who provided services.</p>
+            <p style="text-indent: 460px;">3.4. The system retrieves the total number of consultations.</p>
+            <p style="text-indent: 460px;">3.5. The system retrieves the total overall fee for that week.</p>
+            <p style="text-indent: 360px;">4. The system creates a file entailing all of the data that was retrieved in step 3.</p>
+            <p style="text-indent: 460px;">4.1. A chart is created in the file.</p>
+            <p style="text-indent: 460px;">4.2. The first column has the information in step 2.1.</p>
+            <p style="text-indent: 460px;">4.3. The second column has the information from step 2.2.</p>
+            <p style="text-indent: 460px;">4.4. The third column has the information from step 2.3.</p>
+            <p style="text-indent: 460px;">4.5. The fourth column has the information from step 2.4.</p>
+            <p style="text-indent: 460px;">4.6. The fifth column has the information from step 2.5.</p>
+            <p style="text-indent: 360px;">5. The system prints the file.</p>
+            <p style="text-indent: 300px;">Extensions:</p>
+            <p style="text-indent: 360px;">1a. There is an error pulling the request.</p>
+            <p style="text-indent: 400px;">1a.1. The system informs the manager.</p>
+            <p style="text-indent: 400px;">1a.2. The use case continues at step 1.</p>
+            <p style="text-indent: 360px;">2a. There is an error in retrieving information.</p>
+            <p style="text-indent: 400px;">2a.1. The system informs the manager.</p>
+            <p style="text-indent: 400px;">2a.2. The use case continues at step 1.</p>
+            <p style="text-indent: 360px;">3a. The system cannot create a summary report file.</p>
+            <p style="text-indent: 400px;">3a.1. The system informs the manager.</p>
+            <p style="text-indent: 400px;">3a.2. The use case continues at step 1.</p>
+            <p style="text-indent: 360px;">4a. The system cannot print the file.</p>
+            <p style="text-indent: 400px;">4a.1. The system saves all of the information.</p>
+            <p style="text-indent: 400px;">4a.2. The system informs the manager.</p>
+            <p style="text-indent: 400px;">4a.3. The use case continues at step 1.</p>
 
     <!-- Sebastian's Use Case-->
     <p style="margin-left: 300px;">
@@ -894,59 +810,135 @@
         <br><br>
     </p>
 
-    <p style="margin-left: 300px;">
-        Use Case: Update provider Record
-        <br><br>
-        Context: Storing and updating provider records. Includes deleting and adding new providers, as well as updating
-        existing provider records.
-        <br><br>
-        Members: Operator
-        <br><br>
-        Main Success Scenario:
-        <br><br>
-        1. Operator chooses to add a new provider to the ChocAn database.
-        <br><br>
-        &#8195;1.1. The terminal displays empty fields of data which needs to be filled to create
-        a new provider.
-        <br><br>
-        &#8195;1.2. New member data gets sent to the ChocAn Data Center.
-        <br><br>
-        2. Operator chooses to delete the existing provider.
-        <br><br>
-        &#8195;2.1. The terminal asks the operator for the provider number.
-        <br><br>
-        &#8195;2.2. Provider data gets erased from ChocAn Data Center
-        <br><br>
-        3. Operator chooses to update the existing provider.
-        <br><br>
-        &#8195;3.1. The terminal asks the operator for the provider number.
-        <br><br>
-        &#8195;3.2. Updates the information for the provider in the ChocAn Data Center.
-        <br><br>
-        Extensions:
-        <br><br>
-        2a. The provider does not exist.
-        <br><br>
-        &#8195;2a.1. The terminal displays that the provider does not exist.
-        <br><br>
-        &#8195;2a.2. Nothing in the ChocAn Data Center gets deleted.
-        <br><br>
-        &#8195;2a.3. The use case continues at step 1.
-        <br><br>
-        3a. The provider does not exist.
-        <br><br>
-        &#8195;3a.1. The terminal displays that the provider does not exist.
-        <br><br>
-        &#8195;3a.2. Nothing in the ChocAn Data Center gets changed.
-        <br><br>
-        &#8195;3a.3. The use case continues at step 1.
-        <br><br>
-        <br><br>
-    </p>
-    <!-- End of Use Case: Summary Report -->
-    <br>
+            <p style="margin-left: 300px;">
+                Use Case: Update provider Record 
+                <br><br>
+                Context: Storing and updating provider records. Includes deleting and adding new providers, as well as updating existing provider records. 
+                <br><br>
+                Members: Operator
+                <br><br>
+                Main Success Scenario: 
+                <br><br>
+                1. Operator chooses to add a new provider to the ChocAn database.  
+                <br><br>
+                    &#8195;1.1. The terminal displays empty fields of data which needs to be filled to create 
+                a new provider.
+                <br><br>
+                    &#8195;1.2. New member data gets sent to the ChocAn Data Center.  
+                <br><br>
+                2. Operator chooses to delete the existing provider. 
+                <br><br>
+                    &#8195;2.1. The terminal asks the operator for the provider number.
+                <br><br>
+                    &#8195;2.2. Provider data gets erased from ChocAn Data Center 
+                <br><br>
+                3. Operator chooses to update the existing provider. 
+                <br><br>
+                    &#8195;3.1. The terminal asks the operator for the provider number.
+                <br><br>
+                    &#8195;3.2. Updates the information for the provider in the ChocAn Data Center.  
+                <br><br><br><br>
+                Extensions: 
+                <br><br>
+                2a. The provider does not exist. 
+                <br><br>
+                    &#8195;2a.1. The terminal displays that the provider does not exist. 
+                <br><br>
+                    &#8195;2a.2. Nothing in the ChocAn Data Center gets deleted.  
+                <br><br>
+                    &#8195;2a.3. The use case continues at step 9.1. 
+                <br><br>
+                3a. The provider does not exist. 
+                <br><br>
+                    &#8195;3a.1. The terminal displays that the provider does not exist. 
+                <br><br>
+                    &#8195;3a.2. Nothing in the ChocAn Data Center gets changed.  
+                <br><br>
+                    &#8195;3a.3. The use case continues at step 9.1. 
+                <br><br>
+                <br><br>
+            </p>
+
+            <p style="margin-left: 300px;"> <!--Emily's use case-->
+                Use Case: Create member report
+                <br><br>
+                Context:  Each member who has consulted with a ChocAn provider during 
+                that week receives a list of services provided to that member, and it can also be accessed
+                by the manager.
+                <br><br>
+                Actors: Accounting Process, manager
+                <br><br>
+                Main success Scenario:
+                <br><br>
+                1. Manager requests member report
+                <br><br>
+                2. Accounting services request member report
+                <br><br>
+                3. System creates a file titled with the member name, then the date of the report
+                <br><br>
+                4. System adds information to the report
+                <br><br>
+                &#8195; 4a) System adds member Name
+                <br><br>
+                &#8195; 4b) System adds member number
+                <br><br>
+                &#8195; 4c) System adds member street address
+                <br><br>
+                &#8195; 4d) System adds member city
+                <br><br>
+                &#8195; 4e) System adds member state
+                <br><br>
+                &#8195; 4f) System adds member zip code 
+                <br><br>
+                &#8195; 4g) System adds date of service 
+                <br><br>
+                &#8195; 4h) System adds provider name 
+                <br><br>
+                &#8195; 4i) System adds service name
+                <br><br>
+                5. System sends out the created file to the actor
+                <br><br>
+                Extensions:
+                <br><br>
+                <br><br>
 
 
-</body>
+            </p>
 
+            <p style="margin-left: 300px;"> <!--Emily's use case-->
+            Use case: Provider Directory request
+            <br><br>
+            Context:  At any time, a provider can request the software product for a provider directory. 
+            An alphabetically ordered list of service names and the corresponding service codes and fees. 
+            <br><br>
+            Actors: Provider
+            <br><br>
+            Main Success Scenario:
+            <br><br>
+            1. Provider requests a provider directory
+            <br><br>
+            2. System creates a file for the provider directory
+            <br><br>
+            3. System writes a list in alphabetical order containing
+            <br><br>
+            &#8195;3a) Service names
+            <br><br>
+            &#8195;3b) Corresponding service codes and fees
+            <br><br>
+            4. System sends out file as an email attatchment
+            <br><br>
+            Extensions:
+            <br><br>
+            <br><br>
+
+
+        </p>
+
+
+
+            <!-- End of Use Case: Summary Report -->
+        <br>
+
+
+    </body>
 </html>
