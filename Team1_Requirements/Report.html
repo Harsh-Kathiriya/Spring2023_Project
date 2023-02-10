@@ -208,7 +208,7 @@
         </tr>
         <tr>
             <td> Aaron Buff </td>
-            <td style="text-align: left; padding-left: 10px;">  -Use Case Diagram <br> - Glossary <br> - Paragraph <br> </td>
+            <td style="text-align: left; padding-left: 10px;"> -Use Case Diagram <br> - Glossary <br> - Paragraph <br> </td>
             <td> 16.7% </td>
         </tr>
     </table>
@@ -653,7 +653,86 @@
 
 
         </p>
+        
+        <p style="margin-left: 300px;"> <!--Harsh's use case-->
+            Use Case: Create Service Record
+            <br><br>
+            Context: After service has been provided by the provider, a record of service provided needs to be created
+            <br><br>
+            Actors: Provider, terminal
+            <br><br>
+            Main Success Scenario:
+            <br><br>
+            1.     The provider scans the member’s card or keys in the member number manually using the terminal.
+            <br><br>
+            2.     The member number is sent to the ChocAn Data Center to be verified.
+            <br><br>
+            3.     Upon successful verification, “Validated” is displayed on one line display.
+            <br><br>
+            4.     The provider then keys in the date the service was provided in the format MM-DD-YYYY.
+            <br><br>
+            5.     The provider looks into the provider directory to look up the six-digit service code corresponding to the service provided and then keys in the service code.
+            <br><br>
+            6.     The software displays the name of the service corresponding to the code (up to 20 Characters) and asks the provider to verify that this is the service that was provided.
+            <br><br>
+            7.     Optionally, it allows the provider to add comments.
+            <br><br>
+            Extensions:
+            <br><br>
+            2a. The card number is not valid.
+            <br><br>
+            &#8195;2a.1. “Invalid Number” is displayed on one line display.
+            <br><br>
+            &#8195;2a.2. Return to step 1.
+            <br><br>
+            2b. The member is suspended because of dues.
+            <br><br>
+            &#8195;2b.1. “Member Suspended” is displayed on one line display.
+            <br><br>
+            &#8195;2b.2. Return to step 1.
+            <br><br>
+            4a. The date provided was not valid.
+            <br><br>
+            &#8195;4a.1. Error message is printed.
+            <br><br>
+            &#8195;4a.2. Return to step 4.
+            <br><br>
+            6a. The service code entered by the provider does not exist.
+            <br><br>
+            &#8195;6a.1. Error message is printed
+            <br><br>
+            &#8195;6a.2. Return to step 5.
+            <br><br><br><br>
+        </p>
 
+        <p style="margin-left: 300px;"> <!--Harsh's use case-->
+            Use Case: Verification
+            <br><br>
+            Context: Member needs to be verified to access provider’s services
+            <br><br>
+            Actors: Provider, Terminal
+            <br><br>
+            Main Success Scenario:
+            <br><br>
+            1.     The provider scans the member card through the card reader. 
+            <br><br>
+            2.   The member’s card number is sent to ChocAn Data Center through the terminal.
+            <br><br>
+            3.     Data Centers then verifies the card number.
+            <br><br>
+            4.     Upon successful verification, “Validated” is displayed on one line display.
+            <br><br>
+            Extensions:
+            <br><br>
+            2a. The card number is not valid.
+            <br><br>
+            &#8195;2a.1 “Invalid Number” is displayed on one line display.
+            <br><br>
+            2b. The member is suspended because of dues.
+            <br><br>
+            &#8195;2b.1 “Member Suspended” is displayed on one line display.
+            <br><br><br><br>
+        </p>
 
 
             <!-- End of Use Case: Summary Report -->
