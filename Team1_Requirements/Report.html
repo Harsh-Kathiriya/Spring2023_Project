@@ -706,7 +706,32 @@
         </p>
 
         <p style="margin-left: 300px;"> <!--Harsh's use case-->
-
+            Use Case: Verification
+            <br><br>
+            Context: Member needs to be verified to access provider’s services
+            <br><br>
+            Actors: Provider, Terminal
+            <br><br>
+            Main Success Scenario:
+            <br><br>
+            1.     The provider scans the member card through the card reader. 
+            <br><br>
+            2.   The member’s card number is sent to ChocAn Data Center through the terminal.
+            <br><br>
+            3.     Data Centers then verifies the card number.
+            <br><br>
+            4.     Upon successful verification, “Validated” is displayed on one line display.
+            <br><br>
+            Extensions:
+            <br><br>
+            2a. The card number is not valid.
+            <br><br>
+            &#8195;2a.1 “Invalid Number” is displayed on one line display.
+            <br><br>
+            2b. The member is suspended because of dues.
+            <br><br>
+            &#8195;2b.1 “Member Suspended” is displayed on one line display.
+            <br><br><br><br>
         </p>
 
 
