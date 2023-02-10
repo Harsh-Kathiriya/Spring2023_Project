@@ -368,41 +368,95 @@
                     <br><br>
                 </p>
                                                         <!-- Ethan's Use Case -->
-        <br>
-            <p style="text-indent: 300px;">Use Case: Summary report request</p>
-            <p style="text-indent: 300px;">Context: A report that is sent to a manager for accounts payable.</p>
-            <p style="text-indent: 300px;">Actors: Manager, Accounting Process</p>
-            <p style="text-indent: 300px;">Main Success Scenarrio:</p>
-            <p style="text-indent: 360px;">1. The system terminal displays a summary request for the manager.</p>
-            <p style="text-indent: 360px;">2. The manager selects the summary report option.</p>
-            <p style="text-indent: 360px;">3. The system goes through ChocAn Data Center database to pull information.</p>
-            <p style="text-indent: 460px;">3.1. The system retrieves all the providers that are to be paid that week.</p>
-            <p style="text-indent: 460px;">3.2. TThe system retrieves the number of consultations from members that week.</p>
-            <p style="text-indent: 460px;">3.3. The system retrieves the total number of providers who provided services.</p>
-            <p style="text-indent: 460px;">3.4. The system retrieves the total number of consultations.</p>
-            <p style="text-indent: 460px;">3.5. The system retrieves the total overall fee for that week.</p>
-            <p style="text-indent: 360px;">4. The system creates a file entailing all of the data that was retrieved in step 3.</p>
-            <p style="text-indent: 460px;">4.1. A chart is created in the file.</p>
-            <p style="text-indent: 460px;">4.2. The first column has the information in step 2.1.</p>
-            <p style="text-indent: 460px;">4.3. The second column has the information from step 2.2.</p>
-            <p style="text-indent: 460px;">4.4. The third column has the information from step 2.3.</p>
-            <p style="text-indent: 460px;">4.5. The fourth column has the information from step 2.4.</p>
-            <p style="text-indent: 460px;">4.6. The fifth column has the information from step 2.5.</p>
-            <p style="text-indent: 360px;">5. The system prints the file.</p>
-            <p style="text-indent: 300px;">Extensions:</p>
-            <p style="text-indent: 360px;">1a. There is an error pulling the request.</p>
-            <p style="text-indent: 400px;">1a.1. The system informs the manager.</p>
-            <p style="text-indent: 400px;">1a.2. The use case continues at step 1.</p>
-            <p style="text-indent: 360px;">2a. There is an error in retrieving information.</p>
-            <p style="text-indent: 400px;">2a.1. The system informs the manager.</p>
-            <p style="text-indent: 400px;">2a.2. The use case continues at step 1.</p>
-            <p style="text-indent: 360px;">3a. The system cannot create a summary report file.</p>
-            <p style="text-indent: 400px;">3a.1. The system informs the manager.</p>
-            <p style="text-indent: 400px;">3a.2. The use case continues at step 1.</p>
-            <p style="text-indent: 360px;">4a. The system cannot print the file.</p>
-            <p style="text-indent: 400px;">4a.1. The system saves all of the information.</p>
-            <p style="text-indent: 400px;">4a.2. The system informs the manager.</p>
-            <p style="text-indent: 400px;">4a.3. The use case continues at step 1.</p>
+                <br>
+                <p style="margin-left: 300px;">
+                    <br><br>
+                    Use Case: Create Summary Report request
+                    <br><br>
+                    Context: Context: A report that is sent to a manager for accounts payable.
+                    <br><br>
+                    Actors: Manager, Accounting Process
+                    <br><br>
+                    Main Success Scenario:
+                    <br>
+                    <p style="margin-left: 400px">
+                        1. The system terminal displays a summary request for the manager.
+                        <br><br>
+                        2. The manager selects the summary report option.
+                        <br><br>
+                        3. The system goes through ChocAn Data Center database to pull information.
+                        <br>
+                        <p style="margin-left: 460px">
+                            3.1. The system retrieves all the providers that are to be paid that week.
+                            <br><br>
+                            3.2. TThe system retrieves the number of consultations from members that week.
+                            <br><br>
+                            3.3. The system retrieves the total number of providers who provided services.
+                            <br><br>
+                            3.4. The system retrieves the total number of consultations.
+                            <br><br>
+                            3.5. The system retrieves the total overall fee for that week.
+                            <br>
+                        </p>
+                    <p style="margin-left: 400px">
+                        4. The system creates a file entailing all of the data that was retrieved in step 3.
+                        <br>
+                            <p style="margin-left: 460px">
+                                4.1. A chart is created in the file. 
+                                <br><br>
+                                4.2. The first column has the information in step 2.1.
+                                <br><br>
+                                4.3. The second column has the information from step 2.2.
+                                <br><br>
+                                4.4. The third column has the information from step 2.3.
+                                <br><br>
+                                4.5. The fourth column has the information from step 2.4.
+                                <br><br>
+                                4.6. The fifth column has the information from step 2.5.
+                                <br>
+                        </p>
+                    <p style="margin-left: 400px">
+                        5. The system prints the file.
+                    </p>
+                </p>
+                <p style="margin-left: 300px;">
+                    <br><br>
+                    Extensions:
+                        <p style="margin-left: 400px">
+                            1a. There is an error pulling the request.
+                                <p style="margin-left: 460px">
+                                    1a.1. The system informs the manager.
+                                    <br><br>
+                                    1a.2. The use case continues at step 1.
+                                </p>
+                        </p>
+                        <p style="margin-left: 400px">
+                            2a. There is an error in retrieving information.
+                                <p style="margin-left: 460px">
+                                    2a.1. The system informs the manager.
+                                    <br><br>
+                                    2a.2. The use case continues at step 1.
+                                </p>
+                        </p>
+                        <p style="margin-left: 400px">
+                            3a. The system cannot create a summary report file.
+                                <p style="margin-left: 460px">
+                                3a.1. The system informs the manager.
+                                <br><br>
+                                3a.2. The use case continues at step 1.
+                                </p>
+                        </p>
+                        <p style="margin-left: 400px">
+                            4a. The system cannot print the file.
+                                <p style="margin-left: 460px">
+                                    4a.1. The system saves all of the information.
+                                    <br><br>
+                                    4a.2. The system informs the manager.
+                                    <br><br>
+                                    4a.3. The use case continues at step 1.
+                                </p>
+                        </p>
+                </p>
 
     <!-- Sebastian's Use Case-->
     <p style="margin-left: 300px;">
