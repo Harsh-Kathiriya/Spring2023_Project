@@ -331,429 +331,1237 @@
         <h2>
             Use Case Descriptions
         </h2>
-                                                        <!-- Chase's Use Case-->
-            <p style="margin-left: 300px;">
-                Use Case: Create Provider Report
-                <br><br>
-                Context: The manager or the accounting procedure has requested a Provider Report
-                <br><br>
-                Actors: Manager, Accounting Process
-                <br><br>
-                Main Success Scenario:
-                <br><br>
-                1.When the system is prompted with a request it creates a report for the provider
-                <br><br>
-                2. The system then adds a list of services provided to the report with the same information on the service record
-                <br><br>
-                3.The system then adds a summary of the provider’s information for the week
-                <br><br>
-                &#8195;3.1 The system adds the provider’s name
-                    <br><br>
-                    &#8195;3.2 The system adds the provider’s number
-                    <br><br>
-                    &#8195;3.3 The system adds the provider’s address
-                    <br><br>
-                    &#8195;3.4 The system adds the provider’s city
-                    <br><br>
-                    &#8195;3.5 The system adds the provider’s state
-                    <br><br>
-                    &#8195;3.6 The system adds the provider’s zip code
-                    <br><br>
-                    &#8195;3.7 The system adds the total number of consultations
-                    <br><br>
-                    &#8195;3.8 The system adds the total fee for the week (up to 99,999)
-                    <br><br>
-                4.The system sends the report to the actor.
-                <br><br>
-                5.The system writes a EFT report including the fees to be paid to the provider.
-                <br><br>
-                <br><br>
-                Extensions:
-                <br><br>
-                3a. There is an error adding provider information
-                <br><br>
-                &#8195;3a.1 The system displays error creating report
-                    <br><br>
-                    &#8195;3a.2 The use case terminates
-                    <br><br>
-                3b The total fee for the week is over 99,999
-                <br><br>
-                &#8195;3b.1 The system informs the actor that the fee is over the payable amount 
-                    <br><br>
-                    &#8195;3b.1 The use case terminates
-                    <br><br>
-                </p>
-                                                        <!-- Ethan's Use Case -->
-                <br>
-                <p style="margin-left: 300px;">
-                    <br><br>
-                    Use Case: Create Summary Report request
-                    <br><br>
-                    Context: Context: A report that is sent to a manager for accounts payable.
-                    <br><br>
-                    Actors: Manager, Accounting Process
-                    <br><br>
-                    Main Success Scenario:
-                    <br>
-                    <p style="margin-left: 400px">
-                        1. The system terminal displays a summary request for the manager.
-                        <br><br>
-                        2. The manager selects the summary report option.
-                        <br><br>
-                        3. The system goes through ChocAn Data Center database to pull information.
-                        <br>
-                        <p style="margin-left: 460px">
-                            3.1. The system retrieves all the providers that are to be paid that week.
-                            <br><br>
-                            3.2. TThe system retrieves the number of consultations from members that week.
-                            <br><br>
-                            3.3. The system retrieves the total number of providers who provided services.
-                            <br><br>
-                            3.4. The system retrieves the total number of consultations.
-                            <br><br>
-                            3.5. The system retrieves the total overall fee for that week.
-                            <br>
-                        </p>
-                    <p style="margin-left: 400px">
-                        4. The system creates a file entailing all of the data that was retrieved in step 3.
-                        <br>
-                            <p style="margin-left: 460px">
-                                4.1. A chart is created in the file. 
-                                <br><br>
-                                4.2. The first column has the information in step 2.1.
-                                <br><br>
-                                4.3. The second column has the information from step 2.2.
-                                <br><br>
-                                4.4. The third column has the information from step 2.3.
-                                <br><br>
-                                4.5. The fourth column has the information from step 2.4.
-                                <br><br>
-                                4.6. The fifth column has the information from step 2.5.
-                                <br>
-                        </p>
-                    <p style="margin-left: 400px">
-                        5. The system prints the file.
-                    </p>
-                </p>
-                <p style="margin-left: 300px;">
-                    <br><br>
-                    Extensions:
-                        <p style="margin-left: 400px">
-                            1a. There is an error pulling the request.
-                                <p style="margin-left: 460px">
-                                    1a.1. The system informs the manager.
-                                    <br><br>
-                                    1a.2. The use case continues at step 1.
-                                </p>
-                        </p>
-                        <p style="margin-left: 400px">
-                            2a. There is an error in retrieving information.
-                                <p style="margin-left: 460px">
-                                    2a.1. The system informs the manager.
-                                    <br><br>
-                                    2a.2. The use case continues at step 1.
-                                </p>
-                        </p>
-                        <p style="margin-left: 400px">
-                            3a. The system cannot create a summary report file.
-                                <p style="margin-left: 460px">
-                                3a.1. The system informs the manager.
-                                <br><br>
-                                3a.2. The use case continues at step 1.
-                                </p>
-                        </p>
-                        <p style="margin-left: 400px">
-                            4a. The system cannot print the file.
-                                <p style="margin-left: 460px">
-                                    4a.1. The system saves all of the information.
-                                    <br><br>
-                                    4a.2. The system informs the manager.
-                                    <br><br>
-                                    4a.3. The use case continues at step 1.
-                                </p>
-                        </p>
-                </p>
 
-    <!-- Sebastian's Use Case-->
-    <p style="margin-left: 300px;">
-        <br><br>
-        <br><br>
-        Use Case: Update Record
-        <br><br>
-        Context: Updating the information of members and providers and deleting and adding new members and providers
-        into the system.
-        <br><br>
-        Members: Operator
-        <br><br>
-        Main Success Scenario:
-        <br><br>
-        1. ChocAn Data Center is run in interactive mode through the terminal.
-        <br><br>
-        2. The terminal displays options to select between provider and member.
-        <br><br>
-        3. Once the operator makes a selection, the terminal displays three options: Add, Delete, and Update.
-        <br><br>
-    </p>
+        <!-- New Use Cases  -->
 
-    <p style="margin-left: 300px;">
-        <br><br>
-        <br><br>
-        Use Case: Update Member Record.
-        <br><br>
-        Context: Storing and updating member records. Includes deleting and adding new members, as well as updating
-        existing member records.
-        <br><br>
-        Members: Operator
-        <br><br>
-        Main Success Scenario:
-        <br><br>
-        1. Operator chooses to add a new member to the ChocAn database.
-        <br><br>
-        2. The terminal displays empty fields of data which needs to be filled to create a new member.
-        <br><br>
-        &#8195;2.1. New member data gets sent to the ChocAn Data Center.
-        <br><br>
-        3. Operator chooses to delete the existing member.
-        <br><br>
-        &#8195;3.1. The terminal asks the operator for the provider number.
-        <br><br>
-        &#8195;3.2. Member data gets erasednfrom ChocAn Data Center.
-        <br><br>
-        4. Operator chooses to update the existing member.
-        <br><br>
-        &#8195;4.1. The terminal asks the operator for the provider number.
-        <br><br>
-        &#8195;4.2. Updates the information for the member in the ChocAn Data Center.
-        <br><br>
-        Extensions:
-        <br><br>
-        3a. The member does not exist.
-        <br><br>
-        &#8195;3a.1. The terminal displays that the member does not exist.
-        <br><br>
-        &#8195;3a.2. Nothing in the ChocAn Data Center gets deleted.
-        <br><br>
-        &#8195;3a.3. The use case continues at step 1.
-        <br><br>
-        4a. The member does not exist.
-        <br><br>
-        &#8195;4a.1. The terminal displays that the member does not exist.
-        <br><br>
-        &#8195;4a.2. Nothing in the ChocAn Data Center gets changed.
-        <br><br>
-        &#8195;4a.3. The use case continues at step 1.
-        <br><br>
-        <br><br>
-    </p>
-
-            <p style="margin-left: 300px;">
-                Use Case: Update provider Record 
-                <br><br>
-                Context: Storing and updating provider records. Includes deleting and adding new providers, as well as updating existing provider records. 
-                <br><br>
-                Members: Operator
-                <br><br>
-                Main Success Scenario: 
-                <br><br>
-                1. Operator chooses to add a new provider to the ChocAn database.  
-                <br><br>
-                    &#8195;1.1. The terminal displays empty fields of data which needs to be filled to create 
-                a new provider.
-                <br><br>
-                    &#8195;1.2. New member data gets sent to the ChocAn Data Center.  
-                <br><br>
-                2. Operator chooses to delete the existing provider. 
-                <br><br>
-                    &#8195;2.1. The terminal asks the operator for the provider number.
-                <br><br>
-                    &#8195;2.2. Provider data gets erased from ChocAn Data Center 
-                <br><br>
-                3. Operator chooses to update the existing provider. 
-                <br><br>
-                    &#8195;3.1. The terminal asks the operator for the provider number.
-                <br><br>
-                    &#8195;3.2. Updates the information for the provider in the ChocAn Data Center.  
-                <br><br><br><br>
-                Extensions: 
-                <br><br>
-                2a. The provider does not exist. 
-                <br><br>
-                    &#8195;2a.1. The terminal displays that the provider does not exist. 
-                <br><br>
-                    &#8195;2a.2. Nothing in the ChocAn Data Center gets deleted.  
-                <br><br>
-                    &#8195;2a.3. The use case continues at step 9.1. 
-                <br><br>
-                3a. The provider does not exist. 
-                <br><br>
-                    &#8195;3a.1. The terminal displays that the provider does not exist. 
-                <br><br>
-                    &#8195;3a.2. Nothing in the ChocAn Data Center gets changed.  
-                <br><br>
-                    &#8195;3a.3. The use case continues at step 9.1. 
-                <br><br>
-                <br><br>
-            </p>
-
-            <p style="margin-left: 300px;"> <!--Emily's use case-->
-                Use Case: Create member report
-                <br><br>
-                Context:  Each member who has consulted with a ChocAn provider during 
-                that week receives a list of services provided to that member, and it can also be accessed
-                by the manager.
-                <br><br>
-                Actors: Accounting Process, manager
-                <br><br>
-                Main success Scenario:
-                <br><br>
-                1. Manager requests member report
-                <br><br>
-                2. Accounting services request member report
-                <br><br>
-                3. System creates a file titled with the member name, then the date of the report
-                <br><br>
-                4. System adds information to the report
-                <br><br>
-                &#8195; 4a) System adds member Name
-                <br><br>
-                &#8195; 4b) System adds member number
-                <br><br>
-                &#8195; 4c) System adds member street address
-                <br><br>
-                &#8195; 4d) System adds member city
-                <br><br>
-                &#8195; 4e) System adds member state
-                <br><br>
-                &#8195; 4f) System adds member zip code 
-                <br><br>
-                &#8195; 4g) System adds date of service 
-                <br><br>
-                &#8195; 4h) System adds provider name 
-                <br><br>
-                &#8195; 4i) System adds service name
-                <br><br>
-                5. System sends out the created file to the actor
-                <br><br>
-                Extensions:
-                <br><br>
-                <br><br>
-
-
-            </p>
-
-            <p style="margin-left: 300px;"> <!--Emily's use case-->
-            Use case: Provider Directory request
-            <br><br>
-            Context:  At any time, a provider can request the software product for a provider directory. 
-            An alphabetically ordered list of service names and the corresponding service codes and fees. 
-            <br><br>
+        <h3 dir="ltr">
+            Main Use Case 1:
+        </h3>
+        <p dir="ltr">
+            Use Case: Validate Member
+        </p>
+        <p dir="ltr">
+            Context: The provider uses a terminal in order to gain access to member
+            services.
+        </p>
+        <p dir="ltr">
             Actors: Provider
-            <br><br>
+        </p>
+        <p dir="ltr">
             Main Success Scenario:
-            <br><br>
-            1. Provider requests a provider directory
-            <br><br>
-            2. System creates a file for the provider directory
-            <br><br>
-            3. System writes a list in alphabetical order containing
-            <br><br>
-            &#8195;3a) Service names
-            <br><br>
-            &#8195;3b) Corresponding service codes and fees
-            <br><br>
-            4. System sends out file as an email attatchment
-            <br><br>
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The provider scans the member card through the card reader.
+        </p>
+        <p dir="ltr">
+            &#8195; 2. The member’s card number is sent to Chocoholics Anonymous Data Center
+            through the terminal.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. Data Centers then verify the card number.
+        </p>
+        <p dir="ltr">
+            &#8195; 4. Upon successful verification, “Validated” is displayed on one line
+            display.
+        </p>
+        <p dir="ltr">
+            &#8195; 5. The Validate Member process terminates.
+        </p>
+        <p dir="ltr">
             Extensions:
-            <br><br>
-            <br><br>
+        </p>
+        <p dir="ltr">
+            &#8195; 2a. The card number is not valid.
+        </p>
+        <p dir="ltr">
+            &#8195; &#8195; 2a.1 “Invalid Number” is displayed on one line display.
+        </p>
+        <p dir="ltr">
+            &#8195; &#8195;  2a.2. The use case continues from step 1.
+        </p>
+        <p dir="ltr">
+            &#8195;  2b. The member is suspended because of dues.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2b.1 “Member Suspended” is displayed on one line display.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2b.2. The system continues from step 1.
+        </p>
 
 
+        <br><br>
+
+
+        <p dir="ltr">
+            Use Case: Request Provider Directory
+        </p>
+        <p dir="ltr">
+            Context: The provider intends to gain access to the provider directory.
+        </p>
+        <p dir="ltr">
+            Actors: Provider
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195; 1. The provider requests a provider directory.
+        </p>
+        <p dir="ltr">
+            &#8195; 2. The system creates a file compiling all of the services and
+            corresponding codes and fees.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 2.1. The system writes all of the services on the left
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 2.2. The system writes all of the service codes and fees on the right.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The Request Provider Directory process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  2a. The system cannot create a file.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2a.1. The system notifies the provider.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 2a.2. The system prompts the provider to try again or exit to the main menu
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;&#8195;  2a.2a) The system returns to the main menu or to step 1
+        </p>
+
+
+        <br><br>
+
+
+        <p dir="ltr">
+            Use Case: Verify Provider
+        </p>
+        <p dir="ltr">
+            Context: The provider uses a terminal in order to gain access to the
+            provider’s services.
+        </p>
+        <p dir="ltr">
+            Actors: Provider
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195; 1. The provider turns on a terminal.
+        </p>
+        <p dir="ltr">
+            &#8195; 2. The terminal requests the provider's number.
+        </p>
+        <p dir="ltr">
+            &#8195; 3. The provider's number is verified by the Data Center after it is entered
+        </p>
+        <p dir="ltr">
+            &#8195; 4. The terminal displays the provider’s main menu.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195; 3a. There is an error in entering the provider's credentials.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 3a.1. The system asks to enter the provider's information again.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 3a.2. If the error persists, the terminal will display
         </p>
         
-        <p style="margin-left: 300px;"> <!--Harsh's use case-->
-            Use Case: Create Service Record
-            <br><br>
-            Context: After service has been provided by the provider, a record of service provided needs to be created
-            <br><br>
-            Actors: Provider, terminal
-            <br><br>
-            Main Success Scenario:
-            <br><br>
-            1.     The provider scans the member’s card or keys in the member number manually using the terminal.
-            <br><br>
-            2.     The member number is sent to the ChocAn Data Center to be verified.
-            <br><br>
-            3.     Upon successful verification, “Validated” is displayed on one line display.
-            <br><br>
-            4.     The provider then keys in the date the service was provided in the format MM-DD-YYYY.
-            <br><br>
-            5.     The provider looks into the provider directory to look up the six-digit service code corresponding to the service provided and then keys in the service code.
-            <br><br>
-            6.     The software displays the name of the service corresponding to the code (up to 20 Characters) and asks the provider to verify that this is the service that was provided.
-            <br><br>
-            7.     Optionally, it allows the provider to add comments.
-            <br><br>
-            Extensions:
-            <br><br>
-            2a. The card number is not valid.
-            <br><br>
-            &#8195;2a.1. “Invalid Number” is displayed on one line display.
-            <br><br>
-            &#8195;2a.2. Return to step 1.
-            <br><br>
-            2b. The member is suspended because of dues.
-            <br><br>
-            &#8195;2b.1. “Member Suspended” is displayed on one line display.
-            <br><br>
-            &#8195;2b.2. Return to step 1.
-            <br><br>
-            4a. The date provided was not valid.
-            <br><br>
-            &#8195;4a.1. Error message is printed.
-            <br><br>
-            &#8195;4a.2. Return to step 4.
-            <br><br>
-            6a. The service code entered by the provider does not exist.
-            <br><br>
-            &#8195;6a.1. Error message is printed
-            <br><br>
-            &#8195;6a.2. Return to step 5.
-            <br><br><br><br>
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Bill Chocoholics Anonymous
         </p>
-
-        <p style="margin-left: 300px;"> <!--Harsh's use case-->
-            Use Case: Verification
-            <br><br>
-            Context: Member needs to be verified to access provider’s services
-            <br><br>
-            Actors: Provider, Terminal
-            <br><br>
-            Main Success Scenario:
-            <br><br>
-            1.     The provider scans the member card through the card reader. 
-            <br><br>
-            2.   The member’s card number is sent to ChocAn Data Center through the terminal.
-            <br><br>
-            3.     Data Centers then verifies the card number.
-            <br><br>
-            4.     Upon successful verification, “Validated” is displayed on one line display.
-            <br><br>
-            Extensions:
-            <br><br>
-            2a. The card number is not valid.
-            <br><br>
-            &#8195;2a.1 “Invalid Number” is displayed on one line display.
-            <br><br>
-            2b. The member is suspended because of dues.
-            <br><br>
-            &#8195;2b.1 “Member Suspended” is displayed on one line display.
-            <br><br><br><br>
+        <p dir="ltr">
+            Context: After a health care service has been provided, the provider
+            intends to send a bill to Chocoholics Anonymous.
         </p>
+        <p dir="ltr">
+            Actors: Provider
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The provider swipes the card through the card reader or types in the
+            member's number.
+        </p>
+        <p dir="ltr">
+            &#8195; 2. The word “Validated” will prompt on the screen.
+        </p>
+        <p dir="ltr">
+            &#8195; 3. The system then asks the provider to type in the service date.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 3.1. The system displays a text box for the provider to enter the
+            information.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 3.2. It will display in the MM-DD-YYYY format.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 3.3. The provider enters the service date
+        </p>
+        <p dir="ltr">
+            &#8195; 4. The provider will then use the provider directory to look up the
+            six-digit service code
+        </p>
+        <p dir="ltr">
+            &#8195; corresponding to the provided service.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 4.1. The provider types in the service code.
+        </p>
+        <p dir="ltr">
+            &#8195; 5. The software displays the name of the service and the corresponding code
+            for the provider
+        </p>
+        <p dir="ltr">
+            &#8195; to verify.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 5.1. The provider verifies the correct service and the name has been
+            inputted.
+        </p>
+        <p dir="ltr">
+            &#8195; 6. The software then compiles a file containing the following information:
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 6.1. Current date and time (MM-DD-YYYY HH:MM:SS).
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 6.2. Date service was provided (MM-DD-YYYY).
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 6.3. Provider number (9 digits).
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 6.4. Member number (9 digits).
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 6.5. Service code (6 digits).
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 6.6 Comments (100 characters) (optional).
+        </p>
+        <p dir="ltr">
+            &#8195; 7. The software then looks up the fee to be paid for that service and the
+            system displays it for the
+        </p>
+        <p dir="ltr">
+            &#8195; provider.
+        </p>
+        <p dir="ltr">
+            &#8195; 8. The system displays a form with empty text boxes with labels from step 7
+            for verification.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 8.1. The provider fills the text boxes with the information
+        </p>
+        <p dir="ltr">
+            &#8195; 9. At the end of the week, the provider totals all of the fees to verify
+            the amount to be paid to that
+        </p>
+        <p dir="ltr">
+            &#8195; provider by Chocoholics Anonymous.
+        </p>
+        <p dir="ltr">
+            &#8195; 10. Bill Chocoholic Anonymous process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195; 4a. The provider has entered a nonexistent code.
+        </p>
+        <p dir="ltr">
+            &#8195; &#8195; 4a.1. An error message will display informing the provider.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 4a.2. The use case continues from step 5.
+        </p>
+        <p dir="ltr">
+            &#8195; 5a. The provider can enter comments about the service
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 5a.1. The provider is given a text box to enter any comments they wish.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195; 5a.2. The use case continues from step 6.
+        </p>
+        
 
+        <br><br>
 
-            <!-- End of Use Case: Summary Report -->
-        <br>
+        
+        <h3 dir="ltr">
+            Main Use Case 2:
+        </h3>
+        <p dir="ltr">
+            Use Case: Update Provider Record
+        </p>
+        <p dir="ltr">
+            Context: The operator intends to update a provider’s record.
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. System displays Add/Remove/Delete options in the terminal
+        </p>
+        <p dir="ltr">
+            &#8195;  2. Operator chooses an option.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2.1. The terminal opens a corresponding window to the option.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. Operator performs an update on the provider record
+        </p>
+        <p dir="ltr">
+            &#8195;  4. Update Provider Record process terminates
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            N/A
+        </p>
+        
 
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Edit Provider Record extends Update ProviderRecord
+        </p>
+        <p dir="ltr">
+            Context: The operator intends to edit a provider record.
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The operator selects the edit provider record option.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The system displays a box to enter a provider number within.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The operator enters the provider number.
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The system displays a box containing all of the fields of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.1. The operator edits the fields of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.2. The operator confirms changes to the record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.3. The changes are sent to the Chocoholics Anonymous Data Center.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. The system confirms changes to the record.
+        </p>
+        <p dir="ltr">
+            &#8195;  6. The Edit Provider Record process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. The operator enters a number that does not exist
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.1 The system rejects the edition.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.2 The system informs the operator.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.2 The use case continues at step 1.
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Remove Provider Record extends Update Provider Record
+        </p>
+        <p dir="ltr">
+            Context: The operator intends to remove a Provider record.
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The operator selects the remove provider record option.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The system displays a box to enter a provider number within.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The operator enters a provider's number.
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The system displays a box asking for confirmation.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. The operator confirms the deletion of the provider record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  5.1. The provider record is deleted in the Chocoholics Anonymous Data
+            Center.
+        </p>
+        <p dir="ltr">
+            &#8195;  6. The system confirms the deletion of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;  7. The Remove provider Record process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. The operator enters a number that does not exist
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.1 The system rejects the removal.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.2 The system informs the operator.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.2 The use case continues at step 1.
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Add Provider Record extends Update Provider Record
+        </p>
+        <p dir="ltr">
+            Context:
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The operator selects the add provider record option.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The system displays a box to enter a provider number within.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The operator enters a provider’s number.
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The system displays a box asking for confirmation.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. The operator confirms the addition of the member record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  5.1. The provider record is added to the Chocoholics Anonymous Data
+            Center.
+        </p>
+        <p dir="ltr">
+            &#8195;  6. The system confirms the addition of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;  7. The Add Provider Record process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            N/A
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Update Member Record
+        </p>
+        <p dir="ltr">
+            Context: The operator intends to update a member’s record.
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. System displays Add/Remove/Delete options in the terminal
+        </p>
+        <p dir="ltr">
+            &#8195;  2. Operator performs an update on the member record
+        </p>
+        <p dir="ltr">
+            &#8195;  3. Update Member Record process terminates
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            N/A
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Verify Operator
+        </p>
+        <p dir="ltr">
+            Context:
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The operator turns on a terminal.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The terminal requests the operator’s number.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The operator’s number is verified by the Data Center
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The terminal displays the operator’s main menu.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. There is an error in entering the operator’s credentials.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.1. The system asks to enter the operator’s information again.
+        </p>
+        <p dir="ltr">
+            &#8195;  &#8195;  3a.2. If the error persists, the terminal will display
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Edit Member Record extends Update Member Record
+        </p>
+        <p dir="ltr">
+            Context: The operator intends to edit a member record.
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The operator selects the edit member record option.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The system displays a box to enter a member number within.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The operator enters the member number.
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The system displays a box containing all of the fields of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.1. The operator edits the fields of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.2. The operator confirms changes to the record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;4.3. The changes are sent to the Chocoholics Anonymous Data Center.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. The system confirms changes to the record.
+        </p>
+        <p dir="ltr">
+            &#8195;  6. The Edit Member Record process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. The operator enters a number that does not exist
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.1 The system rejects the edition.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.2 The system informs the operator.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.2 The use case continues at step 1.
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Remove Member Record extends Update Member Record
+        </p>
+        <p dir="ltr">
+            Context: The operator intends to remove a member record.
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The operator selects the remove member record option.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The system displays a box to enter a member number within.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The operator enters a member's number.
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The system displays a box asking for confirmation.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. The operator confirms the deletion of the member record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  5.1. The member record is deleted in the Chocoholics Anonymous Data
+            Center.
+        </p>
+        <p dir="ltr">
+            &#8195;  6. The system confirms the deletion of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;  7. The Remove Member Record process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. The operator enters a number that does not exist
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.1 The system rejects the removal.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.2 The system informs the operator.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.a.3 The use case continues at step 1.
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Add Member Record extends Update Member Record
+        </p>
+        <p dir="ltr">
+            Context:
+        </p>
+        <p dir="ltr">
+            Actors: Operator
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The operator selects the add member record option.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The system displays a box to enter a member number within.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The operator enters a member’s number.
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The system displays a box asking for confirmation.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. The operator confirms the addition of the member record.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  5.1. The member record is added to the Chocoholics Anonymous Data Center.
+        </p>
+        <p dir="ltr">
+            &#8195;  6. The system confirms the addition of the record.
+        </p>
+        <p dir="ltr">
+            &#8195;  7. The Add Member Record process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            N/A
+        </p>
+        
+
+        <br><br>
+
+        
+        <h3 dir="ltr">
+            Main Use Case 3:
+        </h3>
+        <p dir="ltr">
+            Use Case: Verify Manager
+        </p>
+        <p dir="ltr">
+            Context: The manager enters their credentials in order to prove that they
+            are a manager.
+        </p>
+        <p dir="ltr">
+            Actors: Manager
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The manager turns on a terminal.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The terminal requests the manager’s number.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The manager’s number is verified by the Data Center
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The terminal displays the manager’s main menu.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. There is an error in entering the manager’s credentials.
+        </p>
+        <p dir="ltr">
+            &#8195;  &#8195;  3a.1. The system asks to enter the manager’s information again.
+        </p>
+        <p dir="ltr">
+            &#8195;  &#8195;  3a.2. If the error persists, the terminal will display
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Request Report
+        </p>
+        <p dir="ltr">
+            Context: The manager intends to run an individual report
+        </p>
+        <p dir="ltr">
+            Actors: Manager
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The system displays the different options for reports.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The manager requests a report.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The request report process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            N/A
+        </p>
+        
+
+        <br><br>
+
+        
+        <h3 dir="ltr">
+            Main Use Case 4:
+        </h3>
+        <p dir="ltr">
+            Use Case: Main Accounting Procedure
+        </p>
+        <p dir="ltr">
+            Context: At the end of the week the timer compiles all of the different
+            reports and prints them out.
+        </p>
+        <p dir="ltr">
+            Actors: Timer
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. Once the timer has reached the end of the week, the system begins to
+            read all of the reports
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  1.1. The system accesses the summary report data.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  1.2. The system runs each provider report in alphabetical order.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  1.3. The system runs each EFT report in alphabetical order.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  1.4. The system runs each member report in alphabetical order
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The Main Account Procedure process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            N/A
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Request Summary Report
+        </p>
+        <p dir="ltr">
+            Context: An actor requests a report for accounts payable.
+        </p>
+        <p dir="ltr">
+            Actors: Manager, Timer
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <ol>
+            <li dir="ltr">
+                <p dir="ltr">
+                    The actor requests a summary report.
+                </p>
+            </li>
+            <li dir="ltr">
+                <p dir="ltr">
+                    The system goes through the Chocoholic Anonymous Data Center
+                    database to pull information.
+                </p>
+            </li>
+        </ol>
+        <p dir="ltr">
+            &#8195;&#8195;  2.1. The system retrieves all the providers that are to be paid that week.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2.2. The system retrieves the number of consultations from members that
+            week.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2.3. The system retrieves the total number of providers who provided
+            services.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2.4. The system retrieves the total number of consultations.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2.5. The system retrieves the total overall fee for that week.
+        </p>
+        <ol start="3">
+            <li dir="ltr">
+                <p dir="ltr">
+                    The system creates a file entailing all of the data retrieved in
+                    step 3.
+                </p>
+            </li>
+        </ol>
+        <p dir="ltr">
+            &#8195;&#8195;  3.1. A chart is created in the file.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.2. The first column has the information in step 2.1.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.3. The second column has the information from step 2.2.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.4. The third column has the information from step 2.3.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.5 The fourth column has the information from step 2.4.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.6 The fifth column has the information from step 2.5
+        </p>
+        <ol start="4">
+            <li dir="ltr">
+                <p dir="ltr">
+                    The system prints the file.
+                </p>
+            </li>
+            <li dir="ltr">
+                <p dir="ltr">
+                    Request Summary Report process terminates.
+                </p>
+            </li>
+        </ol>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  1a. There is an error pulling the request
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  1a.1. The system informs the manager.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  1a.2. The use case continues at step 1.
+        </p>
+        <p dir="ltr">
+            &#8195;  2a. There is an error in retrieving information
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2a.1. The system informs the manager.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  2a.2. The use case continues at step 1.
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. The system cannot create a summary report file
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.1. The system alerts the manager that the summary file cannot be
+            created.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.2. The use case continues at step 1.
+        </p>
+        <p dir="ltr">
+            &#8195;  4a. The system cannot print out the file.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4a.1. The system saves all of the information.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4a.2. The system alerts the manager that there is an error in printing the
+            file.
+        </p>
+        <p dir="ltr">
+          &#8195;&#8195;  4a.3. The use case continues at step 1.
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Request Provider Report
+        </p>
+        <p dir="ltr">
+            Context: The manager or the accounting procedure has requested a provider
+            report.
+        </p>
+        <p dir="ltr">
+            Actors: Manager, Timer
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The manager or the timer requests a provider report.
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The system then adds a list of services provided to the report with the
+            same information on the service record.
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The system then adds a summary of the provider’s information for the
+            week.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.1 The system adds the provider’s name.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.2 The system adds the provider’s number.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.3 The system adds the provider’s address.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.4 The system adds the provider’s city.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.5 The system adds the provider’s state.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.6 The system adds the provider’s zip code.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.7 The system adds the total number of consultations.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3.8 The system adds the total fee for the week (up to 99,999).
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The system sends the report to the actor.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. Request Provider Report process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. There is an error in adding provider information
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.1 The system displays an error creating a report
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.2 The use case continues at step 1.
+        </p>
+        <p dir="ltr">
+            &#8195;  3b. The total fee for the week is over 99,999
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3b.1 The system informs the actor that the fee is over the payable amount
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3b.2 The use case continues at step 1.
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Request EFT Report
+        </p>
+        <p dir="ltr">
+            Context: A manager requests to create an electronic funds transfer file.
+        </p>
+        <p dir="ltr">
+            Actors: Manager, Timer
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <p dir="ltr">
+            &#8195;  1. The system has an option displaying “Create EFT Report”
+        </p>
+        <p dir="ltr">
+            &#8195;  2. The manager clicks on this option
+        </p>
+        <p dir="ltr">
+            &#8195;  3. The system then displays empty text boxes with labels: provider name,
+            provider number, and amount
+        </p>
+        <p dir="ltr">
+            &#8195;  to be transferred.
+        </p>
+        <p dir="ltr">
+            &#8195;  4. The manager fills out this information.
+        </p>
+        <p dir="ltr">
+            &#8195;  5. The system displays the information for the manager to verify.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  5.1. There is an option for the manager to click to continue.
+        </p>
+        <p dir="ltr">
+            &#8195;  6. The system writes the information to a disk.
+        </p>
+        <p dir="ltr">
+            &#8195;  7. Request EFT Report process terminates.
+        </p>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. The manager has entered the wrong information.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.1. The system checks the information that the manager has provided in
+            the each
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  corresponding box.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.2. The system informs the manager of the error.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.3. The use case continues from step 3.
+        </p>
+        <p dir="ltr">
+            &#8195;  4a. There is an error writing to a disk.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4a.1. The system informs the manager
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4a.2. The use case continues from step 4.
+        </p>
+        
+
+        <br><br>
+
+        
+        <p dir="ltr">
+            Use Case: Request Member Report
+        </p>
+        <p dir="ltr">
+            Context: The manager requests a report of all members who have received
+            service from Chocoholics Anonymous.
+        </p>
+        <p dir="ltr">
+            Actors: Manager, Timer
+        </p>
+        <p dir="ltr">
+            Main Success Scenario:
+        </p>
+        <ol>
+            <li dir="ltr">
+                <p dir="ltr">
+                    The manager requests a member report
+                </p>
+            </li>
+        </ol>
+        <ol start="2">
+            <li dir="ltr">
+                <p dir="ltr">
+                    Accounting services request a data report
+                </p>
+            </li>
+        </ol>
+        <ol start="3">
+            <li dir="ltr">
+                <p dir="ltr">
+                    The system creates a file to be sent out
+                </p>
+            </li>
+        </ol>
+        <ol start="4">
+            <li dir="ltr">
+                <p dir="ltr">
+                    The system adds information to the report
+                </p>
+            </li>
+        </ol>
+        <p dir="ltr">
+            &#8195;&#8195;  4.1. System adds Member name
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.2. System adds member number
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.3. System adds member street address
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.4. System adds member city
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.5. System adds member state
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.6. System adds member zip code
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.7. System adds the date of service
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.8. System adds provider name
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4.9. System adds service name
+        </p>
+        <p dir="ltr">
+            &#8195;  &#8195;  4.10. System titles the file with the member name, then the date of the
+            report
+        </p>
+        <ol start="5">
+            <li dir="ltr">
+                <p dir="ltr">
+                    The system sends out files to the manager
+                </p>
+            </li>
+            <li dir="ltr">
+                <p dir="ltr">
+                    Request Member Report process terminates.
+                </p>
+            </li>
+        </ol>
+        <p dir="ltr">
+            Extensions:
+        </p>
+        <p dir="ltr">
+            &#8195;  3a. The system cannot create the file.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.1. The system informs the manager.
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  3a.2. The use case continues from step 1.
+        </p>
+        <p dir="ltr">
+            &#8195;  4a. The system cannot add information correctly
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4a.1. The system informs the manager
+        </p>
+        <p dir="ltr">
+            &#8195;&#8195;  4a.2. The use case continues from step 1.
+        </p>
+        <div>
+            <br/>
+        </div>
 
     </body>
 </html>
