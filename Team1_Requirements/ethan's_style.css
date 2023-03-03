@@ -1,0 +1,97 @@
+html{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Trebuchet MS, sans-serif;
+    background: rgb(26, 25, 25);
+    color: white;
+}
+
+h1{
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+    padding-top: 10px;
+    text-align: center;
+    opacity: .6;
+    text-shadow: black;
+}
+
+th {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+h2 {
+    text-align: center;
+    padding: 0px;
+    /* height: 10px; */
+    margin-top: 0px;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.table-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 6rem 0 6rem ;
+}
+
+.table-div table {
+    width: 100%;
+    text-align: center;
+    /* border: red 2px solid; */
+    border-collapse: collapse;
+    border-radius: 30px;
+    box-shadow:0 0 0 1px #666;
+}
+
+.table-div td{
+    text-align: center;
+    min-width: 300px;
+    padding: 0.5rem;
+    border-bottom: 1px rgb(76, 76, 76) solid;
+    /* border: none; */
+}
+
+.table-div th {
+    background-color: #383939;
+    padding: 5px;
+    border: none;
+}
+.table-div tr:first-child th:first-child {
+    border-radius: 30px 0 0 0;
+}
+
+.table-div tr:first-child th:last-child {
+    border-radius: 0 30px 0 0;
+}
+.table-div tr:last-child td:first-child {
+    border-radius: 0 0 0 30px;
+}
+
+.table-div tr:last-child td:last-child {
+    border-radius: 0 0 30px 0;
+}
+
+.table-div tr:nth-child(odd) > td {
+    background-color: rgb(13, 13, 13);
+}
+
+.table-div tr:last-child > td{
+    border-bottom: none;
+}
+
+img {
+    border-radius: 3%;
+    width: 45vw;
+}
