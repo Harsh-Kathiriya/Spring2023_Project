@@ -1,0 +1,163 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>9</x><y>981</y><w>189</w><h>72</h></coordinates><panel_attributes>Member Record
+--
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>333</x><y>981</y><w>189</w><h>72</h></coordinates><panel_attributes>Provider Record
+--
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1035</x><y>378</y><w>189</w><h>144</h></coordinates><panel_attributes>Terminal
+--
+
+--
++turnOn() : void
++turnOff() : void
++requestOperatorNum() // dont think we need
++verifyOperatorNum() // dont think we need
++displayMenu(int : menuType)
++verification()
++swipeCard() : bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1053</x><y>684</y><w>90</w><h>36</h></coordinates><panel_attributes>Provider</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1161</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>927</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>513</y><w>36</w><h>189</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>513</y><w>126</w><h>189</h></coordinates><panel_attributes>m1=1
+lt=&lt;-</panel_attributes><additional_attributes>110;10;110;170;10;170;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>1188</x><y>513</y><w>36</w><h>189</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1026</x><y>252</y><w>198</w><h>108</h></coordinates><panel_attributes>Weekly Accounting Process
+--
+--
++requestProviderReport() : boolean
++requestMemberReport() : boolean
++requestSummaryReport() : boolean
++requestEFTReport() : boolean
++runProcess() : boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>405</y><w>234</w><h>99</h></coordinates><panel_attributes>Provider Menu
+--
+--
++displayInput()
++inputInformation()
++makeChoice()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>162</x><y>684</y><w>189</w><h>198</h></coordinates><panel_attributes>Record
+--
+-name : string
+-number : int
+-address : string
+-city : string
+-state : string
+-zipCode : string
+--
+getName() : string
+getNumber() : int
+getAddress() : string
+getCity() : string
+getState() : string
+getZipCode() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>243</x><y>873</y><w>198</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70;200;70;200;120</additional_attributes></element><element><id>Relation</id><coordinates><x>90</x><y>873</y><w>180</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;10;180;70;10;70;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>1215</x><y>432</y><w>54</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>945</x><y>306</y><w>108</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;160;50;160;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>945</x><y>441</y><w>108</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>945</x><y>441</y><w>108</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;50;10;50;160;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>612</x><y>9</y><w>189</w><h>189</h></coordinates><panel_attributes>Summary Report
+--
+-providerNames[] : string
+-memberConsultNum : int
+-providerNum : int
+-totalConsultNum : int
+-totalFee : int
+--
+getProviderName() : string
+getMemberConsultNum : int
+getProviderNum() : int
+getTotalConsultNum() : int
+getTotalFee() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>819</x><y>9</y><w>189</w><h>189</h></coordinates><panel_attributes>EFT Report
+--
+-providerName : string
+-providerNumber : int
+-transferAmount : int
+--
+getProviderName() : string
+getProviderNum() : int
+getTransferAmount() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1026</x><y>9</y><w>189</w><h>189</h></coordinates><panel_attributes>Provider Report
+--
+-providerName : string
+-providerNumber: int
+-providerAddress : string
+-providerCity : string 
+-providerState : string
+-providerZipCode : int
+-consultNum : int
+-totalFee : int
+--
+getProviderName() : string
+getMemberConsultNum : int
+getProviderNum() : int
+getTotalConsultNum() : int
+getTotalFee() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1233</x><y>0</y><w>189</w><h>198</h></coordinates><panel_attributes>Member Report
+--
+-memberName : string
+-memberNumber: int
+-memberAddress : string
+-memberCity : string 
+-memberState : string
+-memberZipCode : int
+-dateOfService : string
+-providerName : string
+-serviceName : string
+-reportTitle : string
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>153</x><y>531</y><w>189</w><h>81</h></coordinates><panel_attributes>Provider Directory
+--
+-serviceNames : string
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>279</y><w>234</w><h>90</h></coordinates><panel_attributes>Manager Menu
+--
+--
++diplayInput()
++makeChoice()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>522</y><w>234</w><h>144</h></coordinates><panel_attributes>Operator Menu
+--
+--
++displayInput()
++inputInformation()
++makeChoice()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>333</x><y>477</y><w>135</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;100;60;100;60;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>189</y><w>747</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>810;10;810;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>189</y><w>531</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>570;10;570;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>189</y><w>324</w><h>99</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>340;10;340;50;10;50;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>189</y><w>27</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1116</x><y>225</y><w>27</w><h>45</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>306</x><y>648</y><w>162</w><h>54</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1215</x><y>306</y><w>144</w><h>27</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1341</x><y>297</y><w>99</w><h>36</h></coordinates><panel_attributes>Timer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1251</x><y>378</y><w>189</w><h>108</h></coordinates><panel_attributes>Verification Menu
+--
+--
++displayInput() : string
++enterInformation() : void
++providerVerification()
++managerVerifcation()
++operatorVerfication()
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1260</x><y>540</y><w>243</w><h>117</h></coordinates><panel_attributes>Credentials
+--
+-managerCredentialsList : int
+-providerCredentialsList : int
+-operatorCredentialsList : int
+--
+searchManagerList(searchNum : int) : bool
+searchProviderList(searchNum : int) : bool
+searchOperatorList(searchNum : int) : bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>279</y><w>234</w><h>90</h></coordinates><panel_attributes>Manager Controller
+--
+--
++requestReport(reportType: num) : Report
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>405</y><w>234</w><h>99</h></coordinates><panel_attributes>Provider Controller
+--
+--
++billChocoholicsAnonymous()
++validateMember()
++requestProviderDirectory()
++feeLookup(serviceCode : int) : int
++serviceLookup(serviceCode: int) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>522</y><w>234</w><h>144</h></coordinates><panel_attributes>Operator Controller
+--
+--
++addProviderRecord()
++editProviderRecord()
++removeProviderRecord()
++addMemberRecord()
++editMemberRecord()
++removeMemberRecord()
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>315</y><w>72</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>675</x><y>441</y><w>63</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>675</x><y>567</y><w>63</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1323</x><y>477</y><w>36</w><h>81</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>144</x><y>288</y><w>189</w><h>117</h></coordinates><panel_attributes>ServiceFile
+--
+-date : string
+-providerNum : int
+-memberNum : int
+-serviceCode : int
+-comment : string
+--
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
