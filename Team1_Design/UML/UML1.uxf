@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>981</y><w>189</w><h>72</h></coordinates><panel_attributes>Member Record
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>0</x><y>981</y><w>189</w><h>72</h></coordinates><panel_attributes>Member Record
 --
 --
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>324</x><y>981</y><w>189</w><h>72</h></coordinates><panel_attributes>Provider Record
@@ -10,8 +10,7 @@
 --
 +turnOn() : void
 +turnOff() : void
-+requestOperatorNum() // dont think we need
-+verifyOperatorNum() // dont think we need
++requestUserNum(int : num) : void
 +displayMenu(int : menuType)
 +verification()
 +swipeCard() : bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1044</x><y>684</y><w>90</w><h>36</h></coordinates><panel_attributes>Provider</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>918</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1107</x><y>513</y><w>36</w><h>189</h></coordinates><panel_attributes>lt=&lt;-
@@ -112,24 +111,19 @@ getTotalFee() : int</panel_attributes><additional_attributes></additional_attrib
 +makeChoice()
 
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>477</y><w>135</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;100;60;100;60;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>747</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>810;10;810;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>531</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>570;10;570;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>324</w><h>99</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>340;10;340;50;10;50;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>27</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1107</x><y>225</y><w>27</w><h>45</h></coordinates><panel_attributes>lt=-
-</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>648</y><w>162</w><h>54</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>306</y><w>144</w><h>27</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1332</x><y>297</y><w>99</w><h>36</h></coordinates><panel_attributes>Timer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1242</x><y>378</y><w>189</w><h>108</h></coordinates><panel_attributes>Verification Menu
+</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>648</y><w>162</w><h>54</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>306</y><w>144</w><h>27</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1332</x><y>297</y><w>99</w><h>36</h></coordinates><panel_attributes>Timer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1242</x><y>378</y><w>189</w><h>90</h></coordinates><panel_attributes>Verification Menu
 --
 --
 +displayInput() : string
 +enterInformation() : void
-+providerVerification()
-+managerVerifcation()
-+operatorVerfication()
++verfication()
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1251</x><y>540</y><w>243</w><h>117</h></coordinates><panel_attributes>Credentials
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1251</x><y>540</y><w>243</w><h>81</h></coordinates><panel_attributes>Credentials
 --
--managerCredentialsList : int
--providerCredentialsList : int
--operatorCredentialsList : int
+-credentialsList : int
+-identifierList : string
 --
-searchManagerList(searchNum : int) : bool
-searchProviderList(searchNum : int) : bool
-searchOperatorList(searchNum : int) : bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>279</y><w>234</w><h>90</h></coordinates><panel_attributes>Manager Controller
+searchCredentialsList(searchNum : int) : string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>279</y><w>234</w><h>90</h></coordinates><panel_attributes>Manager Controller
 --
 --
 +requestReport(reportType: num) : Report
@@ -152,8 +146,8 @@ searchOperatorList(searchNum : int) : bool</panel_attributes><additional_attribu
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>657</x><y>315</y><w>72</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
 m1=1</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>441</y><w>63</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
 m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>567</y><w>63</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1314</x><y>477</y><w>36</w><h>81</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>135</x><y>288</y><w>189</w><h>117</h></coordinates><panel_attributes>ServiceFile
+m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1314</x><y>459</y><w>36</w><h>99</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>135</x><y>288</y><w>189</w><h>117</h></coordinates><panel_attributes>ServiceFile
 --
 -date : string
 -providerNum : int
