@@ -10,8 +10,6 @@
 --
 +turnOn() : void
 +turnOff() : void
-+requestOperatorNum() // dont think we need
-+verifyOperatorNum() // dont think we need
 +displayMenu(int : menuType)
 +verification()
 +swipeCard() : bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1044</x><y>684</y><w>90</w><h>36</h></coordinates><panel_attributes>Provider</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>918</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1107</x><y>513</y><w>36</w><h>189</h></coordinates><panel_attributes>lt=&lt;-
