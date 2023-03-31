@@ -1,10 +1,10 @@
-<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>0</x><y>981</y><w>189</w><h>72</h></coordinates><panel_attributes>Member Record
+<diagram program="umletino" version="15.1"><zoom_level>4</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>55</x><y>487</y><w>84</w><h>32</h></coordinates><panel_attributes>Member Record
 --
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>324</x><y>981</y><w>189</w><h>72</h></coordinates><panel_attributes>Provider Record
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>199</x><y>487</y><w>84</w><h>32</h></coordinates><panel_attributes>Provider Record
 --
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1026</x><y>378</y><w>189</w><h>144</h></coordinates><panel_attributes>Terminal
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>511</x><y>219</y><w>84</w><h>64</h></coordinates><panel_attributes>Terminal
 --
 
 --
@@ -13,10 +13,10 @@
 +requestUserNum(int : num) : void
 +displayMenu(int : menuType)
 +verification()
-+swipeCard() : bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1044</x><y>684</y><w>90</w><h>36</h></coordinates><panel_attributes>Provider</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>918</x><y>684</y><w>99</w><h>36</h></coordinates><panel_attributes>Operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1107</x><y>513</y><w>36</w><h>189</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>972</x><y>513</y><w>126</w><h>189</h></coordinates><panel_attributes>m1=1
-lt=&lt;-</panel_attributes><additional_attributes>110;10;110;170;10;170;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>1179</x><y>513</y><w>36</w><h>189</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1017</x><y>252</y><w>198</w><h>108</h></coordinates><panel_attributes>Weekly Accounting Process
++swipeCard() : bool</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>519</x><y>355</y><w>40</w><h>16</h></coordinates><panel_attributes>Provider</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>567</x><y>355</y><w>44</w><h>16</h></coordinates><panel_attributes>Manager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>463</x><y>355</y><w>44</w><h>16</h></coordinates><panel_attributes>Operator</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>547</x><y>279</y><w>16</w><h>84</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>487</x><y>279</y><w>56</w><h>84</h></coordinates><panel_attributes>m1=1
+lt=&lt;-</panel_attributes><additional_attributes>110;10;110;170;10;170;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>579</x><y>279</y><w>16</w><h>84</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;10;190</additional_attributes></element><element><id>UMLClass</id><coordinates><x>507</x><y>163</y><w>88</w><h>48</h></coordinates><panel_attributes>Weekly Accounting Process
 --
 --
 +requestProviderReport() : boolean
@@ -24,13 +24,13 @@ m1=1</panel_attributes><additional_attributes>10;10;10;190</additional_attribute
 +requestSummaryReport() : boolean
 +requestEFTReport() : boolean
 +runProcess() : boolean
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>711</x><y>405</y><w>234</w><h>99</h></coordinates><panel_attributes>Provider Menu
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>371</x><y>231</y><w>104</w><h>44</h></coordinates><panel_attributes>Provider Menu
 --
 --
 +displayInput()
 +inputInformation()
 +makeChoice()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>153</x><y>684</y><w>189</w><h>198</h></coordinates><panel_attributes>Record
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>123</x><y>355</y><w>84</w><h>88</h></coordinates><panel_attributes>Record
 --
 -name : string
 -number : int
@@ -45,7 +45,7 @@ getNumber() : int
 getAddress() : string
 getCity() : string
 getState() : string
-getZipCode() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>234</x><y>873</y><w>198</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70;200;70;200;120</additional_attributes></element><element><id>Relation</id><coordinates><x>81</x><y>873</y><w>180</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;10;180;70;10;70;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>432</y><w>54</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>936</x><y>306</y><w>108</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;160;50;160;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>936</x><y>441</y><w>108</w><h>27</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>936</x><y>441</y><w>108</w><h>162</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;50;10;50;160;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>603</x><y>9</y><w>189</w><h>189</h></coordinates><panel_attributes>Summary Report
+getZipCode() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>159</x><y>439</y><w>88</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70;200;70;200;120</additional_attributes></element><element><id>Relation</id><coordinates><x>91</x><y>439</y><w>80</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;10;180;70;10;70;10;120</additional_attributes></element><element><id>Relation</id><coordinates><x>591</x><y>243</y><w>24</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>471</x><y>187</y><w>48</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;160;50;160;50;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>471</x><y>247</y><w>48</w><h>12</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>471</x><y>247</y><w>48</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>100;10;50;10;50;160;10;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>323</x><y>55</y><w>84</w><h>84</h></coordinates><panel_attributes>Summary Report
 --
 -providerNames[] : string
 -memberConsultNum : int
@@ -57,7 +57,7 @@ getProviderName() : string
 getMemberConsultNum : int
 getProviderNum() : int
 getTotalConsultNum() : int
-getTotalFee() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>9</y><w>189</w><h>189</h></coordinates><panel_attributes>EFT Report
+getTotalFee() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>415</x><y>55</y><w>84</w><h>84</h></coordinates><panel_attributes>EFT Report
 --
 -providerName : string
 -providerNumber : int
@@ -65,7 +65,7 @@ getTotalFee() : int</panel_attributes><additional_attributes></additional_attrib
 --
 getProviderName() : string
 getProviderNum() : int
-getTransferAmount() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1017</x><y>9</y><w>189</w><h>189</h></coordinates><panel_attributes>Provider Report
+getTransferAmount() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>507</x><y>55</y><w>84</w><h>84</h></coordinates><panel_attributes>Provider Report
 --
 -providerName : string
 -providerNumber: int
@@ -80,7 +80,7 @@ getProviderName() : string
 getMemberConsultNum : int
 getProviderNum() : int
 getTotalConsultNum() : int
-getTotalFee() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1224</x><y>0</y><w>189</w><h>198</h></coordinates><panel_attributes>Member Report
+getTotalFee() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>599</x><y>51</y><w>84</w><h>88</h></coordinates><panel_attributes>Member Report
 --
 -memberName : string
 -memberNumber: int
@@ -93,48 +93,48 @@ getTotalFee() : int</panel_attributes><additional_attributes></additional_attrib
 -serviceName : string
 -reportTitle : string
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>144</x><y>531</y><w>189</w><h>81</h></coordinates><panel_attributes>Provider Directory
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>119</x><y>287</y><w>84</w><h>36</h></coordinates><panel_attributes>Provider Directory
 --
 -serviceNames : string
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>711</x><y>279</y><w>234</w><h>90</h></coordinates><panel_attributes>Manager Menu
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>371</x><y>175</y><w>104</w><h>40</h></coordinates><panel_attributes>Manager Menu
 --
 --
 +diplayInput()
 +makeChoice()
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>711</x><y>522</y><w>234</w><h>144</h></coordinates><panel_attributes>Operator Menu
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>371</x><y>283</y><w>104</w><h>64</h></coordinates><panel_attributes>Operator Menu
 --
 --
 +displayInput()
 +inputInformation()
 +makeChoice()
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>324</x><y>477</y><w>135</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;100;60;100;60;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>747</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>810;10;810;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>531</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>570;10;570;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>324</w><h>99</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>340;10;340;50;10;50;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>603</x><y>189</y><w>27</w><h>108</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>1107</x><y>225</y><w>27</w><h>45</h></coordinates><panel_attributes>lt=-
-</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>297</x><y>648</y><w>162</w><h>54</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1206</x><y>306</y><w>144</w><h>27</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1332</x><y>297</y><w>99</w><h>36</h></coordinates><panel_attributes>Timer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1242</x><y>378</y><w>189</w><h>90</h></coordinates><panel_attributes>Verification Menu
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>199</x><y>263</y><w>60</w><h>48</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;100;60;100;60;10;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>323</x><y>135</y><w>332</w><h>48</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>810;10;810;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>323</x><y>135</y><w>236</w><h>48</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>570;10;570;50;10;50;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>323</x><y>135</y><w>144</w><h>44</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>340;10;340;50;10;50;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>323</x><y>135</y><w>12</w><h>48</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>547</x><y>151</y><w>12</w><h>20</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;10;10;30</additional_attributes></element><element><id>Relation</id><coordinates><x>187</x><y>339</y><w>72</w><h>24</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>591</x><y>187</y><w>64</w><h>12</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>647</x><y>183</y><w>44</w><h>16</h></coordinates><panel_attributes>Timer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>607</x><y>219</y><w>84</w><h>40</h></coordinates><panel_attributes>Verification Menu
 --
 --
 +displayInput() : string
 +enterInformation() : void
 +verfication()
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1251</x><y>540</y><w>243</w><h>81</h></coordinates><panel_attributes>Credentials
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>611</x><y>291</y><w>108</w><h>36</h></coordinates><panel_attributes>Credentials
 --
 -credentialsList : int
 -identifierList : string
 --
-searchCredentialsList(searchNum : int) : string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>432</x><y>279</y><w>234</w><h>90</h></coordinates><panel_attributes>Manager Controller
+searchCredentialsList(searchNum : int) : string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>247</x><y>175</y><w>104</w><h>40</h></coordinates><panel_attributes>Manager Controller
 --
 --
 +requestReport(reportType: num) : Report
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>405</y><w>234</w><h>99</h></coordinates><panel_attributes>Provider Controller
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>251</x><y>231</y><w>104</w><h>44</h></coordinates><panel_attributes>Provider Controller
 --
 --
 +billChocoholicsAnonymous()
 +validateMember()
 +requestProviderDirectory()
 +feeLookup(serviceCode : int) : int
-+serviceLookup(serviceCode: int) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>441</x><y>522</y><w>234</w><h>144</h></coordinates><panel_attributes>Operator Controller
++serviceLookup(serviceCode: int) : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>251</x><y>283</y><w>104</w><h>64</h></coordinates><panel_attributes>Operator Controller
 --
 --
 +addProviderRecord()
@@ -143,11 +143,11 @@ searchCredentialsList(searchNum : int) : string</panel_attributes><additional_at
 +addMemberRecord()
 +editMemberRecord()
 +removeMemberRecord()
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>657</x><y>315</y><w>72</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>441</y><w>63</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>666</x><y>567</y><w>63</w><h>36</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1314</x><y>459</y><w>36</w><h>99</h></coordinates><panel_attributes>lt=&lt;-
-m1=1</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>135</x><y>288</y><w>189</w><h>117</h></coordinates><panel_attributes>ServiceFile
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>347</x><y>191</y><w>32</w><h>16</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>247</y><w>28</w><h>16</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>351</x><y>303</y><w>28</w><h>16</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;50;10</additional_attributes></element><element><id>Relation</id><coordinates><x>639</x><y>255</y><w>16</w><h>44</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>115</x><y>179</y><w>84</w><h>52</h></coordinates><panel_attributes>ServiceFile
 --
 -date : string
 -providerNum : int
