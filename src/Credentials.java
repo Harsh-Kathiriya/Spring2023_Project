@@ -17,7 +17,7 @@ public class Credentials{
         return providerCredentialsList.contains(String.valueOf(var));
     }
 
-    public boolean searcOperatorList(Integer var){
+    public boolean searchOperatorList(Integer var){
         return operatorCredentialsList.contains(String.valueOf(var));
     }
 
