@@ -7,10 +7,12 @@ public class Verification{
     Credentials credentials;
     Scanner userReader = new Scanner(System.in);
 
+    /* 
     String displayInput(){
         return null;
     
     }
+    */
 
     //Prompts for user number
     void enterInformation(){
