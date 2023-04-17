@@ -2,11 +2,11 @@
 
 class ProviderReport {
     //initializing fields
-    private string providerName;
+    private String providerName;
     private int providerNumber;
-    private string providerAddress;
-    private string providerCity;
-    private string providerState;
+    private String providerAddress;
+    private String providerCity;
+    private String providerState;
     private int providerZipCode;
     private int consultNum;
     private double totalFee;
@@ -18,7 +18,7 @@ class ProviderReport {
 
     
     //Constructor that provides all fields of the report
-    ProviderReport(string providerName, int providerNumber, string providerAddress, string providerCity, string providerState, int providerZipCode, int consultNum,  double totalFee) {
+    ProviderReport(String providerName, int providerNumber, String providerAddress, String providerCity, String providerState, int providerZipCode, int consultNum,  double totalFee) {
         this.providerName = providerName;
         this.providerNumber = providerNumber;
         this.providerAddress = providerAddress;
@@ -31,10 +31,10 @@ class ProviderReport {
 
 
     //getters and setters
-    public string getProviderName() {
+    public String getProviderName() {
         return providerName;
     }
-    public void setProviderName(string providerName) {
+    public void setProviderName(String providerName) {
         this.providerName = providerName;
     }
     
@@ -45,24 +45,24 @@ class ProviderReport {
         this.providerNumber = providerNumber;
     }
     
-    public string getProviderAddress() {
+    public String getProviderAddress() {
         return providerAddress;
     }
-    public void setProviderAddress(string providerAddress) {
+    public void setProviderAddress(String providerAddress) {
         this.providerAddress = providerAddress;
     }
     
-    public string getProviderCity() {
+    public String getProviderCity() {
         return providerCity;
     }
-    public void setProviderCity(string providerCity) {
+    public void setProviderCity(String providerCity) {
         this.providerCity = providerCity;
     }
     
-    public string getProviderState() {
+    public String getProviderState() {
         return providerState;
     }
-    public void setProviderState(string providerState) {
+    public void setProviderState(String providerState) {
         this.providerState = providerState;
     }
     

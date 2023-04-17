@@ -36,7 +36,7 @@ public class ProviderDirectory{
         }
     }
 
-    public Int feeLookup(int serviceNum){
+    public int feeLookup(int serviceNum){
         int marker = 0;
         for(int i = 0; i < serviceCodes.size(); i++){
             if(serviceCodes.get(i) == serviceNum){
