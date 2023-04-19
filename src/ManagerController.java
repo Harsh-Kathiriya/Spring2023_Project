@@ -88,27 +88,34 @@ public class ManagerController {
 
   public void getProviderReport(String providerName, int providerNumber, String providerAddress,
       String providerCity, String providerState, int providerZipCode, int consultNum, double totalFee) {
-    setProviderName(providerName);
-    setProviderNumber(providerNumber);
-    setProviderAddress(providerAddress);
-    setProviderCity(providerCity);
-    setProviderState(providerState);
-    setProviderZipCode(providerZipCode);
-    setConsultNum(consultNum);
-    setTotalFee(totalFee);
-
     if (reportType == 3)
 
     {
-      getProviderName();
-      getProviderNumber();
-      getProviderAddress();
-      getProviderCity();
-      getProviderState();
-      getProviderZipCode();
-      getConsultNum();
-      getTotalFee();
-    }
+      setProviderName(providerName);
+      setProviderNumber(providerNumber);
+      setProviderAddress(providerAddress);
+      setProviderCity(providerCity);
+      setProviderState(providerState);
+      setProviderZipCode(providerZipCode);
+      setConsultNum(consultNum);
+      setTotalFee(totalFee);
 
+      System.out.println(getProviderName());
+      System.out.println("\n");
+      System.out.println(getProviderNumber());
+      System.out.println("\n");
+      System.out.println(getProviderAddress());
+      System.out.println("\n");
+      System.out.println(getProviderCity());
+      System.out.println("\n");
+      System.out.println(getProviderState());
+      System.out.println("\n");
+      System.out.println(getProviderZipCode());
+      System.out.println("\n");
+      System.out.println(getConsultNum());
+      System.out.println("\n");
+      System.out.println(getTotalFee());
+      System.out.println("\n");
+    }
   }
 }
