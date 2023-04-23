@@ -1,3 +1,4 @@
+import java.sql.Date;
 
 class MemberReport {
     // initializing fields
@@ -7,8 +8,11 @@ class MemberReport {
     private String memberCity;
     private String memberState;
     private int memberZipCode;
-    private int consultNum;
-    private double totalFee;
+    private int dateOfServices[];
+    private String providerNames[];
+    private String serviceNames[]; 
+
+   
 
     // default constructor does not intialize any values
     MemberReport() {
@@ -17,15 +21,16 @@ class MemberReport {
 
     // Constructor that provides all fields of the report
     MemberReport(String memberName, int memberNumber, String memberAddress, String memberCity,
-            String memberState, int memberZipCode, int consultNum, double totalFee) {
+            String memberState, int memberZipCode, int dateOfServices[], String providerNames[], String serviceNames[]) {
         this.memberName = memberName;
         this.memberNumber = memberNumber;
         this.memberAddress = memberAddress;
         this.memberCity = memberCity;
         this.memberState = memberState;
         this.memberZipCode = memberZipCode;
-        this.consultNum = consultNum;
-        this.totalFee = totalFee;
+        this.dateOfServices = dateOfServices;
+        this.providerNames = providerNames;
+        this.serviceNames = serviceNames;
     }
 
     // getters and setters
@@ -77,19 +82,27 @@ class MemberReport {
         this.memberZipCode = memberZipCode;
     }
 
-    public int getConsultNum() {
-        return consultNum;
+    public int[] getDateOfServices() {
+        return dateOfServices;
     }
 
-    public void setConsultNum(int consultNum) {
-        this.consultNum = consultNum;
+    public void setDateOfServices(int[] dateOfServices) {
+        this.dateOfServices = dateOfServices;
     }
 
-    public double getTotalFee() {
-        return totalFee;
+    public String[] getProviderNames() {
+        return providerNames;
     }
 
-    public void setTotalFee(double totalFee) {
-        this.totalFee = totalFee;
+    public void setProviderNames(String[] providerNames) {
+        this.providerNames = providerNames;
+    }
+
+    public String[] getServiceNames() {
+        return serviceNames;
+    }
+
+    public void setServiceNames(String[] serviceNames) {
+        this.serviceNames = serviceNames;
     }
 }
