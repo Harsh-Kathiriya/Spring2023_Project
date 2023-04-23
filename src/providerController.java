@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class providerController {
 
     
-    public void requestProviderDirectory(){
+    public static void requestProviderDirectory(){
         ProviderDirectory Directory = new ProviderDirectory();
         Directory.requestProviderDirectory();
         for (int i = 0; i < Directory.serviceCodes.size(); i++){
@@ -20,7 +20,7 @@ public class providerController {
         }
     }
 
-    public void feeLookup(){
+    public static void feeLookup(){
         ProviderDirectory Directory = new ProviderDirectory();
     
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
@@ -32,7 +32,7 @@ public class providerController {
         myObj.close();
     }
 
-    public void serviceLookup(){
+    public static void serviceLookup(){
         ProviderDirectory Directory = new ProviderDirectory();
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter service code");
