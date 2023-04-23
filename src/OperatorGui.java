@@ -161,7 +161,7 @@ public class OperatorGui {
                     String city = cityField.getText();
                     String state = stateField.getText();
                     String zip = zipField.getText();
-                    if (zip.matches("\\d{6}")) {
+                    if (zip.matches("\\d{5}")) {
                         // Call the addMember method in OperatorController with the entered information
                         if(type=="provider"){
                             ProviderRecord provider = new ProviderRecord(name,OperatorController.generateUniqueNumber("PROVIDER_FILE_NAME"),address, city, state, zip);
@@ -174,13 +174,17 @@ public class OperatorGui {
                         }
                         else{
                             MemberRecord member = new MemberRecord(name, OperatorController.generateUniqueNumber("PROVIDER_FILE_NAME"), address, city, state, zip);
-                            OperatorController.addMember(name, address, city, state, zip);
+                            try {
+                                OperatorController.addMember(member);
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
                         JOptionPane.showMessageDialog(addMemberFrame, "Member added successfully!");
                         }
                         
                         addMemberFrame.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(addMemberFrame, "Please enter a valid 6-digit zip code!");
+                        JOptionPane.showMessageDialog(addMemberFrame, "Please enter a valid 5-digit zip code!");
                     }
                 }
             });
