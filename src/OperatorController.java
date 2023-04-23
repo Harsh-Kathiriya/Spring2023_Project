@@ -13,7 +13,7 @@ public class OperatorController {
     private static final String PROVIDER_FILE_NAME = "/Users/harshkathiriya/Git/spring23team1-1/Project4/project4/src/Provider_Record";
 
     // Adds a new member record to the file
-    public void addMember(MemberRecord member) throws IOException {
+    public static void addMember(MemberRecord member) throws IOException {
         // Write the member record to the file
         writeRecordToFile(MEMBER_FILE_NAME, member);
     }
