@@ -16,7 +16,7 @@ public class providerController {
             int code = Directory.serviceCodes.get(i);
             String name = Directory.serviceNames.get(i);
             int fee = Directory.serviceFees.get(i);
-             System.out.println(name + " " +  code + " " + fee);
+            System.out.println(name + " " +  code + " " + fee);
         }
     }
 
