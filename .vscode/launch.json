@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OperatorGui",
+            "request": "launch",
+            "mainClass": "OperatorGui",
+            "projectName": "spring23team1_9b308e0e"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
