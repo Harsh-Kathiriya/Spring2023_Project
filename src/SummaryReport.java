@@ -1,5 +1,5 @@
 
-class ProviderReport {
+class SummaryReport {
     // initializing fields
     private String providerNames[];
     private String providerConsultNums[];
@@ -9,12 +9,12 @@ class ProviderReport {
     private int totalFee;
 
     // default constructor does not intialize any values
-    ProviderReport() {
+    SummaryReport() {
 
     }
     
     // Constructor that provides all fields of the report
-    public ProviderReport(String[] providerNames, String[] providerConsultNums, int[] providerTotalFees,
+    public SummaryReport(String[] providerNames, String[] providerConsultNums, int[] providerTotalFees,
             int amountOfProviders, int amountOfConsults, int totalFee) {
         this.providerNames = providerNames;
         this.providerConsultNums = providerConsultNums;
