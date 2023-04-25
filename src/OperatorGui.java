@@ -10,6 +10,18 @@ public class OperatorGui {
     private JPanel panel;
     private JButton providerButton;
     private JButton memberButton;
+    public static String[] states = new String[]{
+        "Alabama", "Alaska", "Arizona", "Arkansas", "California",
+        "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+        "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas",
+        "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+        "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana",
+        "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+        "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma",
+        "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+        "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
+        "Wisconsin", "Wyoming"
+    };
     private JLabel titleLabel;
 
     public OperatorGui() {
@@ -48,22 +60,15 @@ public class OperatorGui {
     }
 
     private void showOptions(String type) {
-        JFrame providerFrame = new JFrame();
-        providerFrame.setSize(800, 600);
-        providerFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JFrame frame = new JFrame();
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        JPanel providerPanel = new JPanel();
-        providerPanel.setLayout(null);
-        if(type=="provider"){
-            JLabel titleLabel = new JLabel("Provider Options");
-        }
-        else{
-            JLabel titleLabel = new JLabel("Member Options");
-        }
-        
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
         titleLabel.setFont(new Font("Serif", Font.BOLD, 24));
         titleLabel.setBounds(250, 50, 300, 50);
-        providerPanel.add(titleLabel);
+        panel.add(titleLabel);
 
         JButton addButton = new JButton("Add");
         addButton.setBounds(250, 150, 300, 50);
@@ -72,7 +77,7 @@ public class OperatorGui {
                 showAdd(type);
             }
         });
-        providerPanel.add(addButton);
+        panel.add(addButton);
 
         JButton removeButton = new JButton("Remove");
         removeButton.setBounds(250, 250, 300, 50);
@@ -81,7 +86,7 @@ public class OperatorGui {
                 showRemoveForm(type);
             }
         });
-        providerPanel.add(removeButton);
+        panel.add(removeButton);
 
         JButton editButton = new JButton("Edit");
         editButton.setBounds(250, 350, 300, 50);
@@ -90,19 +95,19 @@ public class OperatorGui {
                 showEditForm(type);
             }
         });
-        providerPanel.add(editButton);
+        panel.add(editButton);
 
-        providerFrame.add(providerPanel);
-        providerFrame.setVisible(true);
+        frame.add(panel);
+        frame.setVisible(true);
     }
 
     private void showAdd(String type){
-            JFrame addMemberFrame = new JFrame();
-            addMemberFrame.setSize(800, 600);
-            addMemberFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            JFrame frame = new JFrame();
+            frame.setSize(800, 600);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     
-            JPanel addMemberPanel = new JPanel();
-            addMemberPanel.setLayout(null);
+            JPanel panel = new JPanel();
+            panel.setLayout(null);
             if(type=="provider"){
                 JLabel titleLabel = new JLabel("Add Provider");
             }
@@ -111,47 +116,48 @@ public class OperatorGui {
             }
             titleLabel.setFont(new Font("Serif", Font.BOLD, 24));
             titleLabel.setBounds(250, 50, 300, 50);
-            addMemberPanel.add(titleLabel);
+            panel.add(titleLabel);
     
             JLabel nameLabel = new JLabel("Name:");
             nameLabel.setBounds(100, 150, 100, 30);
-            addMemberPanel.add(nameLabel);
+            panel.add(nameLabel);
     
             JTextField nameField = new JTextField();
             nameField.setBounds(200, 150, 400, 30);
-            addMemberPanel.add(nameField);
+            panel.add(nameField);
     
             JLabel addressLabel = new JLabel("Address:");
             addressLabel.setBounds(100, 200, 100, 30);
-            addMemberPanel.add(addressLabel);
+            panel.add(addressLabel);
     
             JTextField addressField = new JTextField();
             addressField.setBounds(200, 200, 400, 30);
-            addMemberPanel.add(addressField);
+            panel.add(addressField);
     
             JLabel cityLabel = new JLabel("City:");
             cityLabel.setBounds(100, 250, 100, 30);
-            addMemberPanel.add(cityLabel);
+            panel.add(cityLabel);
     
             JTextField cityField = new JTextField();
             cityField.setBounds(200, 250, 200, 30);
-            addMemberPanel.add(cityField);
+            panel.add(cityField);
     
             JLabel stateLabel = new JLabel("State:");
             stateLabel.setBounds(400, 250, 100, 30);
-            addMemberPanel.add(stateLabel);
+            panel.add(stateLabel);
     
-            JTextField stateField = new JTextField();
+            JComboBox stateField = new JComboBox(states);
+            //JTextField stateField = new JTextField();
             stateField.setBounds(500, 250, 100, 30);
-            addMemberPanel.add(stateField);
+            panel.add(stateField);
     
             JLabel zipLabel = new JLabel("Zip Code:");
             zipLabel.setBounds(100, 300, 100, 30);
-            addMemberPanel.add(zipLabel);
+            panel.add(zipLabel);
     
             JTextField zipField = new JTextField();
             zipField.setBounds(200, 300, 100, 30);
-            addMemberPanel.add(zipField);
+            panel.add(zipField);
                 JButton addButton = new JButton("Add");
             addButton.setBounds(300, 400, 200, 50);
             addButton.addActionListener(new ActionListener() {
@@ -159,7 +165,7 @@ public class OperatorGui {
                     String name = nameField.getText();
                     String address = addressField.getText();
                     String city = cityField.getText();
-                    String state = stateField.getText();
+                    String state = (String)stateField.getSelectedItem();
                     String zip = zipField.getText();
                     if (zip.matches("\\d{5}")) {
                         // Call the addMember method in OperatorController with the entered information
@@ -170,7 +176,7 @@ public class OperatorGui {
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
-                        JOptionPane.showMessageDialog(addMemberFrame, "Provider added successfully!");
+                        JOptionPane.showMessageDialog(frame, "Provider added successfully!");
                         }
                         else{
                             MemberRecord member = new MemberRecord(name, OperatorController.generateUniqueNumber("PROVIDER_FILE_NAME"), address, city, state, zip);
@@ -179,19 +185,19 @@ public class OperatorGui {
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
-                        JOptionPane.showMessageDialog(addMemberFrame, "Member added successfully!");
+                        JOptionPane.showMessageDialog(frame, "Member added successfully!");
                         }
                         
-                        addMemberFrame.dispose();
+                        frame.dispose();
                     } else {
-                        JOptionPane.showMessageDialog(addMemberFrame, "Please enter a valid 5-digit zip code!");
+                        JOptionPane.showMessageDialog(frame, "Please enter a valid 5-digit zip code!");
                     }
                 }
             });
-            addMemberPanel.add(addButton);
+            panel.add(addButton);
     
-            addMemberFrame.add(addMemberPanel);
-            addMemberFrame.setVisible(true);
+            frame.add(panel);
+            frame.setVisible(true);
         }
         private void showRemoveForm(String type) {
             JFrame removeFrame = new JFrame();
@@ -290,7 +296,7 @@ public class OperatorGui {
             stateLabel.setBounds(100, 350, 150, 25);
             editPanel.add(stateLabel);
         
-            JTextField stateField = new JTextField();
+            JComboBox stateField = new JComboBox();
             stateField.setBounds(250, 350, 300, 25);
             editPanel.add(stateField);
         
@@ -310,9 +316,8 @@ public class OperatorGui {
                     String name = nameField.getText();
                     String address = addressField.getText();
                     String city = cityField.getText();
-                    String state = stateField.getText();
+                    String state = (String)stateField.getSelectedItem();
                     String zip = zipField.getText();
-                    boolean success = false;
         
                     if (type.equals("provider")) {
                         try {
@@ -338,9 +343,6 @@ public class OperatorGui {
         
             editFrame.add(editPanel);
             editFrame.setVisible(true);
-        }
-        public static void main(String[] args) {
-            OperatorGui gui = new OperatorGui();
         }
 }
         
