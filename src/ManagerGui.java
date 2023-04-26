@@ -61,4 +61,8 @@ public class ManagerGui {
         frame.setVisible(true);
     }
 
+    public static void main(String[] args) {
+        ManagerGui managerGui = new ManagerGui();
+    }
+
 }
