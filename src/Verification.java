@@ -4,7 +4,7 @@ public class Verification{
 
     //Variables
     int userNum;
-    static Credentials credentials;
+    static Credentials credentials = new Credentials();
     Scanner userReader = new Scanner(System.in);
 
     /* 
