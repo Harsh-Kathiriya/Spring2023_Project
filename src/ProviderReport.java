@@ -12,12 +12,12 @@ class ProviderReport {
 
     // default constructor does not intialize any values
     ProviderReport() {
-
+        
     }
 
     // Constructor that provides all fields of the report
     ProviderReport(String providerName, int providerNumber, String providerAddress, String providerCity,
-            String providerState, int providerZipCode, int consultNum, double totalFee) {
+    String providerState, int providerZipCode, int consultNum, double totalFee) {
         this.providerName = providerName;
         this.providerNumber = providerNumber;
         this.providerAddress = providerAddress;
