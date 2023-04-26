@@ -11,7 +11,8 @@ public class Credentials{
     public ArrayList<String> memberCredentialsList;
 
     public boolean searchManagerList(Integer var){
-        return managerCredentialsList.contains(String.valueOf(var));
+        System.out.print("variable " + Integer.toString(var));
+        return managerCredentialsList.contains(Integer.toString(var));
     }
 
     public boolean searchProviderList(Integer var){
@@ -32,12 +33,12 @@ public class Credentials{
         operatorCredentialsList = new ArrayList<String>();
         memberCredentialsList = new ArrayList<String>();
         try{
-            File managerFile = new File(System.getProperty("user.dir") + "/managerCreds");
+            File managerFile = new File(System.getProperty("user.dir") + "/src/managerCreds");
             System.out.println("null");
             Scanner managerReader = new Scanner(managerFile);
-
             while(managerReader.hasNextLine()) {
                 String data = managerReader.nextLine();
+                System.out.println(data);
                 managerCredentialsList.add(data);
             }
             managerReader.close();
@@ -48,7 +49,7 @@ public class Credentials{
         }
 
         try{
-            File providerFile= new File(System.getProperty("user.dir") + "/Provider_Record");
+            File providerFile= new File(System.getProperty("user.dir") + "/src/Provider_Record");
             Scanner providerReader = new Scanner(providerFile);
 
             while(providerReader.hasNextLine()) {
@@ -64,7 +65,7 @@ public class Credentials{
         }
 
         try{
-            File memberFile= new File(System.getProperty("user.dir") + "/Member_Record");
+            File memberFile= new File(System.getProperty("user.dir") + "/src/Member_Record");
             Scanner memberReader = new Scanner(memberFile);
 
             while(memberReader.hasNextLine()) {
@@ -79,7 +80,7 @@ public class Credentials{
             e.printStackTrace();
         }
         try{
-            File operatorFile= new File(System.getProperty("user.dir") + "/operatorCreds");
+            File operatorFile= new File(System.getProperty("user.dir") + "/src/operatorCreds");
             Scanner operatorReader = new Scanner(operatorFile);
 
             while(operatorReader.hasNextLine()) {
