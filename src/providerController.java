@@ -1,6 +1,5 @@
 
 public class providerController {
-
     
     public static void requestProviderDirectory(){
         ProviderDirectory Directory = new ProviderDirectory();
