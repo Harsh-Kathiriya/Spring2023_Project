@@ -9,7 +9,10 @@ public class WeeklyAccountingProcedure {
     }
 
     void requestSummaryReport(){
-
+        ServiceList serviceList = new ServiceList();
+        for(int i = 0; i < serviceList.getSize(); i++) {
+            serviceList.serviceAt(i);
+        }
     }
 
     void requestETFReport(){
