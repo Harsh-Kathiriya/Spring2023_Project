@@ -57,6 +57,7 @@ public class ServiceList {
 
                     tempServiceCode = readIn.next();
                     tempServiceCodeNum = Integer.parseInt(tempServiceCode);
+                    
                     tempComments = readIn.next();
                     tempService = new Service(tempCurrentDateNum,tempDateProvidedNum,tempProviderNumberNum,tempMemberNumberNum,tempServiceCodeNum,tempComments);
                     serviceMap.put(tempServiceCodeNum, tempService);
@@ -92,7 +93,7 @@ public class ServiceList {
         Service tempService;
         try {
             FileWriter serviceWriter = new FileWriter(serviceListLocation);
-            serviceWriter.write(Integer.toString(currentDate) + " " + Integer.toString(dateProvided) + " " + Integer.toString(providerNum) + " " + Integer.toString(memberNum) + " " + Integer.toString(serviceCode) + " " + comments);
+            serviceWriter.write(Integer.toString(currentDate) + " " + Integer.toString(dateProvided) + " " + Integer.toString(providerNum) + " " + Integer.toString(memberNum) + " " + Integer.toString(serviceCode) + " " + comments + "\n");
             serviceWriter.close();
         }
         catch(IOException e) {
