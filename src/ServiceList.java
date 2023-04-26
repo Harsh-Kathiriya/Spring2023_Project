@@ -57,7 +57,7 @@ public class ServiceList {
 
                     tempServiceCode = readIn.next();
                     tempServiceCodeNum = Integer.parseInt(tempServiceCode);
-                    
+
                     tempComments = readIn.next();
                     tempService = new Service(tempCurrentDateNum,tempDateProvidedNum,tempProviderNumberNum,tempMemberNumberNum,tempServiceCodeNum,tempComments);
                     serviceMap.put(tempServiceCodeNum, tempService);
@@ -87,6 +87,10 @@ public class ServiceList {
             counter++;
         }
         return currentService;
+    }
+    
+    public int getSize() {
+        return serviceMap.size();
     }
 
     public void addService(int currentDate, int dateProvided, int providerNum, int memberNum, int serviceCode, String comments) {
