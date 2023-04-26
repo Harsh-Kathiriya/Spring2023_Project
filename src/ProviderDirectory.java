@@ -36,6 +36,11 @@ public class ProviderDirectory{
         }
     }
 
+    
+    /** 
+     * @param serviceNum
+     * @return int
+     */
     public int feeLookup(int serviceNum){
         int marker = 0;
         for(int i = 0; i < serviceCodes.size(); i++){
@@ -46,6 +51,11 @@ public class ProviderDirectory{
         return serviceFees.get(marker);
     }
 
+    
+    /** 
+     * @param serviceNum
+     * @return String
+     */
     public String serviceLookup(int serviceNum){
         int marker = 0;
         for(int i = 0; i < serviceCodes.size(); i++){
