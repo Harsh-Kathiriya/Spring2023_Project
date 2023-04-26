@@ -14,13 +14,13 @@ public class ManagerController {
   private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/Provider_Record";
 
   public static String providerName;
-  public static String providerNumber;
-  public static String providerAddress;
-  public static String providerCity;
-  public static String providerState;
-  public static String providerZipCode;
-  public static int consultNum;
-  public static double totalFee;
+  public static String providerNumber = "123";
+  public static String providerAddress = "HackBerry";
+  public static String providerCity = "Tuscaloosa";
+  public static String providerState = "AL";
+  public static String providerZipCode = "WhateverOurZipIs";
+  public static int consultNum = 12;
+  public static double totalFee = 12;
 
   public static ProviderRecord getProviderRecordFromFile(String providerNumber) throws IOException {
     // Read all the provider records from the file
@@ -38,7 +38,8 @@ public class ManagerController {
         String state = parts[4];
         String zipcode = parts[5];
 
-        // Create a new provider record object with the parsed data
+        // Create a new provider record object with the parsed datae
+        System.out.print("Aaa");
         providerName = name;
         providerNumber = number;
         providerAddress = address;
@@ -56,7 +57,8 @@ public class ManagerController {
     getProviderRecordFromFile(PROVIDER_FILE_NAME);
     ProviderReport providerReport = new ProviderReport(providerName, providerNumber, providerAddress, providerCity,
         providerState, providerZipCode, consultNum, totalFee);
-    System.out.println(providerReport);
+    System.out.println("working ");
+    System.out.println(providerReport.getProviderName());
   }
 
   public static void RequestSummaryReport() {
@@ -67,5 +69,9 @@ public class ManagerController {
   public static void RequestMemberReport() {
     MemberReport memberReport = new MemberReport();
     System.out.println(memberReport);
+  }
+
+  public static void main(String[] args) throws IOException {
+    RequestProviderReport();
   }
 }
