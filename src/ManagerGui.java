@@ -27,7 +27,7 @@ public class ManagerGui {
         summaryReportBtn.setBounds(250, 150, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
         panel.add(summaryReportBtn);
@@ -36,7 +36,7 @@ public class ManagerGui {
         eftReportBtn.setBounds(250, 250, 300, 50);
         eftReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
         panel.add(eftReportBtn);
@@ -45,7 +45,7 @@ public class ManagerGui {
         memberReportBtn.setBounds(250, 350, 300, 50);
         memberReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
         panel.add(memberReportBtn);
@@ -53,13 +53,12 @@ public class ManagerGui {
         providerReportBtn.setBounds(250, 450, 300, 50);
         providerReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               
+
             }
         });
         panel.add(providerReportBtn);
         frame.add(panel);
         frame.setVisible(true);
     }
-        
+
 }
-        

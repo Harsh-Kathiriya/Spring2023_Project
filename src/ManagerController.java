@@ -68,8 +68,4 @@ public class ManagerController {
     MemberReport memberReport = new MemberReport();
     System.out.println(memberReport);
   }
-
-  public static void main(String[] args) {
-    Terminal gui = new Terminal();
-  }
 }
