@@ -34,9 +34,10 @@ public class Credentials{
         memberCredentialsList = new ArrayList<String>();
         String userDirectory = System.getProperty("user.dir");
         String credentialsLocation = System.getProperty("user.dir");
+        System.out.println(credentialsLocation);
         try{
             System.out.println(userDirectory);
-            File managerFile = new File(credentialsLocation + "managerCredentials.txt");
+            File managerFile = new File(credentialsLocation + "/src/managerCredentials.txt");
             Scanner managerReader = new Scanner(managerFile);
 
             while(managerReader.hasNextLine()) {
@@ -51,7 +52,7 @@ public class Credentials{
         }
 
         try{
-            File providerFile= new File(System.getProperty("user.dir") + "/Provider_Record");
+            File providerFile= new File(System.getProperty("user.dir") + "/src/Provider_Record");
             Scanner providerReader = new Scanner(providerFile);
 
             while(providerReader.hasNextLine()) {
@@ -66,7 +67,7 @@ public class Credentials{
             e.printStackTrace();
         }
         try{
-            File memberFile= new File(System.getProperty("user.dir") + "/Member_Record");
+            File memberFile= new File(System.getProperty("user.dir") + "/src/Member_Record");
             Scanner memberReader = new Scanner(memberFile);
 
             while(memberReader.hasNextLine()) {
@@ -83,7 +84,7 @@ public class Credentials{
 
 
         try{
-            File operatorFile= new File(credentialsLocation + "operatorCredentials.txt");
+            File operatorFile= new File(credentialsLocation + "/src/operatorCredentials.txt");
             Scanner operatorReader = new Scanner(operatorFile);
 
             while(operatorReader.hasNextLine()) {
