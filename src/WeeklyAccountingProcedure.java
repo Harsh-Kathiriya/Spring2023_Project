@@ -87,7 +87,6 @@ public class WeeklyAccountingProcedure {
             System.out.println(providerServices.size());
             System.out.println(totalFee + " \n \n \n");
         }
-        
     }
 
     void requestMemberReport() {
