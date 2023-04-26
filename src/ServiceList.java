@@ -88,6 +88,20 @@ public class ServiceList {
         }
         return currentService;
     }
+
+    public ArrayList<Service> usersServices(int userNum) {
+        ArrayList<Service> services = new ArrayList<Service>();
+        Iterator serviceMapIterator = serviceMap.entrySet().iterator();
+        Service currentService = null;
+        while(serviceMapIterator.hasNext()) {
+            Map.Entry mapElement = (Map.Entry)serviceMapIterator.next();
+            currentService = (Service)mapElement.getValue();
+            if((userNum == currentService.getMemberNum()) || (userNum == currentService.getProviderNum())) {
+                services.add(currentService);
+            }
+        }
+        return services;
+    }
     
     public int getSize() {
         return serviceMap.size();
