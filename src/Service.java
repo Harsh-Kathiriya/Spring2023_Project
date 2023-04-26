@@ -12,6 +12,7 @@ public class Service {
         this.providerNum = providerNum;
         this.memberNum = memberNum;
         this.serviceCode = serviceCode;
+        this.comments = "NULL";
     }
     public Service(int currentDate, int dateProvided, int providerNum, int memberNum, int serviceCode,
             String comments) {
