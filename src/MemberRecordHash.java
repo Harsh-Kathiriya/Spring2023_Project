@@ -12,7 +12,15 @@ public class MemberRecordHash {
         String city;
         String state;
         String zipCode;
-    }
-
     
+        member(String number, String memberName, String street, String cityString
+        , String state, String zipCode){
+            this.number = number;
+            this.memberName = memberName;
+            this.street = street;
+            this.city = city;
+            this.state = state;
+            this.zipCode = zipCode;
+        }
+    }
 }
