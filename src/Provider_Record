@@ -1,211 +1,43 @@
-<<<<<<< Updated upstream
-123,Sebastian,123,Address,Tuscaloosa,AL,31404
-=======
-<<<<<<< Updated upstream
-
-Sebastian,123,Address,Tuscaloosa,AL,WhateverTheHellOurZipIs
-=======
-name id adress city state zip
-id	first_name	last_name	street	number	state	zip
-1	Doralynn	Matyashev	6	Lindbergh	Coimbra	3070-235
-2	Truman	Chastaing	71720	Killdeer	SetÃºbal	2825-843
-3	Darci	Krollmann	71738	Butternut		
-4	Eldredge	Lyne	6523	Morrow		2313
-5	Esther	Cicchitello	7324	Londonderry		309271
-6	Antonius	Vedeshkin	6407	Superior		26600-000
-7	Jemima	Pennell	480	Texas	Mexico	52600
-8	Marianna	Radmer	6458	Westridge	SantarÃ©m	2435-091
-9	Janeen	Ranvoise	933	Onsgard		
-10	Nichole	Bennett	1	Springview		188668
-11	Torre	Eadon	53	Banding		989-2471
-12	Pierce	Van Giffen	78	Trailsway		
-13	Dannye	Bagehot	3	Surrey		330 22
-14	Tedi	Breakey	54	Graceland	Porto	4610-695
-15	Port	Widdowson	6754	Merry		
-16	Elwood	Sallans	2039	International		
-17	Ania	Benedyktowicz	976	Lukken	Region Hovedstaden	1410
-18	Caro	Pendlebury	1931	North		185038
-19	Josi	Molen	66	Thompson	Sicilia	90141
-20	Melamie	Liggett	1	Farragut		27-425
-21	Hazel	Toopin	9604	Susan		30001
-22	Vinita	Daniel	89986	Sutherland		
-23	Toiboid	Boother	93	Londonderry		
-24	Gwen	Peert	7827	Melody		
-25	Ronnica	Simoni	8	Elgar		
-26	Kameko	Lamprecht	2544	Bonner		
-27	Roderick	Prewer	93260	Grover	SantarÃ©m	2380-506
-28	Barnett	Windham	228	1st		
-29	Sile	Gookes	945	Sugar		
-30	Llywellyn	Challener	65594	Welch		
-31	Maurise	Gors	2	Gulseth		164509
-32	Ashlan	Micklem	76	Gina		
-33	Felic	Jee	7	Glendale		
-34	Ardath	Koppes	8	Manitowish		
-35	Fina	Jedrych	2428	Hayes		
-36	Xenos	Daunter	7	Lake View		
-37	Peria	Rubinowitz	5	Stone Corner		
-38	Tess	Esselen	72313	Mifflin		
-39	Skyler	Kummerlowe	5636	Crowley		
-40	Hubert	Couroy	264	Maple Wood		
-41	Jeffrey	Braam	7	Declaration		18530-000
-42	Helaine	Kilgallon	4	Towne		
-43	Clarita	De Ruel	200	Welch		
-44	Hynda	Flaherty	3148	Di Loreto	Nordrhein-Westfalen	51149
-45	Alfred	Tetla	88	Fisk	Midi-PyrÃ©nÃ©es	81109 CEDEX
-46	Felita	Yakhin	50	1st		
-47	Boothe	Henze	9102	Katie		84-122
-48	Keith	McCosh	44854	Mifflin		533 04
-49	Leonid	Badcock	5236	East		
-50	Jeanne	Absolem	2011	Blaine		
-51	Sydel	Yeatman	84291	Vernon	Midi-PyrÃ©nÃ©es	81604 CEDEX
-52	Bertine	Puckring	59178	Prentice		
-53	Penn	Domm	41286	Loftsgordon		
-54	Sheilah	Adan	94	Elka		
-55	Othilia	Arton	91832	Nelson		
-56	Nata	Munton	322	Larry	Champagne-Ardenne	51209 CEDEX
-57	Johnathan	Polly	53251	Victoria	Braga	4730-560
-58	Lanny	Vannozzii	451	Hollow Ridge		15130
-59	Minetta	Chaize	7	Pankratz		629860
-60	Grove	Yesson	86042	Summit		
-61	Carleen	Freer	6840	Pine View		
-62	Jorge	Hewins	11	Buhler		
-63	Aggie	Dunston	6608	Emmet		5411
-64	Sashenka	Leeder	0	Banding		
-65	Wendeline	O'Rudden	788	Sachtjen		607189
-66	Thelma	Topping	3	Donald		R32
-67	Robinetta	Gosden	8482	Carioca		
-68	Althea	Galland	1576	Green		
-69	Lorianna	Powe	13619	Marquette		
-70	Brianna	Learman	3	Manufacturers		9840
-71	Jerri	Vaugham	6	Florence		649743
-72	Missie	Skeldinge	69558	Emmet		2624
-73	Ezekiel	Bradmore	60	Dahle		
-74	Bianka	Vasnev	2	Atwood		
-75	Vivianne	Mowne	95	Trailsway	Viseu	3660-410
-76	Artemas	Roan	6	Haas		55261
-77	Lara	Dulinty	590	Graceland		80615
-78	Persis	Colbourne	6	Eliot		84180
-79	Tess	Cant	22870	Trailsway		
-80	Kylie	Lanfranchi	481	Homewood		
-81	Guy	Frobisher	74	Vahlen		17801
-82	Torrin	Duprey	45	Everett		
-83	Mabelle	Pitrelli	270	Ilene		
-84	Alyssa	Hutson	515	Di Loreto		
-85	Mellisa	Biskupski	16949	Service		664 84
-86	Christabella	Rawls	8	Montana		592 11
-87	Nollie	Gentery	3308	Moland		
-88	Zackariah	Phillins	4573	Monument		
-89	Mireielle	By	600	Monument	SkÃ¥ne	291 36
-90	Locke	Rosettini	7210	North		303623
-91	Fiann	Sickert	1610	Schmedeman		5103
-92	Cally	Houchin	0	Ramsey		
-93	Matelda	Valek	6	Oak		
-94	Monti	Moraleda	4	Bowman	QuÃ©bec	J1T
-95	Thomasa	Tuffley	41316	Milwaukee	Oslo	968
-96	Bank	Enoksson	5803	Troy		64130
-97	Arliene	Tyre	950	Pierstorff		64120-000
-98	Maryanne	Alleyne	55	Thackeray		
-99	Hillery	Warin	760	Portage		
-100	Celene	Gantzman	884	Forster		
-101	Rosalynd	Pavis	21613	6th		718-0011
-102	Jana	Kabisch	78	Elka		94150
-103	Polly	Timmens	775	Kropf		
-104	Layney	Hasnney	8610	2nd	Oslo	477
-105	Nathalie	McGrowther	29555	Mcbride		
-106	Gerladina	Spandley	4	Summer Ridge		
-107	Aline	Lakenden	3	Cody		
-108	Frederich	Salvage	7503	Kinsman		28031
-109	Bjorn	Jenckes	76195	Kropf		
-110	Joe	Gaine	130	Russell		
-111	Austine	Torricella	78	Charing Cross		13130
-112	Brandi	Sambrook	3281	4th		
-113	Vinny	Padillo	48020	Sycamore		4337
-114	Winnifred	Panchin	30	Rigney		8468
-115	Lindsey	Alenin	1	Lunder		
-116	Lyndel	Polden	973	Ridgeway		
-117	Iver	Rosendahl	734	Johnson		
-118	Hobart	Swithenby	522	Bunting		
-119	Vernor	Reeken	24	Swallow		
-120	Dody	Breit	391	Sycamore		
-121	Gillie	Stivey	5	New Castle		
-122	Logan	Rijkeseis	88	Warrior		
-123	Ricki	Landeaux	895	Thompson		
-124	Janeczka	Clague	69	Bowman		187003
-125	Minna	Spradbrow	26276	Vera		
-126	Michal	Muldoon	121	Johnson		
-127	Carmon	McDermott-Row	394	Bayside		
-128	Hilde	Pervew	719	Glacier Hill		
-129	Helene	Pinkney	5	Old Shore	Sarawak	93722
-130	Candida	Currom	70122	Mosinee	Cataluna	8204
-131	Astrid	Keynes	376	Banding		
-132	Jessie	Chatell	0	East		
-133	Jan	Burnhill	91	Eastwood		
-134	Leah	Donnel	16835	Hansons	Champagne-Ardenne	52011 CEDEX
-135	Dieter	Palliser	78	4th		
-136	Thalia	Spence	9820	Crescent Oaks		
-137	Iain	Goodin	43	Packers		
-138	Viola	Tutchener	9746	Macpherson		6305
-139	Augusto	Summerly	888	Maryland	Newfoundland and Labrador	E8K
-140	Idalina	Andrzej	83	Mesta	ÃŽle-de-France	75038 CEDEX 01
-141	Nowell	Antognetti	6	Moose		62580-000
-142	Aura	Allbrook	43143	Rieder		50770
-143	Ellery	Emmett	93119	Hoard		
-144	Pennie	Jeacock	7	6th		
-145	Hieronymus	Gammidge	2361	Valley Edge	Perlis	1630
-146	Agneta	Adamoli	9	Blackbird		
-147	Crin	McQuillen	91230	Red Cloud	Nova Scotia	M9L
-148	Liv	Rendbaek	19	Sheridan		
-149	Garth	Bertenshaw	0	Fordem		
-150	Zondra	Beaney	860	Green Ridge		
-151	Francyne	Scholfield	23545	Holmberg		
-152	Lizzie	McBay	7	Barby		17009
-153	Danni	Witterick	694	Paget		
-154	Rhody	Voisey	9427	Blaine		
-155	Vere	Derye-Barrett	14797	Haas		
-156	Kristopher	Ioan	6	Farwell		
-157	Kipper	Tipton	7	Acker	Aquitaine	33394 CEDEX
-158	Ulrike	Chasmor	2	Goodland		
-159	Linet	Lakey	18	Clove		
-160	Zeb	Farney	2801	Meadow Vale		80-174
-161	Arly	Enrdigo	6	Gale		
-162	Cindra	Ebden	5	Dottie		
-163	Alvera	Itzkov	85814	7th	Lazio	185
-164	Zach	Tinman	4	Hansons	Ã–stergÃ¶tland	595 94
-165	Arleta	Doodson	10849	Rieder	Stockholm	121 29
-166	Cecilla	Grigorian	2522	Drewry		33190
-167	Erin	Aujouanet	8678	Golf View	Florida	33175
-168	Alexandros	Caswell	31301	Carey		
-169	Leontine	Stucksbury	207	Prairie Rose		
-170	Lisle	Ruckert	1850	Moulton		
-171	Harriet	Briscoe	10	Hooker		798 26
-172	Marchall	Lacasa	739	Pepper Wood		
-173	Kirbie	Hatje	71016	Milwaukee		
-174	Maudie	Breakwell	6618	Pepper Wood		32-045
-175	Kaiser	Grishin	514	Orin		
-176	Christoph	Curcher	8	Fairfield		6214
-177	Fina	Bonnell	9527	Vahlen		393194
-178	Neel	Van der Beken	2	Brentwood		5510
-179	Farrell	Scrowton	7945	Jenna		
-180	Christal	Errey	4	Columbus		
-181	Jennette	Convery	3481	Toban		
-182	Margeaux	Oscroft	9881	Debs	Stockholm	137 57
-183	Merrel	Labbez	0	Hoard		
-184	Ola	Arundell	856	Division		
-185	Lian	Michie	15	Rusk		
-186	Briant	Huntington	8852	Northridge		
-187	Myer	Caldecourt	84608	Bluestem		10505
-188	Winnie	O'Mahoney	925	John Wall		30001
-189	Kerrin	Gideon	12	Lyons		
-190	Kimberlee	Wixey	6663	Anniversary		
-191	Haywood	Eacott	59381	Buena Vista	Andalucia	29010
-192	Lonnie	Leeder	13551	Arrowood		14150
-193	Bryn	Albin	2	Mccormick		18006
-194	Maryanna	Lewisham	9	Lakeland		14-420
-195	Bessy	Ruthen	83	Rutledge		9810
-196	Lemar	Digger	52	Delaware		11-030
-197	Dorey	Bamlet	1	Daystar		
-198	Cornie	Fairbrace	144	Coleman		664 59
-199	Gabriele	Freemantle	96	Morning		9510
-
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+John Smith,111223333,123 Main St,NY,10001
+Emma Johnson,444455556,456 Elm St,CA,90001
+Adam Williams,777788889,789 Oak St,TX,77001
+Rachel Davis,121231234,111 Pine St,FL,33001
+Jacob Garcia,212223334,222 Cedar Ave,CA,90210
+Sophie Brown,454546567,333 Maple Ln,GA,30301
+Noah Rodriguez,767676777,444 Cherry St,OH,43001
+Lily Kim,989898999,555 Elm Rd,IL,60601
+Ethan Hernandez,101011112,666 Oak Dr,PA,19101
+Olivia Davis,131314141,777 Cedar St,NY,10002
+Ava Lee,151516161,888 Pine Rd,FL,33002
+Aiden Jackson,181819191,999 Maple Ave,CA,90211
+Isabella Garcia,202020202,1010 Cherry Ln,TX,77002
+Mason Martinez,232323233,1111 Elm St,PA,19102
+Charlotte Wilson,262626262,2222 Oak Rd,IL,60602
+Carter Brown,292929293,3333 Cedar Dr,OH,43002
+Amelia Taylor,323232323,4444 Pine St,GA,30302
+Alexander Kim,353535353,5555 Maple Ave,FL,33003
+Madison Rodriguez,383838384,6666 Cherry Rd,CA,90212
+Daniel Hernandez,414141414,7777 Elm Ln,NY,10003
+Grace Smith,444444445,8888 Pine St,TX,77003
+William Lee,474747474,9999 Oak Ave,PA,19103
+Victoria Davis,505050505,10101 Cedar Dr,IL,60603
+Joseph Martinez,535353535,11111 Maple St,OH,43003
+Chloe Wilson,565656566,12121 Cherry Ave,GA,30303
+Emily Brown,595959597,13131 Elm Rd,FL,33004
+Samuel Taylor,626262626,14141 Pine Dr,CA,90213
+Avery Jackson,656565657,15151 Oak Ln,NY,10004
+Evelyn Kim,686868687,16161 Cedar Rd,TX,77004
+Elijah Hernandez,717171718,17171 Maple St,PA,19104
+Sofia Rodriguez,747474748,18181 Cherry Ave,IL,60604
+Benjamin Garcia,777777778,19191 Elm Ln,OH,43004
+Aria Smith,808080809,20202 Pine St,GA,30304
+Ethan Lee,838383840,21212 Oak Rd,FL,33005
+Mia Davis,868686871,22222 Cedar Dr,CA,90214
+Jacob Wilson,898989902,23232 Maple St,NY,10005
+Avery Taylor,929292933,24242 Cherry Ave,TX,77005
+Olivia Brown,959595964,25252 Elm Rd,PA,19105
+William Martinez,989898995,26262 Pine Ln,IL,60605
+Sophia Kim,101010101,27272 Oak Dr,OH,43005
+Landon Hernandez,103103104,28282 Cedar St,GA,30305
+Isabella Rodriguez,106106107,29292 Maple Rd,FL,33006
+Evelyn Garcia,109109110,30303 Cherry Ave,CA,90215
