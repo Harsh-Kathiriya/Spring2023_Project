@@ -22,6 +22,10 @@ public class Credentials{
         return operatorCredentialsList.contains(String.valueOf(var));
     }
 
+    public boolean searchMemberList(Integer var){
+        return memberCredentialsList.contains(String.valueOf(var));
+    }
+
 
     public Credentials(){
         managerCredentialsList = new ArrayList<String>();
