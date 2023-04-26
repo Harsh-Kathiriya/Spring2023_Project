@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -7,7 +6,6 @@ import java.io.IOException;
 class EFTRecord {
     // initializing fields
     private String EFTLocation;
-    private File directoryInfo;
     private String providerName;
     private int providerNumber;
     private int transferAmount;
@@ -24,7 +22,6 @@ class EFTRecord {
         try {
             String userDirectory = System.getProperty("user.dir");
             EFTLocation = userDirectory + "/spring23team1/src/" + providerName + ".txt";
-            directoryInfo = new File(EFTLocation);
             FileWriter EFTWriter = new FileWriter(EFTLocation);
             EFTWriter.write(providerName + " " + Integer.toString(providerNumber) +  " " + Integer.toString(transferAmount));
             EFTWriter.close();

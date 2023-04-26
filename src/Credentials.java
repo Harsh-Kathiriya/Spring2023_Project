@@ -26,9 +26,11 @@ public class Credentials{
         managerCredentialsList = new ArrayList<String>();
         providerCredentialsList = new ArrayList<String>();
         operatorCredentialsList = new ArrayList<String>();
-
+        String userDirectory = System.getProperty("user.dir");
+        String credentialsLocation = userDirectory + "/spring23team1/src/";
         try{
-            File managerFile = new File("C:\\Users\\emily\\OneDrive\\Desktop\\cs200\\roject4\\credentials\\src\\managerCreds.txt");
+            System.out.println(userDirectory);
+            File managerFile = new File(credentialsLocation + "managerCredentials.txt");
             Scanner managerReader = new Scanner(managerFile);
 
             while(managerReader.hasNextLine()) {
@@ -43,7 +45,7 @@ public class Credentials{
         }
 
         try{
-            File providerFile= new File("C:\\Users\\emily\\OneDrive\\Desktop\\cs200\\roject4\\credentials\\src\\providerCreds.txt");
+            File providerFile= new File(credentialsLocation + "providerCredentials.txt");
             Scanner providerReader = new Scanner(providerFile);
 
             while(providerReader.hasNextLine()) {
@@ -58,7 +60,7 @@ public class Credentials{
         }
 
         try{
-            File operatorFile= new File("C:\\Users\\emily\\OneDrive\\Desktop\\cs200\\roject4\\credentials\\src\\operatorCreds.txt");
+            File operatorFile= new File(credentialsLocation + "operatorCredentials.txt");
             Scanner operatorReader = new Scanner(operatorFile);
 
             while(operatorReader.hasNextLine()) {
