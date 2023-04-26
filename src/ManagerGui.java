@@ -9,7 +9,6 @@ public class ManagerGui {
     private JFrame frame;
     private JPanel panel;
     private JLabel titleLabel;
-
     public ManagerGui() {
         frame = new JFrame();
         frame.setSize(800, 600);
@@ -27,7 +26,7 @@ public class ManagerGui {
         summaryReportBtn.setBounds(250, 150, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                ManagerController.RequestSummaryReport();
             }
         });
         panel.add(summaryReportBtn);
@@ -36,7 +35,6 @@ public class ManagerGui {
         eftReportBtn.setBounds(250, 250, 300, 50);
         eftReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
             }
         });
         panel.add(eftReportBtn);
@@ -45,7 +43,7 @@ public class ManagerGui {
         memberReportBtn.setBounds(250, 350, 300, 50);
         memberReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                ManagerController.RequestMemberReport();
             }
         });
         panel.add(memberReportBtn);
@@ -53,7 +51,12 @@ public class ManagerGui {
         providerReportBtn.setBounds(250, 450, 300, 50);
         providerReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    ManagerController.RequestProviderReport();
+                }
+                catch(IOException E) {
+                    System.out.println("Error");
+                }
             }
         });
         panel.add(providerReportBtn);
