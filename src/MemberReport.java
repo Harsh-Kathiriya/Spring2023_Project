@@ -3,16 +3,14 @@ import java.sql.Date;
 class MemberReport {
     // initializing fields
     private String memberName;
-    private int memberNumber;
+    private String memberNumber;
     private String memberAddress;
     private String memberCity;
     private String memberState;
-    private int memberZipCode;
+    private String memberZipCode;
     private int dateOfServices[];
     private String providerNames[];
-    private String serviceNames[]; 
-
-   
+    private String serviceNames[];
 
     // default constructor does not intialize any values
     MemberReport() {
@@ -20,8 +18,9 @@ class MemberReport {
     }
 
     // Constructor that provides all fields of the report
-    MemberReport(String memberName, int memberNumber, String memberAddress, String memberCity,
-            String memberState, int memberZipCode, int dateOfServices[], String providerNames[], String serviceNames[]) {
+    MemberReport(String memberName, String memberNumber, String memberAddress, String memberCity,
+            String memberState, String memberZipCode, int dateOfServices[], String providerNames[],
+            String serviceNames[]) {
         this.memberName = memberName;
         this.memberNumber = memberNumber;
         this.memberAddress = memberAddress;
@@ -42,11 +41,11 @@ class MemberReport {
         this.memberName = memberName;
     }
 
-    public int getMemberNumber() {
+    public String getMemberNumber() {
         return memberNumber;
     }
 
-    public void setMemberNumber(int memberNumber) {
+    public void setMemberNumber(String memberNumber) {
         this.memberNumber = memberNumber;
     }
 
@@ -74,11 +73,11 @@ class MemberReport {
         this.memberState = memberState;
     }
 
-    public int getMemberZipCode() {
+    public String getMemberZipCode() {
         return memberZipCode;
     }
 
-    public void setMemberZipCode(int memberZipCode) {
+    public void setMemberZipCode(String memberZipCode) {
         this.memberZipCode = memberZipCode;
     }
 
