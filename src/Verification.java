@@ -28,9 +28,7 @@ public class Verification{
         if(credentials.searchOperatorList(userNum) == true){
             return 2; //is opperator
         }
-        if(credentials.searchMemberList(userNum) == true){
-            return 3;
-        }
+        a
         else return -1; //unauthorized user
 
         
