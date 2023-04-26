@@ -14,7 +14,6 @@ public class Verification{
     }
     */
 
-    
     /* Will return value based on role of user ie. manager, provider,
      or operator. -1 indicates user is not valid.*/
 
@@ -28,7 +27,9 @@ public class Verification{
         if(credentials.searchOperatorList(userNum) == true){
             return 2; //is opperator
         }
-        a
+        if(credentials.searchMemberList(userNum) == true){
+            return 3; //is opperator
+        }
         else return -1; //unauthorized user
 
         

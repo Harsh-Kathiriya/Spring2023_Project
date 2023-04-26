@@ -8,18 +8,21 @@ public class Credentials{
     public ArrayList<String> managerCredentialsList;
     public ArrayList<String> providerCredentialsList;
     public ArrayList<String> operatorCredentialsList;
+    public ArrayList<String> memberCredentialsList;
 
     public boolean searchManagerList(Integer var){
         return managerCredentialsList.contains(String.valueOf(var));
     }
 
     public boolean searchProviderList(Integer var){
-        System.out.println("scascsac");
         return providerCredentialsList.contains(String.valueOf(var));
     }
 
     public boolean searchOperatorList(Integer var){
         return operatorCredentialsList.contains(String.valueOf(var));
+    }
+    public boolean searchMemberList(Integer var){
+        return memberCredentialsList.contains(String.valueOf(var));
     }
 
 
@@ -27,7 +30,7 @@ public class Credentials{
         managerCredentialsList = new ArrayList<String>();
         providerCredentialsList = new ArrayList<String>();
         operatorCredentialsList = new ArrayList<String>();
-        System.out.println("bbb");
+        memberCredentialsList = new ArrayList<String>();
         try{
             File managerFile = new File(System.getProperty("user.dir") + "/managerCreds");
             System.out.println("null");
@@ -46,7 +49,6 @@ public class Credentials{
 
         try{
             File providerFile= new File(System.getProperty("user.dir") + "/Provider_Record");
-            System.out.println("aaa");
             Scanner providerReader = new Scanner(providerFile);
 
             while(providerReader.hasNextLine()) {
@@ -61,6 +63,21 @@ public class Credentials{
             e.printStackTrace();
         }
 
+        try{
+            File memberFile= new File(System.getProperty("user.dir") + "/Member_Record");
+            Scanner memberReader = new Scanner(memberFile);
+
+            while(memberReader.hasNextLine()) {
+                String data = memberReader.nextLine();
+                String[] temp = data.split(",");
+                memberCredentialsList.add(temp[0]);
+            }
+            memberReader.close();
+        }
+        catch (FileNotFoundException e){
+            System.out.println("error occured");
+            e.printStackTrace();
+        }
         try{
             File operatorFile= new File(System.getProperty("user.dir") + "/operatorCreds");
             Scanner operatorReader = new Scanner(operatorFile);
