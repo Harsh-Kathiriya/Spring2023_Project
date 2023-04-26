@@ -1,9 +1,9 @@
-
+import java.util.*;
 class SummaryReport {
     // initializing fields
-    private String providerNames[];
-    private String providerConsultNums[];
-    private int providerTotalFees[];
+    private ArrayList<String> providerNames;
+    private ArrayList<Integer> providerConsultNums;
+    private ArrayList<Integer> providerTotalFees;
     private int amountOfProviders;
     private int amountOfConsults;
     private int totalFee;
@@ -14,7 +14,7 @@ class SummaryReport {
     }
     
     // Constructor that provides all fields of the report
-    public SummaryReport(String[] providerNames, String[] providerConsultNums, int[] providerTotalFees,
+    public SummaryReport(ArrayList<String> providerNames, ArrayList<Integer> providerConsultNums, ArrayList<Integer> providerTotalFees,
             int amountOfProviders, int amountOfConsults, int totalFee) {
         this.providerNames = providerNames;
         this.providerConsultNums = providerConsultNums;
@@ -24,27 +24,27 @@ class SummaryReport {
         this.totalFee = totalFee;
     }
 
-    public String[] getProviderNames() {
+    public ArrayList<String> getProviderNames() {
         return providerNames;
     }
 
-    public void setProviderNames(String[] providerNames) {
+    public void setProviderNames(ArrayList<String> providerNames) {
         this.providerNames = providerNames;
     }
 
-    public String[] getProviderConsultNums() {
+    public ArrayList<Integer> getProviderConsultNums() {
         return providerConsultNums;
     }
 
-    public void setProviderConsultNums(String[] providerConsultNums) {
+    public void setProviderConsultNums(ArrayList<Integer> providerConsultNums) {
         this.providerConsultNums = providerConsultNums;
     }
 
-    public int[] getProviderTotalFees() {
+    public ArrayList<Integer> getProviderTotalFees() {
         return providerTotalFees;
     }
 
-    public void setProviderTotalFees(int[] providerTotalFees) {
+    public void setProviderTotalFees(ArrayList<Integer> providerTotalFees) {
         this.providerTotalFees = providerTotalFees;
     }
 

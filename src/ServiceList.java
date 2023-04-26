@@ -64,7 +64,6 @@ public class ServiceList {
                 }
                 readIn.close();
             }
-
         }
         catch(FileNotFoundException e) {
             System.out.println("Error");
