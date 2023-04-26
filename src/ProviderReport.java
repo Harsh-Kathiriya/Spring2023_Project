@@ -2,22 +2,22 @@
 class ProviderReport {
     // initializing fields
     private String providerName;
-    private int providerNumber;
+    private String providerNumber;
     private String providerAddress;
     private String providerCity;
     private String providerState;
-    private int providerZipCode;
+    private String providerZipCode;
     private int consultNum;
     private double totalFee;
 
     // default constructor does not intialize any values
     ProviderReport() {
-        
+
     }
 
     // Constructor that provides all fields of the report
-    ProviderReport(String providerName, int providerNumber, String providerAddress, String providerCity,
-    String providerState, int providerZipCode, int consultNum, double totalFee) {
+    ProviderReport(String providerName, String providerNumber, String providerAddress, String providerCity,
+            String providerState, String providerZipCode, int consultNum, double totalFee) {
         this.providerName = providerName;
         this.providerNumber = providerNumber;
         this.providerAddress = providerAddress;
@@ -37,11 +37,11 @@ class ProviderReport {
         this.providerName = providerName;
     }
 
-    public int getProviderNumber() {
+    public String getProviderNumber() {
         return providerNumber;
     }
 
-    public void setProviderNumber(int providerNumber) {
+    public void setProviderNumber(String providerNumber) {
         this.providerNumber = providerNumber;
     }
 
@@ -69,11 +69,11 @@ class ProviderReport {
         this.providerState = providerState;
     }
 
-    public int getProviderZipCode() {
+    public String getProviderZipCode() {
         return providerZipCode;
     }
 
-    public void setProviderZipCode(int providerZipCode) {
+    public void setProviderZipCode(String providerZipCode) {
         this.providerZipCode = providerZipCode;
     }
 
