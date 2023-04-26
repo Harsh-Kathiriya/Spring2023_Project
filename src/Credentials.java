@@ -8,13 +8,13 @@ public class Credentials{
     public ArrayList<String> managerCredentialsList;
     public ArrayList<String> providerCredentialsList;
     public ArrayList<String> operatorCredentialsList;
-    public ArrayList<String> memberCredentialsList;
 
     public boolean searchManagerList(Integer var){
         return managerCredentialsList.contains(String.valueOf(var));
     }
 
     public boolean searchProviderList(Integer var){
+        System.out.println("scascsac");
         return providerCredentialsList.contains(String.valueOf(var));
     }
 
@@ -22,22 +22,15 @@ public class Credentials{
         return operatorCredentialsList.contains(String.valueOf(var));
     }
 
-    public boolean searchMemberList(Integer var){
-        return memberCredentialsList.contains(String.valueOf(var));
-    }
-
 
     public Credentials(){
         managerCredentialsList = new ArrayList<String>();
         providerCredentialsList = new ArrayList<String>();
         operatorCredentialsList = new ArrayList<String>();
-        memberCredentialsList = new ArrayList<String>();
-        String userDirectory = System.getProperty("user.dir");
-        String credentialsLocation = System.getProperty("user.dir");
-        System.out.println(credentialsLocation);
+        System.out.println("bbb");
         try{
-            System.out.println(userDirectory);
-            File managerFile = new File(credentialsLocation + "/src/managerCredentials.txt");
+            File managerFile = new File(System.getProperty("user.dir") + "/managerCreds");
+            System.out.println("null");
             Scanner managerReader = new Scanner(managerFile);
 
             while(managerReader.hasNextLine()) {
@@ -52,7 +45,8 @@ public class Credentials{
         }
 
         try{
-            File providerFile= new File(System.getProperty("user.dir") + "/src/Provider_Record");
+            File providerFile= new File(System.getProperty("user.dir") + "/Provider_Record");
+            System.out.println("aaa");
             Scanner providerReader = new Scanner(providerFile);
 
             while(providerReader.hasNextLine()) {
@@ -66,25 +60,9 @@ public class Credentials{
             System.out.println("error occured");
             e.printStackTrace();
         }
-        try{
-            File memberFile= new File(System.getProperty("user.dir") + "/src/Member_Record");
-            Scanner memberReader = new Scanner(memberFile);
-
-            while(memberReader.hasNextLine()) {
-                String data = memberReader.nextLine();
-                String[] temp = data.split(",");
-                memberCredentialsList.add(temp[0]);
-            }
-            memberReader.close();
-        }
-        catch (FileNotFoundException e){
-            System.out.println("error occured");
-            e.printStackTrace();
-        }
-
 
         try{
-            File operatorFile= new File(credentialsLocation + "/src/operatorCredentials.txt");
+            File operatorFile= new File(System.getProperty("user.dir") + "/operatorCreds");
             Scanner operatorReader = new Scanner(operatorFile);
 
             while(operatorReader.hasNextLine()) {
