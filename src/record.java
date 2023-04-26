@@ -80,7 +80,7 @@ abstract class Record {
         this.zipCode = zipCode;
     }
 
-    public Record(String name, String number, String address, String city, String state, String zipCode ){
+    public Record(String name, String number, String address, String city, String state, String zipCode ) {
         this.name = name;
         this.number = number;
         this.address = address;

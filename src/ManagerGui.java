@@ -57,7 +57,6 @@ public class ManagerGui {
             }
         });
         panel.add(providerReportBtn);
-
         frame.add(panel);
         frame.setVisible(true);
     }
