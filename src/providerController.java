@@ -26,9 +26,9 @@ public class providerController {
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Enter service code");
         String code = myObj.nextLine();  // Read user input
-        int i =Integer.parseInt(code);  
+        int i =Integer.parseInt(code);
         Integer fee = Directory.feeLookup(i);
-        System.out.println("Fee is: " + fee); 
+        System.out.println("Fee is: " + fee);
         myObj.close();
     }
 

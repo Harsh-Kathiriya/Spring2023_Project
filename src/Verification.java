@@ -4,7 +4,7 @@ public class Verification{
 
     //Variables
     int userNum;
-    Credentials credentials;
+    static Credentials credentials;
     Scanner userReader = new Scanner(System.in);
 
     /* 
@@ -14,16 +14,11 @@ public class Verification{
     }
     */
 
-    //Prompts for user number
-    void enterInformation(){
-        System.out.println("Enter Number:\n");
-            userNum = userReader.nextInt();
-    }
-
+    
     /* Will return value based on role of user ie. manager, provider,
      or operator. -1 indicates user is not valid.*/
 
-    int userVerification(){
+    static int userVerification(int userNum){
         if(credentials.searchManagerList(userNum) == true){
             return 0; //is manager
         }
