@@ -8,6 +8,7 @@ public class Credentials{
     public ArrayList<String> managerCredentialsList;
     public ArrayList<String> providerCredentialsList;
     public ArrayList<String> operatorCredentialsList;
+    public ArrayList<String> memberCredentialsList;
 
     public boolean searchManagerList(Integer var){
         return managerCredentialsList.contains(String.valueOf(var));
@@ -26,8 +27,9 @@ public class Credentials{
         managerCredentialsList = new ArrayList<String>();
         providerCredentialsList = new ArrayList<String>();
         operatorCredentialsList = new ArrayList<String>();
+        memberCredentialsList = new ArrayList<String>();
         String userDirectory = System.getProperty("user.dir");
-        String credentialsLocation = userDirectory + "/spring23team1/src/";
+        String credentialsLocation = System.getProperty("user.dir");
         try{
             System.out.println(userDirectory);
             File managerFile = new File(credentialsLocation + "managerCredentials.txt");
@@ -45,12 +47,13 @@ public class Credentials{
         }
 
         try{
-            File providerFile= new File(credentialsLocation + "providerCredentials.txt");
+            File providerFile= new File(System.getProperty("user.dir") + "/Provider_Record");
             Scanner providerReader = new Scanner(providerFile);
 
             while(providerReader.hasNextLine()) {
                 String data = providerReader.nextLine();
-                providerCredentialsList.add(data);
+                String[] temp = data.split(",");
+                providerCredentialsList.add(temp[0]);
             }
             providerReader.close();
         }
@@ -58,6 +61,22 @@ public class Credentials{
             System.out.println("error occured");
             e.printStackTrace();
         }
+        try{
+            File memberFile= new File(System.getProperty("user.dir") + "/Member_Record");
+            Scanner memberReader = new Scanner(memberFile);
+
+            while(memberReader.hasNextLine()) {
+                String data = memberReader.nextLine();
+                String[] temp = data.split(",");
+                memberCredentialsList.add(temp[0]);
+            }
+            memberReader.close();
+        }
+        catch (FileNotFoundException e){
+            System.out.println("error occured");
+            e.printStackTrace();
+        }
+
 
         try{
             File operatorFile= new File(credentialsLocation + "operatorCredentials.txt");
