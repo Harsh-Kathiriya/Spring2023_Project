@@ -20,27 +20,17 @@ public class providerController {
         }
     }
 
-    public static void feeLookup(){
+    public static int feeLookup(int code){
         ProviderDirectory Directory = new ProviderDirectory();
-    
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter service code");
-        String code = myObj.nextLine();  // Read user input
-        int i =Integer.parseInt(code);
-        Integer fee = Directory.feeLookup(i);
-        System.out.println("Fee is: " + fee);
-        myObj.close();
+        //System.out.println("Enter service code");
+        Integer fee = Directory.feeLookup(code);
+        return fee;
     }
 
-    public static void serviceLookup(){
+    public static String serviceLookup(int code){
         ProviderDirectory Directory = new ProviderDirectory();
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Enter service code");
-        String code = myObj.nextLine();
-        int i = Integer.parseInt(code);
-        String service = Directory.serviceLookup(i);
-        System.out.println("Service is: " + service);
-        myObj.close();
+        String service = Directory.serviceLookup(code);
+        return service;
     }
 
 }
