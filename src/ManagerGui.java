@@ -29,8 +29,8 @@ public class ManagerGui {
         summaryReportBtn.setBounds(250, 150, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ArrayList<String> summaryReport = ManagerController.RequestSummaryReport();
-                JOptionPane.showMessageDialog(frame, summaryReport.get(0) + " " + summaryReport.get(1) + " " + summaryReport.get(2) + " " + summaryReport.get(3));
+                SummaryReport summaryReport = ManagerController.RequestSummaryReport();
+                //JOptionPane.showMessageDialog(frame,);
             }
         });
         panel.add(summaryReportBtn);
@@ -49,7 +49,7 @@ public class ManagerGui {
         memberReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ManagerController.RequestMemberReport();
+                    MemberReport memberReport = ManagerController.RequestMemberReport();
                 }
                 catch(Exception E) {
                     System.out.println("Error");
@@ -62,6 +62,7 @@ public class ManagerGui {
         providerReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
+                    ProviderReport providerReport = ManagerController.RequestProviderReport();
                     ManagerController.RequestProviderReport();
                 }
                 catch(IOException E) {

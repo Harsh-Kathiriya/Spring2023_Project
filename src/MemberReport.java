@@ -1,4 +1,5 @@
 import java.sql.Date;
+import java.util.*;
 
 class MemberReport {
     // initializing fields
@@ -8,9 +9,9 @@ class MemberReport {
     private String memberCity;
     private String memberState;
     private String memberZipCode;
-    private int dateOfServices[];
-    private String providerNames[];
-    private String serviceNames[];
+    private ArrayList<Integer> dateOfServices;
+    private ArrayList<String> providerNames;
+    private ArrayList<String> serviceNames;
 
     // default constructor does not intialize any values
     MemberReport() {
@@ -19,8 +20,8 @@ class MemberReport {
 
     // Constructor that provides all fields of the report
     MemberReport(String memberName, String memberNumber, String memberAddress, String memberCity,
-            String memberState, String memberZipCode, int dateOfServices[], String providerNames[],
-            String serviceNames[]) {
+            String memberState, String memberZipCode, ArrayList<Integer> dateOfServices, ArrayList<String> providerNames,
+            ArrayList<String> serviceNames) {
         this.memberName = memberName;
         this.memberNumber = memberNumber;
         this.memberAddress = memberAddress;
@@ -81,27 +82,27 @@ class MemberReport {
         this.memberZipCode = memberZipCode;
     }
 
-    public int[] getDateOfServices() {
+    public ArrayList<Integer> getDateOfServices() {
         return dateOfServices;
     }
 
-    public void setDateOfServices(int[] dateOfServices) {
+    public void setDateOfServices(ArrayList<Integer> dateOfServices) {
         this.dateOfServices = dateOfServices;
     }
 
-    public String[] getProviderNames() {
+    public ArrayList<String> getProviderNames() {
         return providerNames;
     }
 
-    public void setProviderNames(String[] providerNames) {
+    public void setProviderNames(ArrayList<String> providerNames) {
         this.providerNames = providerNames;
     }
 
-    public String[] getServiceNames() {
+    public ArrayList<String> getServiceNames() {
         return serviceNames;
     }
 
-    public void setServiceNames(String[] serviceNames) {
+    public void setServiceNames(ArrayList<String> serviceNames) {
         this.serviceNames = serviceNames;
     }
 }

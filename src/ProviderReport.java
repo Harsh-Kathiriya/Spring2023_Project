@@ -1,5 +1,8 @@
+import java.util.*;
+
 
 class ProviderReport {
+
     // initializing fields
     private String providerName;
     private String providerNumber;
@@ -9,6 +12,12 @@ class ProviderReport {
     private String providerZipCode;
     private int consultNum;
     private double totalFee;
+    private ArrayList<Integer> fees;
+    private ArrayList<Integer> datesOfServices;
+    private ArrayList<Integer> datesReceived;
+    private ArrayList<String> memberNames;
+    private ArrayList<Integer> serviceCodes;
+
 
     // default constructor does not intialize any values
     ProviderReport() {
@@ -16,8 +25,10 @@ class ProviderReport {
     }
 
     // Constructor that provides all fields of the report
-    ProviderReport(String providerName, String providerNumber, String providerAddress, String providerCity,
-            String providerState, String providerZipCode, int consultNum, double totalFee) {
+    public ProviderReport(String providerName, String providerNumber, String providerAddress, String providerCity,
+        String providerState, String providerZipCode, int consultNum, double totalFee,
+        ArrayList<Integer> datesOfServices, ArrayList<Integer> datesReceived, ArrayList<String> memberNames,
+        ArrayList<Integer> serviceCodes, ArrayList<Integer> fees) {
         this.providerName = providerName;
         this.providerNumber = providerNumber;
         this.providerAddress = providerAddress;
@@ -26,6 +37,11 @@ class ProviderReport {
         this.providerZipCode = providerZipCode;
         this.consultNum = consultNum;
         this.totalFee = totalFee;
+        this.datesOfServices = datesOfServices;
+        this.datesReceived = datesReceived;
+        this.memberNames = memberNames;
+        this.serviceCodes = serviceCodes;
+        this.fees = fees;
     }
 
     // getters and setters
@@ -92,4 +108,44 @@ class ProviderReport {
     public void setTotalFee(double totalFee) {
         this.totalFee = totalFee;
     }
+    public ArrayList<Integer> getDatesOfServices() {
+        return datesOfServices;
+    }
+
+    public void setDatesOfServices(ArrayList<Integer> datesOfServices) {
+        this.datesOfServices = datesOfServices;
+    }
+
+    public ArrayList<Integer> getDatesReceived() {
+        return datesReceived;
+    }
+
+    public void setDatesReceived(ArrayList<Integer> datesReceived) {
+        this.datesReceived = datesReceived;
+    }
+
+    public ArrayList<String> getMemberNames() {
+        return memberNames;
+    }
+
+    public void setMemberNames(ArrayList<String> memberNames) {
+        this.memberNames = memberNames;
+    }
+
+    public ArrayList<Integer> getServiceCodes() {
+        return serviceCodes;
+    }
+
+    public void setServiceCodes(ArrayList<Integer> serviceCodes) {
+        this.serviceCodes = serviceCodes;
+    }
+
+    public ArrayList<Integer> getFees() {
+        return fees;
+    }
+
+    public void setFees(ArrayList<Integer> fees) {
+        this.fees = fees;
+    }
+
 }
