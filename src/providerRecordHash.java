@@ -2,7 +2,6 @@ import java.io.File;  // Import the File class
 import java.util.Scanner;
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.*;
-import java.io.*;
 
 
 public class providerRecordHash {
@@ -21,10 +20,10 @@ public class providerRecordHash {
                 String[] parts = data.split(",");
                 String name = parts[0];
                 String id = parts[1];
-                String adress = parts[2];
-                String city = parts[3];
-                String state = parts[4];
-                String zip = parts[5];
+                String adress = parts[3];
+                String city = parts[4];
+                String state = parts[5];
+                String zip = parts[6];
 
                 ProviderRecord provider = new ProviderRecord(name, id, adress, city, state, zip);
                 int num = Integer.parseInt(id);
