@@ -23,7 +23,7 @@ public class ManagerController {
   public static String providerState;
   public static String providerZipCode;
   public static int consultNum;
-  public static double totalFee;
+  public static int totalFee;
   public static ArrayList<Integer> fees;
   public static ArrayList<Integer> datesOfServices;
   public static ArrayList<Integer> datesReceived;
@@ -40,6 +40,7 @@ public class ManagerController {
   public static ArrayList<Integer> dateOfServices;
   public static ArrayList<String> providerNames;
   public static ArrayList<String> serviceNames;
+  public static ArrayList<Integer> memberNumbers;
 
   static ProviderReport getProviderRecordFromFile(String providerID) throws IOException {
     // Read all the provider records from the file
@@ -146,7 +147,7 @@ public class ManagerController {
   public static ProviderReport RequestProviderReport() throws IOException {
     getProviderRecordFromFile(providerID);
     ProviderReport providerReport = new ProviderReport(providerName, providerNumber, providerAddress, providerCity,
-        providerState, providerZipCode, consultNum, totalFee, datesOfServices, datesReceived, memberNames, serviceCodes,
+        providerState, providerZipCode, consultNum, totalFee, datesOfServices, datesReceived, memberNames, memberNumbers, serviceCodes,
         fees);
     // System.out.println("\n");
     // System.out.println(providerReport.getProviderName());
