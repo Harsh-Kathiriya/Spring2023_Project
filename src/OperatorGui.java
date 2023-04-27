@@ -296,7 +296,7 @@ public class OperatorGui {
             stateLabel.setBounds(100, 350, 150, 25);
             editPanel.add(stateLabel);
         
-            JComboBox stateField = new JComboBox();
+            JComboBox stateField = new JComboBox(states);
             stateField.setBounds(250, 350, 300, 25);
             editPanel.add(stateField);
         
