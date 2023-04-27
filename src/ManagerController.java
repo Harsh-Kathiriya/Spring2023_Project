@@ -30,7 +30,7 @@ public class ManagerController {
   public static ArrayList<String> memberNames;
   public static ArrayList<Integer> serviceCodes;
 
-  public static String memberID = "258369258";
+  public static String memberID;
   public static String memberName;
   public static String memberNumber;
   public static String memberAddress;
@@ -71,7 +71,7 @@ public class ManagerController {
     return null;
   }
 
-  private static MemberRecord getMemberRecordFromFile(String memberID) throws IOException {
+  static MemberReport getMemberRecordFromFile(String memberID) throws IOException {
     // Read all the member records from the file
     List<String> lines = Files.readAllLines(Paths.get(MEMBER_FILE_NAME));
 
