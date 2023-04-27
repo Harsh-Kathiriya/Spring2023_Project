@@ -115,7 +115,7 @@ private static void removeRecordFromFile(String fileName, String recordNumber) t
     Files.write(Paths.get(fileName), lines);
 }
 
-private static boolean recordNumberExistsInFile(String fileName, String recordNumber) {
+public static boolean recordNumberExistsInFile(String fileName, String recordNumber) {
     // Read all the records from the file
     List<String> lines;
     try {
