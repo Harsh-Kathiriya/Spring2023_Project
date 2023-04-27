@@ -54,7 +54,6 @@ public class ServiceList {
                     tempComments = arr[5];
                     tempService = new Service(tempCurrentDateNum,tempDateProvidedNum,tempProviderNumberNum,tempMemberNumberNum,tempServiceCodeNum,tempComments);
                     serviceMap.put(serviceMap.size(), tempService);
-                    System.out.println(serviceMap.size());
                 }
                 readIn.close();
             }
@@ -91,6 +90,7 @@ public class ServiceList {
      * @return
      */
     public ArrayList<Service> usersServices(int userNum) {
+        System.out.println("WorkingService");
         ArrayList<Service> services = new ArrayList<Service>();
         Iterator serviceMapIterator = serviceMap.entrySet().iterator();
         Service currentService = null;

@@ -106,4 +106,12 @@ class MemberReport {
     public void setServiceNames(ArrayList<String> serviceNames) {
         this.serviceNames = serviceNames;
     }
+
+    @Override
+    public String toString() {
+        return "MemberReport [memberName=" + memberName + ", memberNumber=" + memberNumber + ", memberAddress="
+                + memberAddress + ", memberCity=" + memberCity + ", memberState=" + memberState + ", memberZipCode="
+                + memberZipCode + ", dateOfServices=" + dateOfServices + ", providerNames=" + providerNames
+                + ", serviceNames=" + serviceNames + "]";
+    }
 }

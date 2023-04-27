@@ -16,7 +16,7 @@ import java.util.List;
 
 
 public class MemberRecordHash {
-    private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/src/Provider_Record";
+    private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/src/Member_Record";
     public static String memberID = "258369258";
 
     List<Integer> sortedMap;
@@ -26,19 +26,18 @@ public class MemberRecordHash {
         info = new Hashtable<>();
         List<String> lines = Files.readAllLines(Paths.get(MEMBER_FILE_NAME));
         for(String line : lines){
-            if(line.startsWith(memberID+",")){
+            //if(line.startsWith(memberID+",")){
                 String[] parts = line.split(",");
-                String name = parts[0];
-                String id = parts[1];
-                String adress = parts[3];
-                String city = parts[4];
-                String state = parts[5];
-                String zip = parts[6];
-                
+                String name = parts[1];
+                String id = parts[0];
+                String adress = parts[2];
+                String city = parts[3];
+                String state = parts[4];
+                String zip = parts[5];
                 MemberRecord member = new MemberRecord(name, id, adress, city, state, zip);
                 int num = Integer.parseInt(id);
                 info.put(num, member);
-            }
+            //}
         }
         
 

@@ -155,4 +155,13 @@ class ProviderReport {
     public void setMemberNumbers(ArrayList<Integer> memberNumbers) {
         this.memberNumbers = memberNumbers;
     }
+    @Override
+    public String toString() {
+        return "ProviderReport [providerName=" + providerName + ", providerNumber=" + providerNumber
+                + ", providerAddress=" + providerAddress + ", providerCity=" + providerCity + ", providerState="
+                + providerState + ", providerZipCode=" + providerZipCode + ", consultNum=" + consultNum + ", totalFee="
+                + totalFee + ", fees=" + fees + ", datesOfServices=" + datesOfServices + ", datesReceived="
+                + datesReceived + ", memberNames=" + memberNames + ", serviceCodes=" + serviceCodes + ", memberNumbers="
+                + memberNumbers + "]";
+    }
 }

@@ -1,5 +1,6 @@
 import java.util.*;
 class SummaryReport {
+
     // initializing fields
     private ArrayList<String> providerNames;
     private ArrayList<Integer> providerConsultNums;
@@ -23,7 +24,8 @@ class SummaryReport {
         this.amountOfConsults = amountOfConsults;
         this.totalFee = totalFee;
     }
-
+    
+    // getters and setters
     public ArrayList<String> getProviderNames() {
         return providerNames;
     }
@@ -72,10 +74,11 @@ class SummaryReport {
         this.totalFee = totalFee;
     }
 
-   
-
-    
-
-    // getters and setters
+    @Override
+    public String toString() {
+        return "SummaryReport [providerNames=" + providerNames + ", providerConsultNums=" + providerConsultNums
+                + ", providerTotalFees=" + providerTotalFees + ", amountOfProviders=" + amountOfProviders
+                + ", amountOfConsults=" + amountOfConsults + ", totalFee=" + totalFee + "]";
+    }
     
 }
