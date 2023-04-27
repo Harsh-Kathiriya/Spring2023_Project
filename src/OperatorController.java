@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Random;
 
 public class OperatorController {
-   private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/Member_Record";
-    private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/Provider_Record";
+   private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/src/Member_Record";
+    private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/src/Provider_Record";
 
     // Adds a new member record to the file
     public static void addMember(MemberRecord member) throws IOException {
