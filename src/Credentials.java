@@ -38,8 +38,8 @@ public class Credentials{
             Scanner managerReader = new Scanner(managerFile);
             while(managerReader.hasNextLine()) {
                 String data = managerReader.nextLine();
-                
                 managerCredentialsList.add(data);
+                System.out.println(data);
             }
             managerReader.close();
         }
