@@ -182,17 +182,20 @@ public class WeeklyAccountingProcedure {
         try {
             for (int i = 0; i < serviceList.getSize(); i++) {
                 currentService = serviceList.serviceAt(i);
-                System.out.println("curent services provider num" + currentService.getProviderNum());
+                System.out.println(currentService.getProviderNum());
                 providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
-                
                 int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
                 totalFee += serviceFee;
+                System.out.println(providerRecord.getName());
                 if (providerNames.contains(providerRecord.getName())) {
+                System.out.println("curent services provider num" + currentService.getProviderNum());
+
                     int currentIndex = providerNames.indexOf(providerRecord.getName());
-                    providerFees.set(currentIndex,
-                            providerFees.get(providerNames.indexOf(providerRecord.getName()) + serviceFee));
+                    providerFees.set(currentIndex,providerFees.get(providerNames.indexOf(providerRecord.getName()) + serviceFee));
                     providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
-                } else {
+                } 
+                else {
+                System.out.println("curent services provider num" + currentService.getProviderNum());
                     providerNames.add(providerRecord.getName());
                     providerFees.add(serviceFee);
                     providerConsults.add(1);
