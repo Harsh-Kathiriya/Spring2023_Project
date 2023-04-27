@@ -13,6 +13,67 @@ public class ManagerGui {
     private JPanel reportPanel;
     private JLabel reportTitleLable;
 
+    void requestMemberReport() {
+        try {
+            MemberRecordHash memberRecordHash = new MemberRecordHash();
+            MemberRecord currentMember;
+            ServiceList serviceList = new ServiceList();
+            ProviderDirectory providerDirectory = new ProviderDirectory();
+            ProviderRecord providerRecord;
+            providerRecordHash providerRecordHash = new providerRecordHash();
+            ArrayList<Service> memberServices;
+            ManagerController managerController = new ManagerController();
+            ProviderReport providerReport;
+            /*
+             * ArrayList<Integer> dateOfServices;
+             * ArrayList<String> providerNames;
+             * ArrayList<String> serviceNames;
+             */
+            Service currentService;
+            String serviceName;
+
+            // Create a new JFrame to display the member report
+            JFrame frame = new JFrame();
+            frame.setTitle("Member Report");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setLayout(new BorderLayout());
+
+            // Create a JTextArea to display the member report information
+            JTextArea textArea = new JTextArea();
+            textArea.setEditable(false);
+            textArea.setLineWrap(true);
+            textArea.setWrapStyleWord(true);
+
+            for (int i = 0; i < memberRecordHash.getSize(); i++) {
+                currentMember = memberRecordHash.memberAt(i);
+                textArea.append(currentMember.getName() + " " + currentMember.getNumber() + " "
+                        + currentMember.getAddress() + " " + currentMember.getCity() + " " + currentMember.getState()
+                        + " "
+                        + currentMember.getZipCode() + "\n");
+                memberServices = serviceList.usersServices(Integer.valueOf(currentMember.getNumber()));
+                for (int j = 0; j < memberServices.size(); j++) {
+                    currentService = memberServices.get(j);
+                    providerReport = ManagerController
+                            .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
+                    serviceName = providerDirectory.serviceLookup(currentService.getServiceCode());
+                    textArea.append(currentService.getDateProvided() + " " + providerReport.getProviderName() + " "
+                            + serviceName + "\n");
+                }
+            }
+
+            // Add the JTextArea to a JScrollPane and add it to the JFrame
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            frame.add(scrollPane, BorderLayout.CENTER);
+
+            // Set the size and visibility of the JFrame
+            frame.setSize(800, 600);
+            frame.setVisible(true);
+
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+    }
+
     public class MyGUI {
         public static void main(String[] args) {
             JFrame frame = new JFrame("My GUI");
@@ -86,6 +147,7 @@ public class ManagerGui {
                     frame.add(new JScrollPane(table), BorderLayout.CENTER);
                     frame.setSize(800, 600);
                     frame.setVisible(true);
+                    requestMemberReport();
 
                 } catch (Exception E) {
                     System.out.println("Error");
