@@ -43,6 +43,7 @@ public class ProviderDirectory{
      */
     public int feeLookup(int serviceNum){
         int marker = 0;
+        requestProviderDirectory();
         for(int i = 0; i < serviceCodes.size(); i++){
             if(serviceCodes.get(i) == serviceNum){
                 marker = i;
@@ -58,6 +59,7 @@ public class ProviderDirectory{
      */
     public String serviceLookup(int serviceNum){
         int marker = 0;
+        requestProviderDirectory();
         for(int i = 0; i < serviceCodes.size(); i++){
             if(serviceCodes.get(i) == serviceNum){
                 marker = i;
