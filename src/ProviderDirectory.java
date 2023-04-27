@@ -12,7 +12,7 @@ public class ProviderDirectory{
     public void requestProviderDirectory(){
         try{
             //change file name to name of the file with the correct directory info
-            File directoryInfo = new File("C:\\Users\\Aaron Buff\\Visual Studio Programs\\testText.txt");
+            File directoryInfo = new File(System.getProperty("user.dir") + "/src/provider_directory");
             Scanner readIn = new Scanner(directoryInfo);
 
             String tempString;
