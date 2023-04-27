@@ -63,13 +63,21 @@ public class WeeklyAccountingProcedure {
     void requestProviderReport() {
         //create a hash map... the key is the name, the value is an object of all the stuff
         providerRecordHash ProviderRecordHash = new providerRecordHash();
+        //Current provider in the for loop that loops through the providerrecordhash
         ProviderRecord currentProvider;
+        //List of all services in the week
         ServiceList serviceList;
+        //Provider Directory
         ProviderDirectory providerDirectory = new ProviderDirectory();
+        //The member that received a specific service
         MemberRecord memberRecord;
-        providerRecordHash providerRecordHash = new providerRecordHash();
+        //the provider record hash again for some reason lmao
+        MemberRecordHash memberRecordHash = new MemberRecordHash();
+        //All the services a certain provider has had
         ArrayList<Service> providerServices;
+        //The current service in the for loop
         Service currentService;
+        //The current fee in the for loop
         int serviceFee;
         int totalFee = 0;
         for(int i = 0; i < ProviderRecordHash.getSize(); i++){
@@ -97,6 +105,9 @@ public class WeeklyAccountingProcedure {
         ProviderRecord providerRecord;
         providerRecordHash providerRecordHash = new providerRecordHash();
         ArrayList<Service> memberServices;
+        /* ArrayList<Integer> dateOfServices;
+        ArrayList<String> providerNames;
+        ArrayList<String> serviceNames; */
         Service currentService;
         String serviceName;
         for(int i = 0; i < memberRecordHash.getSize(); i++){
@@ -108,7 +119,6 @@ public class WeeklyAccountingProcedure {
                 providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
                 serviceName = providerDirectory.serviceLookup(currentService.getServiceCode());
                 System.out.println(currentService.getDateProvided() + " " + providerRecord.getName() + " " + serviceName);
-
             }
         }
     }
