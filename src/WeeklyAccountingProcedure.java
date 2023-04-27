@@ -8,7 +8,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+/**
+ * {@summary A class that automagically generates all reports for providers and members as well as generating a summary report}
+ * and an EFT report for each provider
+ **/
 public class WeeklyAccountingProcedure {
+    /**
+     * {@summary A helper method that gets a provider record from a file} 
+     * @param providerID
+     * @return
+     * @throws IOException
+     */
     public static ProviderRecord getProviderRecordFromFile(String providerID) throws IOException {
         // Read all the provider records from the file
         List<String> lines = Files.readAllLines(Paths.get(System.getProperty("user.dir") + "/src/Provider_Record"));
@@ -34,7 +44,12 @@ public class WeeklyAccountingProcedure {
         // If no provider record with the given number was found, return null
         return null;
     }
-
+    /**
+     * {@summary A helper method that gets a member record from a file} 
+     * @param memberID
+     * @return
+     * @throws IOException
+     */
     private static MemberRecord getMemberRecordFromFile(String memberID) throws IOException {
         // Read all the member records from the file
         List<String> lines = Files.readAllLines(Paths.get(System.getProperty("user.dir") + "/src/Member_Record"));
@@ -60,7 +75,9 @@ public class WeeklyAccountingProcedure {
         // If no member record with the given number was found, return null
         return null;
     }
-
+    /**
+     * {@summary Creates a provider report for every provider}
+     */
     void requestProviderReport() {
         // create a hash map... the key is the name, the value is an object of all the
         // stuff
@@ -107,7 +124,9 @@ public class WeeklyAccountingProcedure {
             
         }
     }
-
+    /**
+     * {@summary creates a member report for every member that participates in a service that week}
+     */
     void requestMemberReport() {
         try {
             MemberRecordHash memberRecordHash = new MemberRecordHash();
@@ -143,7 +162,10 @@ public class WeeklyAccountingProcedure {
 
         }
     }
-
+    /**
+     * {@summary Creates a summary report with every provider, their number of constuls and fee and also total number of providers consultations and fees}
+     * @return
+     */
     public SummaryReport requestSummaryReport() {
         // for every provider - # num of consults, total fee then total num of
         // providers, total num of consultations, and total fee
@@ -184,10 +206,6 @@ public class WeeklyAccountingProcedure {
             System.out.println("Error");
         }
         return null;
-    }
-
-    void requestEFTReport() {
-
     }
 
     public static void main(String[] args) {
