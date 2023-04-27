@@ -24,41 +24,29 @@ public class ServiceList {
                 Scanner readIn = new Scanner(directoryInfo);
                 
 
-                String tempCurrentDate;
                 int tempCurrentDateNum;
 
-                String tempDateProvided;
                 int tempDateProvidedNum;
 
-                String tempProviderNumber;
                 int tempProviderNumberNum;
 
-                String tempMemberNumber;
                 int tempMemberNumberNum;
 
-                String tempServiceCode;
                 int tempServiceCodeNum;
 
                 String tempComments;
                 Service tempService;
 
-                while(readIn.hasNext()){
-                    tempCurrentDate = readIn.next();
-                    tempCurrentDateNum = Integer.parseInt(tempCurrentDate);
+                while(readIn.hasNextLine()){
+                    String temp = readIn.nextLine();
+                    String[] arr = temp.split(",");
 
-                    tempDateProvided = readIn.next();
-                    tempDateProvidedNum = Integer.parseInt(tempDateProvided);
-
-                    tempProviderNumber = readIn.next();
-                    tempProviderNumberNum = Integer.parseInt(tempProviderNumber);
-
-                    tempMemberNumber = readIn.next();
-                    tempMemberNumberNum = Integer.parseInt(tempMemberNumber);
-
-                    tempServiceCode = readIn.next();
-                    tempServiceCodeNum = Integer.parseInt(tempServiceCode);
-
-                    tempComments = readIn.next();
+                    tempCurrentDateNum = Integer.parseInt(arr[0]);
+                    tempDateProvidedNum = Integer.parseInt(arr[1]);
+                    tempProviderNumberNum = Integer.parseInt(arr[2]);
+                    tempMemberNumberNum = Integer.parseInt(arr[3]);
+                    tempServiceCodeNum = Integer.parseInt(arr[4]);
+                    tempComments = arr[5];
                     tempService = new Service(tempCurrentDateNum,tempDateProvidedNum,tempProviderNumberNum,tempMemberNumberNum,tempServiceCodeNum,tempComments);
                     serviceMap.put(tempServiceCodeNum, tempService);
                 }
