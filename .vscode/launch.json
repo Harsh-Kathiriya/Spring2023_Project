@@ -9,6 +9,13 @@
             "name": "ProviderGui",
             "request": "launch",
             "mainClass": "ProviderGui",
+            "projectName": "spring23team1_1c98af52"
+        },
+        {
+            "type": "java",
+            "name": "ProviderGui",
+            "request": "launch",
+            "mainClass": "ProviderGui",
             "projectName": "spring23team1_c3c3f96b"
         },
         {

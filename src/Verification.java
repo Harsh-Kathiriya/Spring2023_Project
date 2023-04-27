@@ -28,7 +28,8 @@ public class Verification{
             return 2; //is opperator
         }
         if(credentials.searchMemberList(userNum) == true){
-            return 3; //is opperator
+            System.out.println("null");
+            return 3; //is member
         }
         else return -1; //unauthorized user
 
