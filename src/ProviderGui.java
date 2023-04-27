@@ -11,6 +11,7 @@ import javax.swing.text.PlainDocument;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
 
 public class ProviderGui {
 
@@ -75,7 +76,7 @@ public class ProviderGui {
         ReqProviderDir.setBounds(250, 550, 300, 50);
         ReqProviderDir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               
+               requestProviderDir();
             }
         });
         panel.add(ReqProviderDir);
@@ -120,7 +121,8 @@ public class ProviderGui {
                 serviceCodeField.setBounds(400, 350, 200, 30);
                 billChocAnPanel.add(serviceCodeField);
                 serviceInfo = new JLabel();
-                serviceInfo.setBounds(450, 370, 150, 30);
+                serviceInfo.setBounds(350, 370, 400, 30);
+                serviceInfo.setHorizontalAlignment(SwingConstants.CENTER);
                 serviceCodeField.getDocument().addDocumentListener(new serviceCodeDoc());
                 billChocAnPanel.add(serviceInfo);
 
@@ -281,6 +283,29 @@ public class ProviderGui {
             LookupFrame.setLocationRelativeTo(null);
             LookupFrame.setVisible(true);
         }
+        public void requestProviderDir(){
+            JFrame frame = new JFrame();
+            frame.setSize(500, 500);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+            JPanel panel = new JPanel();
+            String[] columns = { "Service Code", "Service Name", "Service Fee" };
+            DefaultTableModel model = new DefaultTableModel(columns, 0);
+            JTable table = new JTable(model);
+            JScrollPane scrollPane = new JScrollPane(table);
+            panel.add(scrollPane, BorderLayout.CENTER);
+            ProviderDirectory dir = new ProviderDirectory();
+            dir.requestProviderDirectory();
+            for(int i=0; i < dir.serviceCodes.size(); i++){
+                model.addRow(new Object[] { dir.serviceCodes.get(i), dir.serviceNames.get(i), dir.serviceFees.get(i) });
+            }
+            
+            
+            frame.setLocationRelativeTo(null);
+            frame.add(panel);
+            frame.setVisible(true);
+
+        }
         public class CommentDocument extends PlainDocument {
             private static final int MAX_LENGTH = 100;
         
@@ -330,7 +355,7 @@ public class ProviderGui {
                             serviceInfo.setText("Invalid Code");
                         }
                         else{
-                            serviceInfo.setText("Fee: " + fee + ", Name: " + serviceName);
+                            serviceInfo.setText("Fee: " + fee + "$, Name: " + serviceName);
                         }
                         
                 }
