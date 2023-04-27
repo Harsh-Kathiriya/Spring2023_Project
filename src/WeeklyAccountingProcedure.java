@@ -64,73 +64,83 @@ public class WeeklyAccountingProcedure {
     void requestProviderReport() {
         // create a hash map... the key is the name, the value is an object of all the
         // stuff
-        providerRecordHash ProviderRecordHash = new providerRecordHash();
-        // Current provider in the for loop that loops through the providerrecordhash
-        ProviderRecord currentProvider;
-        // List of all services in the week
-        ServiceList serviceList;
-        // Provider Directory
-        ProviderDirectory providerDirectory = new ProviderDirectory();
-        // The member that received a specific service
-        MemberRecord memberRecord;
-        // the provider record hash again for some reason lmao
-        MemberRecordHash memberRecordHash = new MemberRecordHash();
-        // All the services a certain provider has had
-        ArrayList<Service> providerServices;
-        // The current service in the for loop
-        Service currentService;
-        // The current fee in the for loop
-        int serviceFee;
-        int totalFee = 0;
-        for (int i = 0; i < ProviderRecordHash.getSize(); i++) {
-            currentProvider = ProviderRecordHash.providerAt(i);
-            System.out.println(currentProvider.getName() + " " + currentProvider.getNumber() + " "
-                    + currentProvider.getAddress() + " " + currentProvider.getCity() + " " + currentProvider.getState()
-                    + " " + currentProvider.getZipCode());
-            providerServices = serviceList.usersServices(Integer.valueOf(currentProvider.getNumber()));
-            for (int j = 0; j < providerServices.size(); j++) {
-                currentService = providerServices.get(j);
-                memberRecord = getMemberRecordFromFile(Integer.toString(currentService.getMemberNum()));
-                serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
-                totalFee += serviceFee;
-                System.out.println(currentService.getDateProvided() + " " + currentService.getCurrentDate() + " "
-                        + memberRecord.getName() + currentService.getMemberNum() + " " + currentService.getServiceCode()
-                        + " " + Integer.toString(serviceFee));
+        try {
+            providerRecordHash ProviderRecordHash = new providerRecordHash();
+            // Current provider in the for loop that loops through the providerrecordhash
+            ProviderRecord currentProvider;
+            // List of all services in the week
+            ServiceList serviceList = new ServiceList();
+            // Provider Directory
+            ProviderDirectory providerDirectory = new ProviderDirectory();
+            // The member that received a specific service
+            MemberRecord memberRecord;
+            // the provider record hash again for some reason lmao
+            MemberRecordHash memberRecordHash = new MemberRecordHash();
+            // All the services a certain provider has had
+            ArrayList<Service> providerServices;
+            // The current service in the for loop
+            Service currentService;
+            // The current fee in the for loop
+            int serviceFee;
+            int totalFee = 0;
+            for (int i = 0; i < ProviderRecordHash.getSize(); i++) {
+                currentProvider = ProviderRecordHash.providerAt(i);
+                System.out.println(currentProvider.getName() + " " + currentProvider.getNumber() + " "
+                        + currentProvider.getAddress() + " " + currentProvider.getCity() + " " + currentProvider.getState()
+                        + " " + currentProvider.getZipCode());
+                providerServices = serviceList.usersServices(Integer.valueOf(currentProvider.getNumber()));
+                for (int j = 0; j < providerServices.size(); j++) {
+                    currentService = providerServices.get(j);
+                    memberRecord = getMemberRecordFromFile(Integer.toString(currentService.getMemberNum()));
+                    serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
+                    totalFee += serviceFee;
+                    System.out.println(currentService.getDateProvided() + " " + currentService.getCurrentDate() + " "
+                            + memberRecord.getName() + currentService.getMemberNum() + " " + currentService.getServiceCode()
+                            + " " + Integer.toString(serviceFee));
 
+                }
+                System.out.println(providerServices.size());
+                System.out.println(totalFee + " \n \n \n");
             }
-            System.out.println(providerServices.size());
-            System.out.println(totalFee + " \n \n \n");
+        }
+        catch(Exception e) {
+            
         }
     }
 
     void requestMemberReport() {
-        MemberRecordHash memberRecordHash = new MemberRecordHash();
-        MemberRecord currentMember;
-        ServiceList serviceList;
-        ProviderDirectory providerDirectory = new ProviderDirectory();
-        ProviderRecord providerRecord;
-        providerRecordHash providerRecordHash = new providerRecordHash();
-        ArrayList<Service> memberServices;
-        /*
-         * ArrayList<Integer> dateOfServices;
-         * ArrayList<String> providerNames;
-         * ArrayList<String> serviceNames;
-         */
-        Service currentService;
-        String serviceName;
-        for (int i = 0; i < memberRecordHash.getSize(); i++) {
-            currentMember = memberRecordHash.memberAt(i);
-            System.out.println(currentMember.getName() + " " + currentMember.getNumber() + " "
-                    + currentMember.getAddress() + " " + currentMember.getCity() + " " + currentMember.getState() + " "
-                    + currentMember.getZipCode());
-            memberServices = serviceList.usersServices(Integer.valueOf(currentMember.getNumber()));
-            for (int j = 0; j < memberServices.size(); j++) {
-                currentService = memberServices.get(j);
-                providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
-                serviceName = providerDirectory.serviceLookup(currentService.getServiceCode());
-                System.out
-                        .println(currentService.getDateProvided() + " " + providerRecord.getName() + " " + serviceName);
+        try {
+            MemberRecordHash memberRecordHash = new MemberRecordHash();
+            MemberRecord currentMember;
+            ServiceList serviceList = new ServiceList();
+            ProviderDirectory providerDirectory = new ProviderDirectory();
+            ProviderRecord providerRecord;
+            providerRecordHash providerRecordHash = new providerRecordHash();
+            ArrayList<Service> memberServices;
+            /*
+            * ArrayList<Integer> dateOfServices;
+            * ArrayList<String> providerNames;
+            * ArrayList<String> serviceNames;
+            */
+            Service currentService;
+            String serviceName;
+            for (int i = 0; i < memberRecordHash.getSize(); i++) {
+                currentMember = memberRecordHash.memberAt(i);
+                System.out.println(currentMember.getName() + " " + currentMember.getNumber() + " "
+                        + currentMember.getAddress() + " " + currentMember.getCity() + " " + currentMember.getState() + " "
+                        + currentMember.getZipCode());
+                memberServices = serviceList.usersServices(Integer.valueOf(currentMember.getNumber()));
+                for (int j = 0; j < memberServices.size(); j++) {
+                    currentService = memberServices.get(j);
+                    providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
+                    serviceName = providerDirectory.serviceLookup(currentService.getServiceCode());
+                    System.out
+                            .println(currentService.getDateProvided() + " " + providerRecord.getName() + " " + serviceName);
+                }
             }
+        }
+        catch(Exception e) {
+
         }
     }
 

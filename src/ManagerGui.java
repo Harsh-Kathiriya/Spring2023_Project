@@ -13,6 +13,29 @@ public class ManagerGui {
     private JPanel reportPanel;
     private JLabel reportTitleLable;
 
+    public class MyGUI {
+        public static void main(String[] args) {
+            JFrame frame = new JFrame("My GUI");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            JTextField textField = new JTextField(20);
+            JLabel label = new JLabel("Enter your name:");
+            JPanel panel = new JPanel();
+            panel.add(label);
+            panel.add(textField);
+
+            textField.addActionListener(e -> {
+                String userInput = textField.getText();
+                System.out.println("User entered: " + userInput);
+                // You can use the user input here to perform some action, update the GUI, etc.
+            });
+
+            frame.getContentPane().add(panel, BorderLayout.CENTER);
+            frame.pack();
+            frame.setVisible(true);
+        }
+    }
+
     public ManagerGui() {
         frame = new JFrame();
         frame.setSize(800, 600);
@@ -50,14 +73,20 @@ public class ManagerGui {
         memberReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
+                    String memberNumber = JOptionPane.showInputDialog("Enter Member Number:");
+                    MemberReport memberReport = ManagerController.getMemberRecordFromFile(memberNumber);
+                    MemberReport memberName = ManagerController.RequestMemberReport();
+
+                    MyGUI myGUI = new ManagerGui.MyGUI();
 
                     String[][] data = {
-                            { MemberReport.getMemberName(), MemberReport.getMemberNumber(),
-                                    MemberReport.getMemberAddress(),
-                                    MemberReport.getMemberCity(), MemberReport.getMemberState(),
-                                    MemberReport.getMemberZipCode() }
+                            { memberReport.getMemberName(), memberNumber,
+                                    memberReport.getMemberAddress(),
+                                    memberReport.getMemberCity(), memberReport.getMemberState(),
+                                    memberReport.getMemberZipCode() }
                     };
-                    String[] columnNames = { "Name", "ID", "Address", "City", "State", "Zipcode" };
+                    String[] columnNames = { "Name", "ID", "Address", "City", "State", "Zipcode"
+                    };
 
                     JTable table = new JTable(data, columnNames);
                     table.getColumnModel().getColumn(2).setPreferredWidth(50);
@@ -67,18 +96,13 @@ public class ManagerGui {
                     frame.setSize(800, 600);
                     frame.setVisible(true);
 
-                    MemberReport memberReport = ManagerController.RequestMemberReport();
-                    // JFrame reportFrame = new JFrame("Member Report");
-                    // // JTable reportTable = new JTable(memberName);
-                    // reportFrame.add(new JScrollPane(reportTable), BorderLayout.CENTER);
-                    // reportFrame.setSize(800, 600);
-                    // reportFrame.setVisible(true);
                 } catch (Exception E) {
                     System.out.println("Error");
                 }
             }
         });
         panel.add(memberReportBtn);
+
         JButton providerReportBtn = new JButton("Provider Report");
         providerReportBtn.setBounds(250, 450, 300, 50);
         providerReportBtn.addActionListener(new ActionListener() {
