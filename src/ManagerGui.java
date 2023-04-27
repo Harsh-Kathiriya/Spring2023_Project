@@ -9,9 +9,6 @@ public class ManagerGui {
     private JFrame frame;
     private JPanel panel;
     private JLabel titleLabel;
-    private JFrame reportFrame;
-    private JPanel reportPanel;
-    private JLabel reportTitleLable;
     ServiceList serviceList = new ServiceList();
     Service currentService;
     ArrayList<String> providerNames = new ArrayList<String>();
@@ -24,7 +21,7 @@ public class ManagerGui {
     ManagerController managerController = new ManagerController();
 
     public class MyGUI {
-        public static void main(String[] args) {
+        MyGUI() {
             JFrame frame = new JFrame("My GUI");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -63,7 +60,7 @@ public class ManagerGui {
         summaryReportBtn.setBounds(250, 250, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                SummaryReport summaryReport = ManagerController.RequestSummaryReport();
+                //SummaryReport summaryReport = ManagerController.RequestSummaryReport();
                 // JOptionPane.showMessageDialog(frame,);
             }
         });
@@ -95,7 +92,7 @@ public class ManagerGui {
 
                     String memberNumber = JOptionPane.showInputDialog("Enter Member Number:");
                     MemberReport memberReport = ManagerController.getMemberRecordFromFile(memberNumber);
-                    MemberReport memberName = ManagerController.RequestMemberReport();
+                    //MemberReport memberName = ManagerController.RequestMemberReport();
 
                     JTextArea textArea = new JTextArea();
                     textArea.setEditable(false);
@@ -146,7 +143,7 @@ public class ManagerGui {
                 try {
                     String providerNumber = JOptionPane.showInputDialog("Enter Provider Number:");
                     ProviderReport providerReport = ManagerController.getProviderRecordFromFile(providerNumber);
-                    ProviderReport providerName = ManagerController.RequestProviderReport();
+                   // ProviderReport providerName = ManagerController.RequestProviderReport();
 
                     MyGUI myGUI = new ManagerGui.MyGUI();
 

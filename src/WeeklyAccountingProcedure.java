@@ -1,10 +1,10 @@
 import java.util.*;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+//import java.io.BufferedWriter;
+//import java.io.File;
+//import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
+//import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -92,7 +92,7 @@ public class WeeklyAccountingProcedure {
             // The member that received a specific service
             MemberRecord memberRecord;
             // the provider record hash again for some reason lmao
-            MemberRecordHash memberRecordHash = new MemberRecordHash();
+            //MemberRecordHash memberRecordHash = new MemberRecordHash();
             // All the services a certain provider has had
             ArrayList<Service> providerServices;
             // The current service in the for loop
@@ -134,7 +134,7 @@ public class WeeklyAccountingProcedure {
             ServiceList serviceList = new ServiceList();
             ProviderDirectory providerDirectory = new ProviderDirectory();
             ProviderRecord providerRecord;
-            providerRecordHash providerRecordHash = new providerRecordHash();
+            //providerRecordHash providerRecordHash = new providerRecordHash();
             ArrayList<Service> memberServices;
             /*
             * ArrayList<Integer> dateOfServices;

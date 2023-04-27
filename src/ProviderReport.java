@@ -3,12 +3,12 @@ import java.util.*;
 class ProviderReport {
 
     // initializing fields
-    private static String providerName;
-    private static String providerNumber;
-    private static String providerAddress;
-    private static String providerCity;
-    private static String providerState;
-    private static String providerZipCode;
+    private  String providerName;
+    private  String providerNumber;
+    private  String providerAddress;
+    private  String providerCity;
+    private  String providerState;
+    private  String providerZipCode;
     private int consultNum;
     private double totalFee;
     private ArrayList<Integer> fees;
@@ -43,7 +43,7 @@ class ProviderReport {
     }
 
     // getters and setters
-    public static String getProviderName() {
+    public  String getProviderName() {
         return providerName;
     }
 
@@ -51,7 +51,7 @@ class ProviderReport {
         this.providerName = providerName;
     }
 
-    public static String getProviderNumber() {
+    public  String getProviderNumber() {
         return providerNumber;
     }
 
@@ -59,7 +59,7 @@ class ProviderReport {
         this.providerNumber = providerNumber;
     }
 
-    public static String getProviderAddress() {
+    public  String getProviderAddress() {
         return providerAddress;
     }
 
@@ -67,7 +67,7 @@ class ProviderReport {
         this.providerAddress = providerAddress;
     }
 
-    public static String getProviderCity() {
+    public  String getProviderCity() {
         return providerCity;
     }
 
@@ -75,7 +75,7 @@ class ProviderReport {
         this.providerCity = providerCity;
     }
 
-    public static String getProviderState() {
+    public  String getProviderState() {
         return providerState;
     }
 
@@ -83,7 +83,7 @@ class ProviderReport {
         this.providerState = providerState;
     }
 
-    public static String getProviderZipCode() {
+    public  String getProviderZipCode() {
         return providerZipCode;
     }
 

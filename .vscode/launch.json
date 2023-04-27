@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ServiceList",
+            "request": "launch",
+            "mainClass": "ServiceList",
+            "projectName": "spring23team1_a9aaa33a"
+        },
+        {
+            "type": "java",
             "name": "WeeklyAccountingProcedure",
             "request": "launch",
             "mainClass": "WeeklyAccountingProcedure",

@@ -1,14 +1,14 @@
-import java.sql.Date;
+//import java.sql.Date;
 import java.util.*;
 
 class MemberReport {
     // initializing fields
-    private static String memberName;
-    private static String memberNumber;
-    private static String memberAddress;
-    private static String memberCity;
-    private static String memberState;
-    private static String memberZipCode;
+    private  String memberName;
+    private  String memberNumber;
+    private  String memberAddress;
+    private  String memberCity;
+    private  String memberState;
+    private  String memberZipCode;
     private ArrayList<Integer> dateOfServices;
     private ArrayList<String> providerNames;
     private ArrayList<String> serviceNames;
@@ -35,7 +35,7 @@ class MemberReport {
     }
 
     // getters and setters
-    public static String getMemberName() {
+    public  String getMemberName() {
         return memberName;
     }
 
@@ -43,7 +43,7 @@ class MemberReport {
         this.memberName = memberName;
     }
 
-    public static String getMemberNumber() {
+    public  String getMemberNumber() {
         return memberNumber;
     }
 
@@ -51,7 +51,7 @@ class MemberReport {
         this.memberNumber = memberNumber;
     }
 
-    public static String getMemberAddress() {
+    public  String getMemberAddress() {
         return memberAddress;
     }
 
@@ -59,7 +59,7 @@ class MemberReport {
         this.memberAddress = memberAddress;
     }
 
-    public static String getMemberCity() {
+    public  String getMemberCity() {
         return memberCity;
     }
 
@@ -67,7 +67,7 @@ class MemberReport {
         this.memberCity = memberCity;
     }
 
-    public static String getMemberState() {
+    public  String getMemberState() {
         return memberState;
     }
 
@@ -75,7 +75,7 @@ class MemberReport {
         this.memberState = memberState;
     }
 
-    public static String getMemberZipCode() {
+    public  String getMemberZipCode() {
         return memberZipCode;
     }
 
