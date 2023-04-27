@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class WeeklyAccountingProcedure {
-<<<<<<< Updated upstream
     public static ProviderRecord getProviderRecordFromFile(String providerID) throws IOException {
         // Read all the provider records from the file
         List<String> lines = Files.readAllLines(Paths.get(System.getProperty("user.dir") + "/src/Provider_Record"));
@@ -34,12 +33,6 @@ public class WeeklyAccountingProcedure {
 
         // If no provider record with the given number was found, return null
         return null;
-=======
-    void requestProviderReport(){
-        
-        
-        
->>>>>>> Stashed changes
     }
 
     private static MemberRecord getMemberRecordFromFile(String memberID) throws IOException {
