@@ -19,11 +19,9 @@ public class WeeklyAccountingProcedure {
     MemberRecordHash memberRecordHash;
     WeeklyAccountingProcedure() {
         try {
-            System.out.println("Constructor");
             providerDirectory = new ProviderDirectory();
             providerDirectory.requestProviderDirectory();
             serviceList = new ServiceList();
-            System.out.println("Before Error");
             ProviderRecordHash = new providerRecordHash();
             memberRecordHash = new MemberRecordHash();
 
@@ -101,7 +99,6 @@ public class WeeklyAccountingProcedure {
      * @return
      */
     ProviderReport requestSingleProviderReport(ProviderRecord currentProvider) {
-        System.out.println("Working");
         ArrayList<Service> providerServices = serviceList.usersServices(Integer.parseInt(currentProvider.getNumber()));
         int totalFee = 0;
         int totalConsults = 0;
@@ -113,7 +110,6 @@ public class WeeklyAccountingProcedure {
         ArrayList<Integer> serviceFees = new ArrayList<Integer>();
         for(int i = 0; i < providerServices.size(); i++) {
             Service currentService = providerServices.get(i);
-            System.out.println(currentService.getMemberNum());
             MemberRecord serviceMember = memberRecordHash.memberAt(currentService.getMemberNum());
             int fee = providerDirectory.feeLookup(currentService.getServiceCode());
             memberNames.add(i,serviceMember.getName());
@@ -230,7 +226,6 @@ public class WeeklyAccountingProcedure {
                 totalFee += serviceFee;
                 if (providerNames.contains(providerRecord.getName())) {
                     int currentIndex = providerNames.indexOf(providerRecord.getName());
-                    System.out.println(currentIndex);
                     providerFees.set(currentIndex,providerFees.get(currentIndex) + serviceFee);
                     providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
                 } 

@@ -19,7 +19,6 @@ public class ServiceList {
         try {
             serviceMap = new HashMap<Integer, Service>();
             String userDirectory = System.getProperty("user.dir");
-            System.out.println(userDirectory);
             serviceListLocation = userDirectory + "/src/ServiceTest.txt";
             directoryInfo = new File(serviceListLocation);
             if(directoryInfo.createNewFile()) {
@@ -90,7 +89,6 @@ public class ServiceList {
      * @return
      */
     public ArrayList<Service> usersServices(int userNum) {
-        System.out.println("WorkingService");
         ArrayList<Service> services = new ArrayList<Service>();
         Iterator serviceMapIterator = serviceMap.entrySet().iterator();
         Service currentService = null;
