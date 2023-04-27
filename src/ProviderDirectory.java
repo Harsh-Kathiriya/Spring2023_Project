@@ -19,15 +19,12 @@ public class ProviderDirectory{
             Integer tempInt;
 
             //reads file and stores lines into two arrays
-            while(readIn.hasNext()){
-                tempString = readIn.next();
-                tempInt = Integer.parseInt(tempString);
-                serviceCodes.add(tempInt);
-                tempString = readIn.next();
-                serviceNames.add(tempString);
-                tempString = readIn.next();
-                tempInt = Integer.parseInt(tempString);
-                serviceFees.add(tempInt);
+            while(readIn.hasNextLine()){
+                tempString = readIn.nextLine();
+                String[] arr = tempString.split(",");
+                serviceCodes.add(Integer.parseInt(arr[0]));
+                serviceNames.add(arr[1]);
+                serviceFees.add(Integer.parseInt(arr[2]));
             }
             readIn.close();
         }
