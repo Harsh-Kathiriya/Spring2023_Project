@@ -96,9 +96,4 @@ public class Credentials{
         }
     }
 
-    public static void main(String[] args){
-        Credentials manager = new Credentials();
-        manager.searchManagerList(284393242);
-    }
-
 }
