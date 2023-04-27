@@ -15,7 +15,7 @@ public class ManagerController {
   private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/src/Member_Record";
   private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/src/Provider_Record";
 
-  public static String providerID;
+  public static String providerID = "123456789";
   public static String providerName;
   public static String providerNumber;
   public static String providerAddress;
@@ -174,21 +174,22 @@ public class ManagerController {
     MemberReport memberReport = new MemberReport(memberName, memberNumber, memberAddress, memberCity,
         memberState, memberZipCode, dateOfServices, providerNames,
         serviceNames);
-    // System.out.println("\n");
-    // System.out.println(memberReport.getMemberName());
-    // System.out.println(memberReport.getMemberNumber());
-    // System.out.println(memberReport.getMemberAddress());
-    // System.out.println(memberReport.getMemberCity());
-    // System.out.println(memberReport.getMemberState());
-    // System.out.println(memberReport.getMemberZipCode());
-    // System.out.println(memberReport.getDateOfServices());
-    // System.out.println(memberReport.getProviderNames());
+    System.out.println("\n");
+    System.out.println(memberReport.getMemberName());
+    System.out.println(memberReport.getMemberNumber());
+    System.out.println(memberReport.getMemberAddress());
+    System.out.println(memberReport.getMemberCity());
+    System.out.println(memberReport.getMemberState());
+    System.out.println(memberReport.getMemberZipCode());
+    System.out.println(memberReport.getDateOfServices());
+    System.out.println(memberReport.getProviderNames());
     return memberReport;
   }
 
   public static void main(String[] args) throws IOException {
     RequestProviderReport();
     RequestMemberReport();
-    RequestSummaryReport();
+    WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
+    weeklyAccountingProcedure.requestSummaryReport();
   }
 }
