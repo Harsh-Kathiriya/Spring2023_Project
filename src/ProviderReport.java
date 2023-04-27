@@ -1,15 +1,14 @@
 import java.util.*;
 
-
 class ProviderReport {
 
     // initializing fields
-    private String providerName;
-    private String providerNumber;
-    private String providerAddress;
-    private String providerCity;
-    private String providerState;
-    private String providerZipCode;
+    private static String providerName;
+    private static String providerNumber;
+    private static String providerAddress;
+    private static String providerCity;
+    private static String providerState;
+    private static String providerZipCode;
     private int consultNum;
     private double totalFee;
     private ArrayList<Integer> fees;
@@ -18,7 +17,6 @@ class ProviderReport {
     private ArrayList<String> memberNames;
     private ArrayList<Integer> serviceCodes;
 
-
     // default constructor does not intialize any values
     ProviderReport() {
 
@@ -26,9 +24,9 @@ class ProviderReport {
 
     // Constructor that provides all fields of the report
     public ProviderReport(String providerName, String providerNumber, String providerAddress, String providerCity,
-        String providerState, String providerZipCode, int consultNum, double totalFee,
-        ArrayList<Integer> datesOfServices, ArrayList<Integer> datesReceived, ArrayList<String> memberNames,
-        ArrayList<Integer> serviceCodes, ArrayList<Integer> fees) {
+            String providerState, String providerZipCode, int consultNum, double totalFee,
+            ArrayList<Integer> datesOfServices, ArrayList<Integer> datesReceived, ArrayList<String> memberNames,
+            ArrayList<Integer> serviceCodes, ArrayList<Integer> fees) {
         this.providerName = providerName;
         this.providerNumber = providerNumber;
         this.providerAddress = providerAddress;
@@ -45,7 +43,7 @@ class ProviderReport {
     }
 
     // getters and setters
-    public String getProviderName() {
+    public static String getProviderName() {
         return providerName;
     }
 
@@ -53,7 +51,7 @@ class ProviderReport {
         this.providerName = providerName;
     }
 
-    public String getProviderNumber() {
+    public static String getProviderNumber() {
         return providerNumber;
     }
 
@@ -61,7 +59,7 @@ class ProviderReport {
         this.providerNumber = providerNumber;
     }
 
-    public String getProviderAddress() {
+    public static String getProviderAddress() {
         return providerAddress;
     }
 
@@ -69,7 +67,7 @@ class ProviderReport {
         this.providerAddress = providerAddress;
     }
 
-    public String getProviderCity() {
+    public static String getProviderCity() {
         return providerCity;
     }
 
@@ -77,7 +75,7 @@ class ProviderReport {
         this.providerCity = providerCity;
     }
 
-    public String getProviderState() {
+    public static String getProviderState() {
         return providerState;
     }
 
@@ -85,7 +83,7 @@ class ProviderReport {
         this.providerState = providerState;
     }
 
-    public String getProviderZipCode() {
+    public static String getProviderZipCode() {
         return providerZipCode;
     }
 
@@ -108,6 +106,7 @@ class ProviderReport {
     public void setTotalFee(double totalFee) {
         this.totalFee = totalFee;
     }
+
     public ArrayList<Integer> getDatesOfServices() {
         return datesOfServices;
     }

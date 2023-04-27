@@ -46,11 +46,11 @@ public class ManagerGui {
 
         titleLabel = new JLabel("Manager Menu");
         titleLabel.setFont(new Font("Serif", Font.BOLD, 36));
-        titleLabel.setBounds(280, 50, 400, 50);
+        titleLabel.setBounds(280, 150, 400, 50);
         panel.add(titleLabel);
 
         JButton summaryReportBtn = new JButton("Summary Report");
-        summaryReportBtn.setBounds(250, 150, 300, 50);
+        summaryReportBtn.setBounds(250, 250, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SummaryReport summaryReport = ManagerController.RequestSummaryReport();
@@ -58,15 +58,6 @@ public class ManagerGui {
             }
         });
         panel.add(summaryReportBtn);
-
-        JButton eftReportBtn = new JButton("EFT Report");
-        eftReportBtn.setBounds(250, 250, 300, 50);
-        eftReportBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        panel.add(eftReportBtn);
 
         JButton memberReportBtn = new JButton("Member Report");
         memberReportBtn.setBounds(250, 350, 300, 50);
@@ -108,9 +99,30 @@ public class ManagerGui {
         providerReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    ProviderReport providerReport = ManagerController.RequestProviderReport();
-                    ManagerController.RequestProviderReport();
-                } catch (IOException E) {
+                    String providerNumber = JOptionPane.showInputDialog("Enter Provider Number:");
+                    ProviderReport providerReport = ManagerController.getProviderRecordFromFile(providerNumber);
+                    ProviderReport providerName = ManagerController.RequestProviderReport();
+
+                    MyGUI myGUI = new ManagerGui.MyGUI();
+
+                    String[][] data = {
+                            { providerReport.getProviderName(), providerNumber,
+                                    providerReport.getProviderAddress(),
+                                    providerReport.getProviderCity(), providerReport.getProviderState(),
+                                    providerReport.getProviderZipCode() }
+                    };
+                    String[] columnNames = { "Name", "ID", "Address", "City", "State", "Zipcode"
+                    };
+
+                    JTable table = new JTable(data, columnNames);
+                    table.getColumnModel().getColumn(2).setPreferredWidth(50);
+
+                    JFrame frame = new JFrame();
+                    frame.add(new JScrollPane(table), BorderLayout.CENTER);
+                    frame.setSize(800, 600);
+                    frame.setVisible(true);
+
+                } catch (Exception E) {
                     System.out.println("Error");
                 }
             }

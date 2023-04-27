@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ProviderGui",
+            "request": "launch",
+            "mainClass": "ProviderGui",
+            "projectName": "spring23team1_c3c3f96b"
+        },
+        {
+            "type": "java",
             "name": "ManagerGui",
             "request": "launch",
             "mainClass": "ManagerGui",

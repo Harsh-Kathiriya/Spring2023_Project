@@ -15,7 +15,7 @@ public class ManagerController {
   private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/src/Member_Record";
   private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/src/Provider_Record";
 
-  public static String providerID = "321654987";
+  public static String providerID;
   public static String providerName;
   public static String providerNumber;
   public static String providerAddress;
@@ -41,7 +41,7 @@ public class ManagerController {
   public static ArrayList<String> providerNames;
   public static ArrayList<String> serviceNames;
 
-  public static ProviderRecord getProviderRecordFromFile(String providerID) throws IOException {
+  static ProviderReport getProviderRecordFromFile(String providerID) throws IOException {
     // Read all the provider records from the file
     List<String> lines = Files.readAllLines(Paths.get(PROVIDER_FILE_NAME));
 
@@ -101,43 +101,47 @@ public class ManagerController {
     return null;
   }
 
-  public static SummaryReport requestSummaryReport() {
-    // for every provider - # num of consults, total fee then total num of
-    // providers, total num of consultations, and total fee
-    ServiceList serviceList = new ServiceList();
-    Service currentService;
-    ArrayList<String> providerNames = new ArrayList<String>();
-    ArrayList<Integer> providerFees = new ArrayList<Integer>();
-    ArrayList<Integer> providerConsults = new ArrayList<Integer>();
-    ProviderRecord providerRecord;
-    ProviderDirectory providerDirectory = new ProviderDirectory();
-    int totalFee = 0;
+  // public static SummaryReport requestSummaryReport() {
+  // // for every provider - # num of consults, total fee then total num of
+  // // providers, total num of consultations, and total fee
+  // ServiceList serviceList = new ServiceList();
+  // Service currentService;
+  // ArrayList<String> providerNames = new ArrayList<String>();
+  // ArrayList<Integer> providerFees = new ArrayList<Integer>();
+  // ArrayList<Integer> providerConsults = new ArrayList<Integer>();
+  // ProviderReport providerRecord;
+  // ProviderDirectory providerDirectory = new ProviderDirectory();
+  // int totalFee = 0;
 
-    try {
-      for (int i = 0; i < serviceList.getSize(); i++) {
-        currentService = serviceList.serviceAt(i);
-        providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
-        int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
-        totalFee += serviceFee;
-        if (providerNames.contains(providerRecord.getName())) {
-          int currentIndex = providerNames.indexOf(providerRecord.getName());
-          providerFees.set(currentIndex,
-              providerFees.get(providerNames.indexOf(providerRecord.getName()) + serviceFee));
-          providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
-        } else {
-          providerNames.add(providerRecord.getName());
-          providerFees.add(serviceFee);
-          providerConsults.add(1);
-        }
-      }
-      SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
-          providerNames.size(), serviceList.getSize(), totalFee);
-      return summaryReport;
-    } catch (IOException e) {
-      System.out.println("Error");
-    }
-    return null;
-  }
+  // try {
+  // for (int i = 0; i < serviceList.getSize(); i++) {
+  // currentService = serviceList.serviceAt(i);
+  // providerRecord =
+  // getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
+  // int serviceFee =
+  // providerDirectory.feeLookup(currentService.getServiceCode());
+  // totalFee += serviceFee;
+  // if (providerNames.contains(providerRecord.getName())) {
+  // int currentIndex = providerNames.indexOf(providerRecord.getName());
+  // providerFees.set(currentIndex,
+  // providerFees.get(providerNames.indexOf(providerRecord.getName()) +
+  // serviceFee));
+  // providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
+  // } else {
+  // providerNames.add(providerRecord.getName());
+  // providerFees.add(serviceFee);
+  // providerConsults.add(1);
+  // }
+  // }
+  // SummaryReport summaryReport = new SummaryReport(providerNames,
+  // providerConsults, providerFees,
+  // providerNames.size(), serviceList.getSize(), totalFee);
+  // return summaryReport;
+  // } catch (IOException e) {
+  // System.out.println("Error");
+  // }
+  // return null;
+  // }
 
   public static ProviderReport RequestProviderReport() throws IOException {
     getProviderRecordFromFile(providerID);
@@ -160,7 +164,7 @@ public class ManagerController {
     SummaryReport summaryreport = new SummaryReport(providerNames, dateOfServices, fees, consultNum, consultNum,
         consultNum);
     System.out.println("\n");
-    requestSummaryReport();
+    // requestSummaryReport();
     System.out.println(summaryreport.getProviderNames());
     return summaryreport;
   }
