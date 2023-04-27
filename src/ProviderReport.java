@@ -10,12 +10,13 @@ class ProviderReport {
     private  String providerState;
     private  String providerZipCode;
     private int consultNum;
-    private double totalFee;
+    private int totalFee;
     private ArrayList<Integer> fees;
     private ArrayList<Integer> datesOfServices;
     private ArrayList<Integer> datesReceived;
     private ArrayList<String> memberNames;
     private ArrayList<Integer> serviceCodes;
+    private ArrayList<Integer> memberNumbers;
 
     // default constructor does not intialize any values
     ProviderReport() {
@@ -24,8 +25,8 @@ class ProviderReport {
 
     // Constructor that provides all fields of the report
     public ProviderReport(String providerName, String providerNumber, String providerAddress, String providerCity,
-            String providerState, String providerZipCode, int consultNum, double totalFee,
-            ArrayList<Integer> datesOfServices, ArrayList<Integer> datesReceived, ArrayList<String> memberNames,
+            String providerState, String providerZipCode, int consultNum, int totalFee,
+            ArrayList<Integer> datesOfServices, ArrayList<Integer> datesReceived, ArrayList<String> memberNames, ArrayList<Integer> memberNumbers,
             ArrayList<Integer> serviceCodes, ArrayList<Integer> fees) {
         this.providerName = providerName;
         this.providerNumber = providerNumber;
@@ -38,6 +39,7 @@ class ProviderReport {
         this.datesOfServices = datesOfServices;
         this.datesReceived = datesReceived;
         this.memberNames = memberNames;
+        this.memberNumbers = memberNumbers;
         this.serviceCodes = serviceCodes;
         this.fees = fees;
     }
@@ -99,11 +101,11 @@ class ProviderReport {
         this.consultNum = consultNum;
     }
 
-    public double getTotalFee() {
+    public int getTotalFee() {
         return totalFee;
     }
 
-    public void setTotalFee(double totalFee) {
+    public void setTotalFee(int totalFee) {
         this.totalFee = totalFee;
     }
 
@@ -146,5 +148,11 @@ class ProviderReport {
     public void setFees(ArrayList<Integer> fees) {
         this.fees = fees;
     }
+    public ArrayList<Integer> getMemberNumbers() {
+        return memberNumbers;
+    }
 
+    public void setMemberNumbers(ArrayList<Integer> memberNumbers) {
+        this.memberNumbers = memberNumbers;
+    }
 }

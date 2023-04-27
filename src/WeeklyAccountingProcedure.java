@@ -13,6 +13,21 @@ import java.util.List;
  * and an EFT report for each provider
  **/
 public class WeeklyAccountingProcedure {
+    ServiceList serviceList;
+    providerRecordHash ProviderRecordHash;
+    ProviderDirectory providerDirectory;
+    MemberRecordHash memberRecordHash;
+    WeeklyAccountingProcedure() {
+        try {
+            serviceList = new ServiceList();
+            ProviderRecordHash = new providerRecordHash();
+            providerDirectory = new ProviderDirectory();
+            memberRecordHash = new MemberRecordHash();
+        }
+        catch(Exception e) {
+            System.out.println("Error");
+        }
+    }
     /**
      * {@summary A helper method that gets a provider record from a file} 
      * @param providerID
@@ -75,64 +90,60 @@ public class WeeklyAccountingProcedure {
         // If no member record with the given number was found, return null
         return null;
     }
+    ProviderReport requestSingleProviderReport(ProviderRecord currentProvider) {
+        ArrayList<Service> providerServices = serviceList.usersServices(Integer.parseInt(currentProvider.getNumber()));
+        int totalFee = 0;
+        int totalConsults = 0;
+        ArrayList<Integer> dateOfService = new ArrayList<Integer>();
+        ArrayList<Integer> dateReceived = new ArrayList<Integer>();
+        ArrayList<String> memberNames = new ArrayList<String>();
+        ArrayList<Integer> memberNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> serviceCodes = new ArrayList<Integer>();
+        ArrayList<Integer> serviceFees = new ArrayList<Integer>();
+        for(int i = 0; i < providerServices.size(); i++) {
+            Service currentService = providerServices.get(i);
+            MemberRecord serviceMember = memberRecordHash.memberAt(currentService.getMemberNum());
+            int fee = providerDirectory.feeLookup(currentService.getServiceCode());
+            memberNames.add(i,serviceMember.getName());
+            memberNumbers.add(i,currentService.getMemberNum());
+            dateOfService.add(i, currentService.getDateProvided());
+            dateReceived.add(i, currentService.getCurrentDate());
+            serviceCodes.add(i,currentService.getServiceCode());
+            serviceFees.add(i,fee);
+            totalFee += fee;
+        }
+        totalConsults = providerServices.size();
+        ProviderReport providerReport = new ProviderReport(currentProvider.getName(),currentProvider.getNumber(),currentProvider.getAddress(),currentProvider.getCity(),currentProvider.getState(),currentProvider.getZipCode(),totalConsults,totalFee,dateOfService,dateReceived,memberNames,memberNumbers,serviceCodes,serviceFees);
+        return providerReport;
+    }
     /**
      * {@summary Creates a provider report for every provider}
      */
-    void requestProviderReport() {
+    ArrayList<ProviderReport> requestProviderReport() {
         // create a hash map... the key is the name, the value is an object of all the
         // stuff
         try {
-            providerRecordHash ProviderRecordHash = new providerRecordHash();
             // Current provider in the for loop that loops through the providerrecordhash
             ProviderRecord currentProvider;
-            // List of all services in the week
-            ServiceList serviceList = new ServiceList();
-            // Provider Directory
-            ProviderDirectory providerDirectory = new ProviderDirectory();
-            // The member that received a specific service
-            MemberRecord memberRecord;
-            // the provider record hash again for some reason lmao
-            //MemberRecordHash memberRecordHash = new MemberRecordHash();
-            // All the services a certain provider has had
-            ArrayList<Service> providerServices;
-            // The current service in the for loop
-            Service currentService;
-            // The current fee in the for loop
-            int serviceFee;
-            int totalFee = 0;
+            ArrayList<ProviderReport> providerReports = new ArrayList<ProviderReport>();
             for (int i = 0; i < ProviderRecordHash.getSize(); i++) {
                 currentProvider = ProviderRecordHash.providerAt(i);
-                System.out.println(currentProvider.getName() + " " + currentProvider.getNumber() + " "
-                        + currentProvider.getAddress() + " " + currentProvider.getCity() + " " + currentProvider.getState()
-                        + " " + currentProvider.getZipCode());
-                providerServices = serviceList.usersServices(Integer.valueOf(currentProvider.getNumber()));
-                for (int j = 0; j < providerServices.size(); j++) {
-                    currentService = providerServices.get(j);
-                    memberRecord = getMemberRecordFromFile(Integer.toString(currentService.getMemberNum()));
-                    serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
-                    totalFee += serviceFee;
-                    System.out.println(currentService.getDateProvided() + " " + currentService.getCurrentDate() + " "
-                            + memberRecord.getName() + currentService.getMemberNum() + " " + currentService.getServiceCode()
-                            + " " + Integer.toString(serviceFee));
-
-                }
-                System.out.println(providerServices.size());
-                System.out.println(totalFee + " \n \n \n");
+                ProviderReport providerReport = requestSingleProviderReport(currentProvider);
+                providerReports.add(i,providerReport);
             }
+            return providerReports;
         }
         catch(Exception e) {
             
         }
+        return null;
     }
     /**
      * {@summary creates a member report for every member that participates in a service that week}
      */
     void requestMemberReport() {
         try {
-            MemberRecordHash memberRecordHash = new MemberRecordHash();
             MemberRecord currentMember;
-            ServiceList serviceList = new ServiceList();
-            ProviderDirectory providerDirectory = new ProviderDirectory();
             ProviderRecord providerRecord;
             //providerRecordHash providerRecordHash = new providerRecordHash();
             ArrayList<Service> memberServices;
@@ -153,8 +164,7 @@ public class WeeklyAccountingProcedure {
                     currentService = memberServices.get(j);
                     providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
                     serviceName = providerDirectory.serviceLookup(currentService.getServiceCode());
-                    System.out
-                            .println(currentService.getDateProvided() + " " + providerRecord.getName() + " " + serviceName);
+                    System.out.println(currentService.getDateProvided() + " " + providerRecord.getName() + " " + serviceName);
                 }
             }
         }
@@ -176,7 +186,6 @@ public class WeeklyAccountingProcedure {
         ArrayList<Integer> providerFees = new ArrayList<Integer>();
         ArrayList<Integer> providerConsults = new ArrayList<Integer>();
         ProviderRecord providerRecord;
-        ProviderDirectory providerDirectory = new ProviderDirectory();
         int totalFee = 0;
 
         try {
