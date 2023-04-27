@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-
+import java.util.*;
 import javax.swing.*;
 
 public class ManagerGui {
@@ -9,6 +9,9 @@ public class ManagerGui {
     private JFrame frame;
     private JPanel panel;
     private JLabel titleLabel;
+    private JFrame reportFrame;
+    private JPanel reportPanel;
+    private JLabel reportTitleLable;
     public ManagerGui() {
         frame = new JFrame();
         frame.setSize(800, 600);
@@ -26,7 +29,8 @@ public class ManagerGui {
         summaryReportBtn.setBounds(250, 150, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ManagerController.RequestSummaryReport();
+                ArrayList<String> summaryReport = ManagerController.RequestSummaryReport();
+                JOptionPane.showMessageDialog(frame, summaryReport.get(0) + " " + summaryReport.get(1) + " " + summaryReport.get(2) + " " + summaryReport.get(3));
             }
         });
         panel.add(summaryReportBtn);
@@ -35,6 +39,7 @@ public class ManagerGui {
         eftReportBtn.setBounds(250, 250, 300, 50);
         eftReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                
             }
         });
         panel.add(eftReportBtn);
@@ -43,7 +48,12 @@ public class ManagerGui {
         memberReportBtn.setBounds(250, 350, 300, 50);
         memberReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ManagerController.RequestMemberReport();
+                try {
+                    ManagerController.RequestMemberReport();
+                }
+                catch(Exception E) {
+                    System.out.println("Error");
+                }
             }
         });
         panel.add(memberReportBtn);
