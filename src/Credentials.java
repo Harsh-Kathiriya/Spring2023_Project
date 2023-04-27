@@ -11,15 +11,17 @@ public class Credentials{
     public ArrayList<String> memberCredentialsList;
 
     public boolean searchManagerList(Integer var){
-        if (var == "0"){
+        int length = (int) (Math.log10(var) + 1);
+        if (var == 0){
             throw new IllegalArgumentException("No credentials provided");
         }
         else{
-            if(var.length() < 9){
+            if(length < 9){
                 throw new IllegalArgumentException("Credentials number is too short. Must be 9 digits");
             }
-            else if(var.length() > 9){
-                throw new IllegalArgumentException("Credentials number is too long");
+            else if(length > 9){
+                throw new IllegalArgumentException("Credentials number is too long. Must be 9 digits");
+
             }
         }
         System.out.print("variable " + Integer.toString(var));
@@ -109,7 +111,7 @@ public class Credentials{
 
     public static void main(String[] args){
         Credentials test = new Credentials();
-        boolean search = test.searchManagerList("123");
+        boolean search = test.searchManagerList(123456789);
         if (search == false){
             System.out.println("search not valid");
         }

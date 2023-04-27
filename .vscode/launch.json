@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Credentials",
+            "request": "launch",
+            "mainClass": "Credentials",
+            "projectName": "spring23team1_9c2be324"
+        },
+        {
+            "type": "java",
             "name": "WeeklyAccountingProcedure",
             "request": "launch",
             "mainClass": "WeeklyAccountingProcedure",
