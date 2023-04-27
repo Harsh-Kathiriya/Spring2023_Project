@@ -50,12 +50,12 @@ public class ManagerController {
       if (line.startsWith(providerID + ",")) {
         // Parse the provider record data from the line
         String[] parts = line.split(",");
+        String number = parts[0];
         String name = parts[1];
-        String number = parts[2];
-        String address = parts[3];
-        String city = parts[4];
-        String state = parts[5];
-        String zipcode = parts[6];
+        String address = parts[2];
+        String city = parts[3];
+        String state = parts[4];
+        String zipcode = parts[5];
 
         // Create a new provider record object with the parsed datae
         providerName = name;
@@ -80,12 +80,12 @@ public class ManagerController {
       if (line.startsWith(memberID + ",")) {
         // Parse the member record data from the line
         String[] parts = line.split(",");
+        String number = parts[0];
         String name = parts[1];
-        String number = parts[2];
-        String address = parts[3];
-        String city = parts[4];
-        String state = parts[5];
-        String zipcode = parts[6];
+        String address = parts[2];
+        String city = parts[3];
+        String state = parts[4];
+        String zipcode = parts[5];
 
         // Create a new member record object with the parsed data
         memberName = name;
@@ -148,15 +148,15 @@ public class ManagerController {
     ProviderReport providerReport = new ProviderReport(providerName, providerNumber, providerAddress, providerCity,
         providerState, providerZipCode, consultNum, totalFee, datesOfServices, datesReceived, memberNames, serviceCodes,
         fees);
-    System.out.println("\n");
-    System.out.println(providerReport.getProviderName());
-    System.out.println(providerReport.getProviderNumber());
-    System.out.println(providerReport.getProviderAddress());
-    System.out.println(providerReport.getProviderCity());
-    System.out.println(providerReport.getProviderState());
-    System.out.println(providerReport.getProviderZipCode());
-    System.out.println(providerReport.getConsultNum());
-    System.out.println(providerReport.getTotalFee());
+    // System.out.println("\n");
+    // System.out.println(providerReport.getProviderName());
+    // System.out.println(providerReport.getProviderNumber());
+    // System.out.println(providerReport.getProviderAddress());
+    // System.out.println(providerReport.getProviderCity());
+    // System.out.println(providerReport.getProviderState());
+    // System.out.println(providerReport.getProviderZipCode());
+    // System.out.println(providerReport.getConsultNum());
+    // System.out.println(providerReport.getTotalFee());
     return providerReport;
   }
 
@@ -174,15 +174,15 @@ public class ManagerController {
     MemberReport memberReport = new MemberReport(memberName, memberNumber, memberAddress, memberCity,
         memberState, memberZipCode, dateOfServices, providerNames,
         serviceNames);
-    System.out.println("\n");
-    System.out.println(memberReport.getMemberName());
-    System.out.println(memberReport.getMemberNumber());
-    System.out.println(memberReport.getMemberAddress());
-    System.out.println(memberReport.getMemberCity());
-    System.out.println(memberReport.getMemberState());
-    System.out.println(memberReport.getMemberZipCode());
-    System.out.println(memberReport.getDateOfServices());
-    System.out.println(memberReport.getProviderNames());
+    // System.out.println("\n");
+    // System.out.println(memberReport.getMemberName());
+    // System.out.println(memberReport.getMemberNumber());
+    // System.out.println(memberReport.getMemberAddress());
+    // System.out.println(memberReport.getMemberCity());
+    // System.out.println(memberReport.getMemberState());
+    // System.out.println(memberReport.getMemberZipCode());
+    // System.out.println(memberReport.getDateOfServices());
+    // System.out.println(memberReport.getProviderNames());
     return memberReport;
   }
 
