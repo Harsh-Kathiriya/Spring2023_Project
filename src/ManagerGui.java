@@ -13,52 +13,61 @@ public class ManagerGui {
     private JPanel reportPanel;
     private JLabel reportTitleLable;
 
-    void requestMemberReport() {
-        try {
-            MemberRecordHash memberRecordHash = new MemberRecordHash();
-            MemberRecord currentMember;
-            ServiceList serviceList = new ServiceList();
-            ProviderDirectory providerDirectory = new ProviderDirectory();
-            ProviderRecord providerRecord;
-            providerRecordHash providerRecordHash = new providerRecordHash();
-            ArrayList<Service> memberServices;
-            ManagerController managerController = new ManagerController();
-            ProviderReport providerReport;
-            /*
-             * ArrayList<Integer> dateOfServices;
-             * ArrayList<String> providerNames;
-             * ArrayList<String> serviceNames;
-             */
-            Service currentService;
-            String serviceName;
+    public SummaryReport requestSummaryReport() {
+        // for every provider - # num of consults, total fee then total num of
+        // providers, total num of consultations, and total fee
+        ServiceList serviceList = new ServiceList();
+        Service currentService;
+        ArrayList<String> providerNames = new ArrayList<String>();
+        ArrayList<Integer> providerFees = new ArrayList<Integer>();
+        ArrayList<Integer> providerConsults = new ArrayList<Integer>();
+        ProviderRecord providerRecord;
+        ProviderReport providerReport;
+        ProviderDirectory providerDirectory = new ProviderDirectory();
+        int totalFee = 0;
+        ManagerController managerController = new ManagerController();
 
-            // Create a new JFrame to display the member report
+        try {
+            for (int i = 0; i < serviceList.getSize(); i++) {
+                currentService = serviceList.serviceAt(i);
+                providerReport = ManagerController
+                        .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
+                int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
+                totalFee += serviceFee;
+                if (providerNames.contains(providerReport.getProviderName())) {
+                    int currentIndex = providerNames.indexOf(providerReport.getProviderName());
+                    providerFees.set(currentIndex, providerFees.get(currentIndex) + serviceFee);
+                    providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
+                } else {
+                    providerNames.add(providerReport.getProviderName());
+                    providerFees.add(serviceFee);
+                    providerConsults.add(1);
+                }
+            }
+            SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
+                    providerNames.size(), serviceList.getSize(), totalFee);
+
+            // Create a new JFrame to display the summary report
             JFrame frame = new JFrame();
-            frame.setTitle("Member Report");
+            frame.setTitle("Summary Report");
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setLayout(new BorderLayout());
 
-            // Create a JTextArea to display the member report information
+            // Create a JTextArea to display the summary report information
             JTextArea textArea = new JTextArea();
             textArea.setEditable(false);
             textArea.setLineWrap(true);
             textArea.setWrapStyleWord(true);
 
-            for (int i = 0; i < memberRecordHash.getSize(); i++) {
-                currentMember = memberRecordHash.memberAt(i);
-                textArea.append(currentMember.getName() + " " + currentMember.getNumber() + " "
-                        + currentMember.getAddress() + " " + currentMember.getCity() + " " + currentMember.getState()
-                        + " "
-                        + currentMember.getZipCode() + "\n");
-                memberServices = serviceList.usersServices(Integer.valueOf(currentMember.getNumber()));
-                for (int j = 0; j < memberServices.size(); j++) {
-                    currentService = memberServices.get(j);
-                    providerReport = ManagerController
-                            .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
-                    serviceName = providerDirectory.serviceLookup(currentService.getServiceCode());
-                    textArea.append(currentService.getDateProvided() + " " + providerReport.getProviderName() + " "
-                            + serviceName + "\n");
-                }
+            // Append the summary report information to the text area
+            textArea.append("Total number of providers: " + summaryReport.getAmountOfProviders() + "\n");
+            textArea.append("Total number of consultations: " + summaryReport.getAmountOfConsults() + "\n");
+            textArea.append("Total fee: $" + summaryReport.getTotalFee() + "\n\n");
+            textArea.append("Provider\tConsultations\tFee\n");
+            for (int i = 0; i < summaryReport.getAmountOfProviders(); i++) {
+                textArea.append(
+                        summaryReport.getProviderNames().get(i) + "\t\t" + summaryReport.getProviderConsultNums().get(i)
+                                + "\t\t$" + summaryReport.getProviderTotalFees().get(i) + "\n");
             }
 
             // Add the JTextArea to a JScrollPane and add it to the JFrame
@@ -69,9 +78,11 @@ public class ManagerGui {
             frame.setSize(800, 600);
             frame.setVisible(true);
 
-        } catch (Exception e) {
+            return summaryReport;
+        } catch (IOException e) {
             System.out.println("Error");
         }
+        return null;
     }
 
     public class MyGUI {
@@ -147,7 +158,7 @@ public class ManagerGui {
                     frame.add(new JScrollPane(table), BorderLayout.CENTER);
                     frame.setSize(800, 600);
                     frame.setVisible(true);
-                    requestMemberReport();
+                    requestSummaryReport();
 
                 } catch (Exception E) {
                     System.out.println("Error");
