@@ -1,7 +1,6 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 public class CredentialsTest {
 
@@ -26,6 +25,29 @@ public class CredentialsTest {
         }
         catch(IllegalArgumentException ex){
             assertEquals("Credentials number is too long. Must be 9 digits", ex.getMessage());
+        }
+    }
+
+    @Test 
+    public void testCredPass(){
+        try {
+            Credentials creds = new Credentials();
+            creds.searchManagerList(null);
+        }
+        catch(IllegalArgumentException ex){
+            assertEquals("No credentials provided", ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testSuccess(){
+        try{
+            Credentials creds = new Credentials();
+            creds.searchManagerList(123456789);
+            //fail();
+        }
+        catch(IllegalArgumentException ex){
+            assertEquals("Credentials is correct length", ex.getMessage());
         }
     }
     

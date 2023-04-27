@@ -11,8 +11,11 @@ public class Credentials{
     public ArrayList<String> memberCredentialsList;
 
     public boolean searchManagerList(Integer var){
+        if(var == null){
+            throw new IllegalArgumentException("No credentials provided");
+        }
         int length = (int) (Math.log10(var) + 1);
-        if (var == 0){
+        if (length == 0){
             throw new IllegalArgumentException("No credentials provided");
         }
         else{
