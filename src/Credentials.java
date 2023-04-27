@@ -33,13 +33,13 @@ public class Credentials{
         operatorCredentialsList = new ArrayList<String>();
         memberCredentialsList = new ArrayList<String>();
         try{
-            File managerFile = new File(System.getProperty("user.dir") + "/src/managerCreds.txt");
+            File managerFile = new File(System.getProperty("user.dir") + "/src/managerCreds");
             System.out.println("null");
             Scanner managerReader = new Scanner(managerFile);
             while(managerReader.hasNextLine()) {
                 String data = managerReader.nextLine();
-                
                 managerCredentialsList.add(data);
+                System.out.println(data);
             }
             managerReader.close();
         }
@@ -94,6 +94,11 @@ public class Credentials{
             System.out.println("error occured");
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args){
+        Credentials manager = new Credentials();
+        manager.searchManagerList(284393242);
     }
 
 }
