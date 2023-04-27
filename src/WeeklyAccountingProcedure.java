@@ -19,11 +19,11 @@ public class WeeklyAccountingProcedure {
                 // Parse the provider record data from the line
                 String[] parts = line.split(",");
                 String name = parts[1];
-                String number = parts[2];
-                String address = parts[3];
-                String city = parts[4];
-                String state = parts[5];
-                String zipcode = parts[6];
+                String number = parts[0];
+                String address = parts[2];
+                String city = parts[3];
+                String state = parts[4];
+                String zipcode = parts[5];
 
                 // Create a new provider record object with the parsed datae
                 ProviderRecord providerRecord = new ProviderRecord(name, number, address, city, state, zipcode);
@@ -45,11 +45,11 @@ public class WeeklyAccountingProcedure {
                 // Parse the member record data from the line
                 String[] parts = line.split(",");
                 String name = parts[1];
-                String number = parts[2];
-                String address = parts[3];
-                String city = parts[4];
-                String state = parts[5];
-                String zipcode = parts[6];
+                String number = parts[0];
+                String address = parts[2];
+                String city = parts[3];
+                String state = parts[4];
+                String zipcode = parts[5];
 
                 // Create a new member record object with the parsed data
                 MemberRecord memberRecord = new MemberRecord(name, number, address, city, state, zipcode);
@@ -148,6 +148,7 @@ public class WeeklyAccountingProcedure {
         // for every provider - # num of consults, total fee then total num of
         // providers, total num of consultations, and total fee
         ServiceList serviceList = new ServiceList();
+        System.out.println("In i loop ");
         Service currentService;
         ArrayList<String> providerNames = new ArrayList<String>();
         ArrayList<Integer> providerFees = new ArrayList<Integer>();
@@ -159,7 +160,9 @@ public class WeeklyAccountingProcedure {
         try {
             for (int i = 0; i < serviceList.getSize(); i++) {
                 currentService = serviceList.serviceAt(i);
+                System.out.println("curent services provider num" + currentService.getProviderNum());
                 providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
+                
                 int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
                 totalFee += serviceFee;
                 if (providerNames.contains(providerRecord.getName())) {
@@ -176,7 +179,8 @@ public class WeeklyAccountingProcedure {
             SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
                     providerNames.size(), serviceList.getSize(), totalFee);
             return summaryReport;
-        } catch (IOException e) {
+        } 
+        catch (IOException e) {
             System.out.println("Error");
         }
         return null;
@@ -186,4 +190,10 @@ public class WeeklyAccountingProcedure {
 
     }
 
+    public static void main(String[] args) {
+        WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
+        System.out.println("null");
+        SummaryReport summaryReport = weeklyAccountingProcedure.requestSummaryReport();
+        System.out.println(summaryReport.getTotalFee());
+     }
 }

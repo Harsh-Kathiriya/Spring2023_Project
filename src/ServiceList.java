@@ -15,7 +15,7 @@ public class ServiceList {
             serviceMap = new HashMap<Integer, Service>();
             String userDirectory = System.getProperty("user.dir");
             System.out.println(userDirectory);
-            serviceListLocation = userDirectory + "/spring23team1/src/ServiceTest.txt";
+            serviceListLocation = userDirectory + "/src/ServiceTest.txt";
             directoryInfo = new File(serviceListLocation);
             if(directoryInfo.createNewFile()) {
                 System.out.println("Service List Created");
