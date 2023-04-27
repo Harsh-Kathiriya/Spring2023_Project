@@ -44,28 +44,13 @@ public class providerRecordHash {
     }
 
     
-
-    public void getInfo(Integer ident){
+    public ProviderRecord providerAt(Integer ident){
         ProviderRecord person = info.get(ident);
-        if (person != null) {
-            System.out.println("Name: " + person.getName() + ", ID: " + person.getNumber() + ", Address: " + person.getAddress() + ", Zip Code: " + person.getZipCode() + ", State: " + person.getState() + ", Zip: " + person.getZipCode());
-        } 
-        else {
-            System.out.println("Provider with ID " + ident + " not found.");
-        }
+        return person;
     }
 
-    public void getAll(){
-        for (Integer key : sortedMap){
-            getInfo(key);
-        }
-    }
-
-
-    public static void main(String[] args) throws IOException {
-        providerRecordHash hash = new providerRecordHash();
-        hash.getAll();
-
+    public Integer getSize(){
+        return info.size();
     }
 
 }
