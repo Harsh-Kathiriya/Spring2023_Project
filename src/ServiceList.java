@@ -5,11 +5,16 @@ import java.io.FileWriter;
 import java.util.Scanner;
 import java.io.IOException;
 
-
+/**
+ * {@summary ServiceList is a class that contains a hashmap of services provided during the week}
+ */
 public class ServiceList {
     HashMap<Integer, Service> serviceMap;
     String serviceListLocation;
     File directoryInfo;
+    /**
+     * {@summary Default constructor that reads in the services from a file}
+     */
     public ServiceList() {
         try {
             serviceMap = new HashMap<Integer, Service>();
@@ -48,7 +53,8 @@ public class ServiceList {
                     tempServiceCodeNum = Integer.parseInt(arr[4]);
                     tempComments = arr[5];
                     tempService = new Service(tempCurrentDateNum,tempDateProvidedNum,tempProviderNumberNum,tempMemberNumberNum,tempServiceCodeNum,tempComments);
-                    serviceMap.put(tempServiceCodeNum, tempService);
+                    serviceMap.put(serviceMap.size(), tempService);
+                    System.out.println(serviceMap.size());
                 }
                 readIn.close();
             }
@@ -60,7 +66,11 @@ public class ServiceList {
             System.out.println("Error");
         }
     }
-    
+    /**
+     * {@summary serviceAt returns a service at a position in the hashmap}
+     * @param pos
+     * @return
+     */
     public Service serviceAt(int pos) {
         Iterator serviceMapIterator = serviceMap.entrySet().iterator();
         Service currentService = null;
@@ -75,7 +85,11 @@ public class ServiceList {
         }
         return currentService;
     }
-
+    /**
+     * {@summary usersServices returns an arraylist of services for a provider or member}
+     * @param userNum
+     * @return
+     */
     public ArrayList<Service> usersServices(int userNum) {
         ArrayList<Service> services = new ArrayList<Service>();
         Iterator serviceMapIterator = serviceMap.entrySet().iterator();
@@ -89,7 +103,9 @@ public class ServiceList {
         }
         return services;
     }
-    
+    /** 
+     * {@summary getSize gets the amount of services in the hashmap}
+     */
     public int getSize() {
         return serviceMap.size();
     }

@@ -180,7 +180,9 @@ public class WeeklyAccountingProcedure {
         int totalFee = 0;
 
         try {
+            System.out.println(serviceList.usersServices(246810121));
             for (int i = 0; i < serviceList.getSize(); i++) {
+                
                 currentService = serviceList.serviceAt(i);
                 System.out.println(currentService.getProviderNum());
                 providerRecord = getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
