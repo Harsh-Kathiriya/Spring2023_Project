@@ -156,12 +156,13 @@ public class ManagerController {
     return providerReport;
   }
 
-  public static void RequestSummaryReport() {
+  public static SummaryReport RequestSummaryReport() {
     SummaryReport summaryreport = new SummaryReport(providerNames, dateOfServices, fees, consultNum, consultNum,
         consultNum);
     System.out.println("\n");
     requestSummaryReport();
     System.out.println(summaryreport.getProviderNames());
+    return summaryreport;
   }
 
   public static MemberReport RequestMemberReport() throws IOException {

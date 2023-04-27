@@ -3,12 +3,12 @@ import java.util.*;
 
 class MemberReport {
     // initializing fields
-    private String memberName;
-    private String memberNumber;
-    private String memberAddress;
-    private String memberCity;
-    private String memberState;
-    private String memberZipCode;
+    private static String memberName;
+    private static String memberNumber;
+    private static String memberAddress;
+    private static String memberCity;
+    private static String memberState;
+    private static String memberZipCode;
     private ArrayList<Integer> dateOfServices;
     private ArrayList<String> providerNames;
     private ArrayList<String> serviceNames;
@@ -20,7 +20,8 @@ class MemberReport {
 
     // Constructor that provides all fields of the report
     MemberReport(String memberName, String memberNumber, String memberAddress, String memberCity,
-            String memberState, String memberZipCode, ArrayList<Integer> dateOfServices, ArrayList<String> providerNames,
+            String memberState, String memberZipCode, ArrayList<Integer> dateOfServices,
+            ArrayList<String> providerNames,
             ArrayList<String> serviceNames) {
         this.memberName = memberName;
         this.memberNumber = memberNumber;
@@ -34,7 +35,7 @@ class MemberReport {
     }
 
     // getters and setters
-    public String getMemberName() {
+    public static String getMemberName() {
         return memberName;
     }
 
@@ -42,7 +43,7 @@ class MemberReport {
         this.memberName = memberName;
     }
 
-    public String getMemberNumber() {
+    public static String getMemberNumber() {
         return memberNumber;
     }
 
@@ -50,7 +51,7 @@ class MemberReport {
         this.memberNumber = memberNumber;
     }
 
-    public String getMemberAddress() {
+    public static String getMemberAddress() {
         return memberAddress;
     }
 
@@ -58,7 +59,7 @@ class MemberReport {
         this.memberAddress = memberAddress;
     }
 
-    public String getMemberCity() {
+    public static String getMemberCity() {
         return memberCity;
     }
 
@@ -66,7 +67,7 @@ class MemberReport {
         this.memberCity = memberCity;
     }
 
-    public String getMemberState() {
+    public static String getMemberState() {
         return memberState;
     }
 
@@ -74,7 +75,7 @@ class MemberReport {
         this.memberState = memberState;
     }
 
-    public String getMemberZipCode() {
+    public static String getMemberZipCode() {
         return memberZipCode;
     }
 

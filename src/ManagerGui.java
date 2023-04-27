@@ -12,6 +12,7 @@ public class ManagerGui {
     private JFrame reportFrame;
     private JPanel reportPanel;
     private JLabel reportTitleLable;
+
     public ManagerGui() {
         frame = new JFrame();
         frame.setSize(800, 600);
@@ -30,7 +31,7 @@ public class ManagerGui {
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 SummaryReport summaryReport = ManagerController.RequestSummaryReport();
-                //JOptionPane.showMessageDialog(frame,);
+                // JOptionPane.showMessageDialog(frame,);
             }
         });
         panel.add(summaryReportBtn);
@@ -39,7 +40,7 @@ public class ManagerGui {
         eftReportBtn.setBounds(250, 250, 300, 50);
         eftReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                
+
             }
         });
         panel.add(eftReportBtn);
@@ -49,9 +50,30 @@ public class ManagerGui {
         memberReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
+
+                    String[][] data = {
+                            { MemberReport.getMemberName(), MemberReport.getMemberNumber(),
+                                    MemberReport.getMemberAddress(),
+                                    MemberReport.getMemberCity(), MemberReport.getMemberState(),
+                                    MemberReport.getMemberZipCode() }
+                    };
+                    String[] columnNames = { "Name", "ID", "Address", "City", "State", "Zipcode" };
+
+                    JTable table = new JTable(data, columnNames);
+                    table.getColumnModel().getColumn(2).setPreferredWidth(50);
+
+                    JFrame frame = new JFrame();
+                    frame.add(new JScrollPane(table), BorderLayout.CENTER);
+                    frame.setSize(800, 600);
+                    frame.setVisible(true);
+
                     MemberReport memberReport = ManagerController.RequestMemberReport();
-                }
-                catch(Exception E) {
+                    // JFrame reportFrame = new JFrame("Member Report");
+                    // // JTable reportTable = new JTable(memberName);
+                    // reportFrame.add(new JScrollPane(reportTable), BorderLayout.CENTER);
+                    // reportFrame.setSize(800, 600);
+                    // reportFrame.setVisible(true);
+                } catch (Exception E) {
                     System.out.println("Error");
                 }
             }
@@ -64,8 +86,7 @@ public class ManagerGui {
                 try {
                     ProviderReport providerReport = ManagerController.RequestProviderReport();
                     ManagerController.RequestProviderReport();
-                }
-                catch(IOException E) {
+                } catch (IOException E) {
                     System.out.println("Error");
                 }
             }
