@@ -12,78 +12,16 @@ public class ManagerGui {
     private JFrame reportFrame;
     private JPanel reportPanel;
     private JLabel reportTitleLable;
-
-    public SummaryReport requestSummaryReport() {
-        // for every provider - # num of consults, total fee then total num of
-        // providers, total num of consultations, and total fee
-        ServiceList serviceList = new ServiceList();
-        Service currentService;
-        ArrayList<String> providerNames = new ArrayList<String>();
-        ArrayList<Integer> providerFees = new ArrayList<Integer>();
-        ArrayList<Integer> providerConsults = new ArrayList<Integer>();
-        ProviderRecord providerRecord;
-        ProviderReport providerReport;
-        ProviderDirectory providerDirectory = new ProviderDirectory();
-        int totalFee = 0;
-        ManagerController managerController = new ManagerController();
-
-        try {
-            for (int i = 0; i < serviceList.getSize(); i++) {
-                currentService = serviceList.serviceAt(i);
-                providerReport = ManagerController
-                        .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
-                int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
-                totalFee += serviceFee;
-                if (providerNames.contains(providerReport.getProviderName())) {
-                    int currentIndex = providerNames.indexOf(providerReport.getProviderName());
-                    providerFees.set(currentIndex, providerFees.get(currentIndex) + serviceFee);
-                    providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
-                } else {
-                    providerNames.add(providerReport.getProviderName());
-                    providerFees.add(serviceFee);
-                    providerConsults.add(1);
-                }
-            }
-            SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
-                    providerNames.size(), serviceList.getSize(), totalFee);
-
-            // Create a new JFrame to display the summary report
-            JFrame frame = new JFrame();
-            frame.setTitle("Summary Report");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setLayout(new BorderLayout());
-
-            // Create a JTextArea to display the summary report information
-            JTextArea textArea = new JTextArea();
-            textArea.setEditable(false);
-            textArea.setLineWrap(true);
-            textArea.setWrapStyleWord(true);
-
-            // Append the summary report information to the text area
-            textArea.append("Total number of providers: " + summaryReport.getAmountOfProviders() + "\n");
-            textArea.append("Total number of consultations: " + summaryReport.getAmountOfConsults() + "\n");
-            textArea.append("Total fee: $" + summaryReport.getTotalFee() + "\n\n");
-            textArea.append("Provider\tConsultations\tFee\n");
-            for (int i = 0; i < summaryReport.getAmountOfProviders(); i++) {
-                textArea.append(
-                        summaryReport.getProviderNames().get(i) + "\t\t" + summaryReport.getProviderConsultNums().get(i)
-                                + "\t\t$" + summaryReport.getProviderTotalFees().get(i) + "\n");
-            }
-
-            // Add the JTextArea to a JScrollPane and add it to the JFrame
-            JScrollPane scrollPane = new JScrollPane(textArea);
-            frame.add(scrollPane, BorderLayout.CENTER);
-
-            // Set the size and visibility of the JFrame
-            frame.setSize(800, 600);
-            frame.setVisible(true);
-
-            return summaryReport;
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
-        return null;
-    }
+    ServiceList serviceList = new ServiceList();
+    Service currentService;
+    ArrayList<String> providerNames = new ArrayList<String>();
+    ArrayList<Integer> providerFees = new ArrayList<Integer>();
+    ArrayList<Integer> providerConsults = new ArrayList<Integer>();
+    ProviderRecord providerRecord;
+    ProviderReport providerReport;
+    ProviderDirectory providerDirectory = new ProviderDirectory();
+    int totalFee = 0;
+    ManagerController managerController = new ManagerController();
 
     public class MyGUI {
         public static void main(String[] args) {
@@ -136,29 +74,63 @@ public class ManagerGui {
         memberReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
+                    for (int i = 0; i < serviceList.getSize(); i++) {
+                        currentService = serviceList.serviceAt(i);
+                        providerReport = ManagerController
+                                .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
+                        int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
+                        totalFee += serviceFee;
+                        if (providerNames.contains(providerReport.getProviderName())) {
+                            int currentIndex = providerNames.indexOf(providerReport.getProviderName());
+                            providerFees.set(currentIndex, providerFees.get(currentIndex) + serviceFee);
+                            providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
+                        } else {
+                            providerNames.add(providerReport.getProviderName());
+                            providerFees.add(serviceFee);
+                            providerConsults.add(1);
+                        }
+                    }
+                    SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
+                            providerNames.size(), serviceList.getSize(), totalFee);
+
                     String memberNumber = JOptionPane.showInputDialog("Enter Member Number:");
                     MemberReport memberReport = ManagerController.getMemberRecordFromFile(memberNumber);
                     MemberReport memberName = ManagerController.RequestMemberReport();
 
-                    MyGUI myGUI = new ManagerGui.MyGUI();
+                    JTextArea textArea = new JTextArea();
+                    textArea.setEditable(false);
+                    textArea.setLineWrap(true);
+                    textArea.setWrapStyleWord(true);
 
-                    String[][] data = {
-                            { memberReport.getMemberName(), memberNumber,
-                                    memberReport.getMemberAddress(),
-                                    memberReport.getMemberCity(), memberReport.getMemberState(),
-                                    memberReport.getMemberZipCode() }
-                    };
-                    String[] columnNames = { "Name", "ID", "Address", "City", "State", "Zipcode"
-                    };
+                    // Append the member report information to the text area
+                    textArea.append("Name: " + memberReport.getMemberName() + "\n");
+                    textArea.append("ID: " + memberNumber + "\n");
+                    textArea.append("Address: " + memberReport.getMemberAddress() + "\n");
+                    textArea.append("City: " + memberReport.getMemberCity() + "\n");
+                    textArea.append("State: " + memberReport.getMemberState() + "\n");
+                    textArea.append("Zipcode: " + memberReport.getMemberZipCode() + "\n");
+                    textArea.append("Total number of providers: " + summaryReport.getAmountOfProviders() + "\n");
+                    textArea.append("Total number of consultations: " + summaryReport.getAmountOfConsults() + "\n");
+                    textArea.append("Total fee: $" + summaryReport.getTotalFee() + "\n\n");
+                    textArea.append("Provider\tConsultations\tFee\n");
+                    for (int i = 0; i < summaryReport.getAmountOfProviders(); i++) {
+                        textArea.append(
+                                summaryReport.getProviderNames().get(i) + "\t\t"
+                                        + summaryReport.getProviderConsultNums().get(i)
+                                        + "\t\t$" + summaryReport.getProviderTotalFees().get(i) + "\n");
+                    }
 
-                    JTable table = new JTable(data, columnNames);
-                    table.getColumnModel().getColumn(2).setPreferredWidth(50);
+                    // Create a JScrollPane to display the text area
+                    JScrollPane scrollPane = new JScrollPane(textArea);
+                    scrollPane.setPreferredSize(new Dimension(800, 600));
 
+                    // Create a new JFrame to display the member report
                     JFrame frame = new JFrame();
-                    frame.add(new JScrollPane(table), BorderLayout.CENTER);
-                    frame.setSize(800, 600);
+                    frame.setTitle("Member Report");
+                    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    frame.add(scrollPane, BorderLayout.CENTER);
+                    frame.pack();
                     frame.setVisible(true);
-                    requestSummaryReport();
 
                 } catch (Exception E) {
                     System.out.println("Error");
@@ -178,20 +150,19 @@ public class ManagerGui {
 
                     MyGUI myGUI = new ManagerGui.MyGUI();
 
-                    String[][] data = {
-                            { providerReport.getProviderName(), providerNumber,
-                                    providerReport.getProviderAddress(),
-                                    providerReport.getProviderCity(), providerReport.getProviderState(),
-                                    providerReport.getProviderZipCode() }
-                    };
-                    String[] columnNames = { "Name", "ID", "Address", "City", "State", "Zipcode"
-                    };
+                    String data = "Name: " + providerReport.getProviderName() + "\n"
+                            + "ID: " + providerNumber + "\n"
+                            + "Address: " + providerReport.getProviderAddress() + "\n"
+                            + "City: " + providerReport.getProviderCity() + "\n"
+                            + "State: " + providerReport.getProviderState() + "\n"
+                            + "Zipcode: " + providerReport.getProviderZipCode() + "\n";
 
-                    JTable table = new JTable(data, columnNames);
-                    table.getColumnModel().getColumn(2).setPreferredWidth(50);
+                    JTextArea textArea = new JTextArea();
+                    textArea.setText(data);
+                    textArea.setEditable(false);
 
                     JFrame frame = new JFrame();
-                    frame.add(new JScrollPane(table), BorderLayout.CENTER);
+                    frame.add(new JScrollPane(textArea), BorderLayout.CENTER);
                     frame.setSize(800, 600);
                     frame.setVisible(true);
 
