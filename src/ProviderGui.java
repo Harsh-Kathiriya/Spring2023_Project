@@ -146,7 +146,7 @@ public class ProviderGui {
                  billChocAn.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         if(todayDateField.getText().matches("\\d{8}") && serviceCodeField.getText().matches("\\d{6}") && serviceDateField.getText().matches("\\d{8}")){
-                        File file = new File(System.getProperty("user.dir") + "/serviceTest");
+                        File file = new File(System.getProperty("user.dir") + "/src/serviceTest.txt");
                         FileWriter fileWriter;
                         try {
                             fileWriter = new FileWriter(file, true);
@@ -157,7 +157,6 @@ public class ProviderGui {
                                           memberId + "," +
                                           serviceCodeField.getText() + "," +
                                           comments.getText() + "\n");
-                
                            // Close the file
                           bufferedWriter.close();
                           frame.dispose();
