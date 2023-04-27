@@ -33,7 +33,7 @@ public class Credentials{
         operatorCredentialsList = new ArrayList<String>();
         memberCredentialsList = new ArrayList<String>();
         try{
-            File managerFile = new File(System.getProperty("user.dir") + "/src/managerCreds");
+            File managerFile = new File(System.getProperty("user.dir") + "/src/managerCreds.txt");
             System.out.println("null");
             Scanner managerReader = new Scanner(managerFile);
             while(managerReader.hasNextLine()) {
