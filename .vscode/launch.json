@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ManagerGui",
+            "request": "launch",
+            "mainClass": "ManagerGui",
+            "projectName": "spring23team1_73e51727"
+        },
+        {
+            "type": "java",
+            "name": "ManagerController",
+            "request": "launch",
+            "mainClass": "ManagerController",
+            "projectName": "spring23team1_73e51727"
+        },
+        {
+            "type": "java",
             "name": "Terminal",
             "request": "launch",
             "mainClass": "Terminal",

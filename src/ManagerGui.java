@@ -66,105 +66,103 @@ public class ManagerGui {
         });
         panel.add(summaryReportBtn);
 
-        JButton memberReportBtn = new JButton("Member Report");
-        memberReportBtn.setBounds(250, 350, 300, 50);
-        memberReportBtn.addActionListener(new ActionListener() {
+        // JButton memberReportBtn = new JButton("Member Report");
+        // memberReportBtn.setBounds(250, 350, 300, 50);
+        // memberReportBtn.addActionListener(new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
+        //         try {
+        //             for (int i = 0; i < serviceList.getSize(); i++) {
+        //                 currentService = serviceList.serviceAt(i);
+        //                 // providerReport = ManagerController
+        //                 //         .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
+        //                 int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
+        //                 totalFee += serviceFee;
+        //                 if (providerNames.contains(providerReport.getProviderName())) {
+        //                     int currentIndex = providerNames.indexOf(providerReport.getProviderName());
+        //                     providerFees.set(currentIndex, providerFees.get(currentIndex) + serviceFee);
+        //                     providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
+        //                 } else {
+        //                     providerNames.add(providerReport.getProviderName());
+        //                     providerFees.add(serviceFee);
+        //                     providerConsults.add(1);
+        //                 }
+        //             }
+        //             SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
+        //                     providerNames.size(), serviceList.getSize(), totalFee);
+
+        //             String memberNumber = JOptionPane.showInputDialog("Enter Member Number:");
+        //             // MemberReport memberReport = ManagerController.getMemberRecordFromFile(memberNumber);
+        //             //MemberReport memberName = ManagerController.RequestMemberReport();
+
+        //             JTextArea textArea = new JTextArea();
+        //             textArea.setEditable(false);
+        //             textArea.setLineWrap(true);
+        //             textArea.setWrapStyleWord(true);
+
+        //             // Append the member report information to the text area
+        //             textArea.append("Name: " + memberReport.getMemberName() + "\n");
+        //             textArea.append("ID: " + memberNumber + "\n");
+        //             textArea.append("Address: " + memberReport.getMemberAddress() + "\n");
+        //             textArea.append("City: " + memberReport.getMemberCity() + "\n");
+        //             textArea.append("State: " + memberReport.getMemberState() + "\n");
+        //             textArea.append("Zipcode: " + memberReport.getMemberZipCode() + "\n");
+        //             textArea.append("Total number of providers: " + summaryReport.getAmountOfProviders() + "\n");
+        //             textArea.append("Total number of consultations: " + summaryReport.getAmountOfConsults() + "\n");
+        //             textArea.append("Total fee: $" + summaryReport.getTotalFee() + "\n\n");
+        //             textArea.append("Provider\tConsultations\tFee\n");
+        //             for (int i = 0; i < summaryReport.getAmountOfProviders(); i++) {
+        //                 textArea.append(
+        //                         summaryReport.getProviderNames().get(i) + "\t\t"
+        //                                 + summaryReport.getProviderConsultNums().get(i)
+        //                                 + "\t\t$" + summaryReport.getProviderTotalFees().get(i) + "\n");
+        //             }
+
+        //             // Create a JScrollPane to display the text area
+        //             JScrollPane scrollPane = new JScrollPane(textArea);
+        //             scrollPane.setPreferredSize(new Dimension(800, 600));
+
+        //             // Create a new JFrame to display the member report
+        //             JFrame frame = new JFrame();
+        //             frame.setTitle("Member Report");
+        //             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //             frame.add(scrollPane, BorderLayout.CENTER);
+        //             frame.pack();
+        //             frame.setVisible(true);
+
+        //         } catch (Exception E) {
+        //             System.out.println("Error");
+        //         }
+        //     }
+        // });
+        // panel.add(memberReportBtn);
+
+        JButton providerReportBtn = new JButton("Provider Report");
+        providerReportBtn.setBounds(250, 450, 300, 50);
+        WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
+        ManagerController managerController = new ManagerController();
+        providerReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    for (int i = 0; i < serviceList.getSize(); i++) {
-                        currentService = serviceList.serviceAt(i);
-                        providerReport = ManagerController
-                                .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
-                        int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
-                        totalFee += serviceFee;
-                        if (providerNames.contains(providerReport.getProviderName())) {
-                            int currentIndex = providerNames.indexOf(providerReport.getProviderName());
-                            providerFees.set(currentIndex, providerFees.get(currentIndex) + serviceFee);
-                            providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
-                        } else {
-                            providerNames.add(providerReport.getProviderName());
-                            providerFees.add(serviceFee);
-                            providerConsults.add(1);
-                        }
-                    }
-                    SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
-                            providerNames.size(), serviceList.getSize(), totalFee);
-
-                    String memberNumber = JOptionPane.showInputDialog("Enter Member Number:");
-                    MemberReport memberReport = ManagerController.getMemberRecordFromFile(memberNumber);
-                    //MemberReport memberName = ManagerController.RequestMemberReport();
-
+                    String providerNumber = JOptionPane.showInputDialog("Enter Provider Number:");
+                    ProviderRecord providerRecord = managerController.getProviderRecordFromFile(providerNumber);
+                    ProviderReport thisProviderReport = managerController.requestSingleProviderReport(providerRecord);
                     JTextArea textArea = new JTextArea();
                     textArea.setEditable(false);
-                    textArea.setLineWrap(true);
-                    textArea.setWrapStyleWord(true);
-
-                    // Append the member report information to the text area
-                    textArea.append("Name: " + memberReport.getMemberName() + "\n");
-                    textArea.append("ID: " + memberNumber + "\n");
-                    textArea.append("Address: " + memberReport.getMemberAddress() + "\n");
-                    textArea.append("City: " + memberReport.getMemberCity() + "\n");
-                    textArea.append("State: " + memberReport.getMemberState() + "\n");
-                    textArea.append("Zipcode: " + memberReport.getMemberZipCode() + "\n");
-                    textArea.append("Total number of providers: " + summaryReport.getAmountOfProviders() + "\n");
-                    textArea.append("Total number of consultations: " + summaryReport.getAmountOfConsults() + "\n");
-                    textArea.append("Total fee: $" + summaryReport.getTotalFee() + "\n\n");
-                    textArea.append("Provider\tConsultations\tFee\n");
-                    for (int i = 0; i < summaryReport.getAmountOfProviders(); i++) {
-                        textArea.append(
-                                summaryReport.getProviderNames().get(i) + "\t\t"
-                                        + summaryReport.getProviderConsultNums().get(i)
-                                        + "\t\t$" + summaryReport.getProviderTotalFees().get(i) + "\n");
-                    }
-
-                    // Create a JScrollPane to display the text area
                     JScrollPane scrollPane = new JScrollPane(textArea);
                     scrollPane.setPreferredSize(new Dimension(800, 600));
-
-                    // Create a new JFrame to display the member report
                     JFrame frame = new JFrame();
-                    frame.setTitle("Member Report");
+                    frame.setTitle("Provider Report");
                     frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                     frame.add(scrollPane, BorderLayout.CENTER);
                     frame.pack();
                     frame.setVisible(true);
 
-                } catch (Exception E) {
-                    System.out.println("Error");
-                }
-            }
-        });
-        panel.add(memberReportBtn);
+                    // Append text to the text area
+                    textArea.append(thisProviderReport.toString());
 
-        JButton providerReportBtn = new JButton("Provider Report");
-        providerReportBtn.setBounds(250, 450, 300, 50);
-        providerReportBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    String providerNumber = JOptionPane.showInputDialog("Enter Provider Number:");
-                    ProviderReport providerReport = ManagerController.getProviderRecordFromFile(providerNumber);
-                   // ProviderReport providerName = ManagerController.RequestProviderReport();
-
-                    MyGUI myGUI = new ManagerGui.MyGUI();
-
-                    String data = "Name: " + providerReport.getProviderName() + "\n"
-                            + "ID: " + providerNumber + "\n"
-                            + "Address: " + providerReport.getProviderAddress() + "\n"
-                            + "City: " + providerReport.getProviderCity() + "\n"
-                            + "State: " + providerReport.getProviderState() + "\n"
-                            + "Zipcode: " + providerReport.getProviderZipCode() + "\n";
-
-                    JTextArea textArea = new JTextArea();
-                    textArea.setText(data);
-                    textArea.setEditable(false);
-
-                    JFrame frame = new JFrame();
-                    frame.add(new JScrollPane(textArea), BorderLayout.CENTER);
-                    frame.setSize(800, 600);
-                    frame.setVisible(true);
-
-                } catch (Exception E) {
-                    System.out.println("Error");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

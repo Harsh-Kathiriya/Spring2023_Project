@@ -157,11 +157,11 @@ class ProviderReport {
     }
     @Override
     public String toString() {
-        return "ProviderReport [providerName=" + providerName + ", providerNumber=" + providerNumber
-                + ", providerAddress=" + providerAddress + ", providerCity=" + providerCity + ", providerState="
-                + providerState + ", providerZipCode=" + providerZipCode + ", consultNum=" + consultNum + ", totalFee="
-                + totalFee + ", fees=" + fees + ", datesOfServices=" + datesOfServices + ", datesReceived="
-                + datesReceived + ", memberNames=" + memberNames + ", serviceCodes=" + serviceCodes + ", memberNumbers="
+        return "ProviderReport \n [providerName=" + providerName + ",\n providerNumber=" + providerNumber
+                + ",\n providerAddress=" + providerAddress + ",\n providerCity=" + providerCity + ",\n providerState="
+                + providerState + ",\n providerZipCode=" + providerZipCode + ",\n consultNum=" + consultNum + ",\n totalFee="
+                + totalFee + ",\n fees=" + fees + ",\n datesOfServices=" + datesOfServices + ",\n datesReceived="
+                + datesReceived + ",\n memberNames=" + memberNames + ",\n serviceCodes=" + serviceCodes + ",\n memberNumbers="
                 + memberNumbers + "]";
     }
 }
