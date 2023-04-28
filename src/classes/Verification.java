@@ -1,6 +1,9 @@
 package classes;
 import java.util.Scanner; //Allows use of user input
 
+/**
+ * @author Austin Smith
+ */
 public class Verification{
 
     //Variables
