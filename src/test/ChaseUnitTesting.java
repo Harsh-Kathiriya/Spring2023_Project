@@ -16,11 +16,8 @@ public class ChaseUnitTesting {
     @Test
     public void memberReportFailure() {
         try {
-            Path currentDir = Paths.get(".");
-            System.out.println(currentDir.toAbsolutePath());
-            WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
-            ArrayList<ProviderReport> providerReports = weeklyAccountingProcedure.requestProviderReport();
-            assertTrue(providerReports != null);
+            MemberReport memberReport = new MemberReport();
+            assertFalse(memberReport.getMemberName() != null);
         }
         catch(Exception e) {
             System.out.println(e.getLocalizedMessage());
@@ -30,17 +27,31 @@ public class ChaseUnitTesting {
     public void MemberReportSuccess() {
         try {
             MemberReport memberReport = new MemberReport();
-            
+            assertTrue(memberReport.getMemberName() == null);
         }
         catch(Exception e) {
             System.out.println(e.getLocalizedMessage());
         }
     }
     @Test
+    public void providerReportFailure() {
+
+    }
+
+    @Test
     public void recordSuccess() {
         try {
             MemberRecord Record = new MemberRecord("Default","Default","Default","Default","Default","Default");
             assertEquals("Default", Record.getName());
+        }
+        catch(Exception e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
+    public void recordFailure() {
+        try{
+            MemberRecord Record = new MemberRecord("Default","Default","Default","Default","Default","Default");
+            assertFalse(Record.getName()!="Default");
         }
         catch(Exception e) {
             System.out.println(e.getLocalizedMessage());
