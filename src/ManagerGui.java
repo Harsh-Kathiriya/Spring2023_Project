@@ -60,86 +60,78 @@ public class ManagerGui {
         summaryReportBtn.setBounds(250, 250, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                //SummaryReport summaryReport = ManagerController.RequestSummaryReport();
-                // JOptionPane.showMessageDialog(frame,);
+                try{
+                    WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
+                    SummaryReport summaryReport = weeklyAccountingProcedure.requestSummaryReport();
+                    String summaryReportString = summaryReport.toString();
+                    String[] summaryReportLines = summaryReportString.split("],");
+
+                        StringBuilder sb = new StringBuilder();
+
+                        for (String line : summaryReportLines) {
+                            sb.append(line.trim()).append("\n");
+                        }
+
+                        String formattedSummaryReport = sb.toString();
+                    System.out.println(summaryReport);
+                    JTextArea textArea = new JTextArea();
+                    textArea.setEditable(false);
+                    JScrollPane scrollPane = new JScrollPane(textArea);
+                    scrollPane.setPreferredSize(new Dimension(800, 600));
+                    JFrame frame = new JFrame();
+                    frame.setTitle("Summary Report");
+                    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    frame.add(scrollPane, BorderLayout.CENTER);
+                    frame.pack();
+                    frame.setVisible(true);
+
+                    textArea.append(formattedSummaryReport);
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         panel.add(summaryReportBtn);
 
-        // JButton memberReportBtn = new JButton("Member Report");
-        // memberReportBtn.setBounds(250, 350, 300, 50);
-        // memberReportBtn.addActionListener(new ActionListener() {
-        //     public void actionPerformed(ActionEvent e) {
-        //         try {
-        //             for (int i = 0; i < serviceList.getSize(); i++) {
-        //                 currentService = serviceList.serviceAt(i);
-        //                 // providerReport = ManagerController
-        //                 //         .getProviderRecordFromFile(Integer.toString(currentService.getProviderNum()));
-        //                 int serviceFee = providerDirectory.feeLookup(currentService.getServiceCode());
-        //                 totalFee += serviceFee;
-        //                 if (providerNames.contains(providerReport.getProviderName())) {
-        //                     int currentIndex = providerNames.indexOf(providerReport.getProviderName());
-        //                     providerFees.set(currentIndex, providerFees.get(currentIndex) + serviceFee);
-        //                     providerConsults.set(currentIndex, providerConsults.get(currentIndex) + 1);
-        //                 } else {
-        //                     providerNames.add(providerReport.getProviderName());
-        //                     providerFees.add(serviceFee);
-        //                     providerConsults.add(1);
-        //                 }
-        //             }
-        //             SummaryReport summaryReport = new SummaryReport(providerNames, providerConsults, providerFees,
-        //                     providerNames.size(), serviceList.getSize(), totalFee);
+        JButton memberReportBtn = new JButton("Member Report");
+        memberReportBtn.setBounds(250, 350, 300, 50);
+        WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
+        ManagerController managerController = new ManagerController();
+        memberReportBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String memberNumber = JOptionPane.showInputDialog("Enter Member Number:");
+                    MemberRecord memberRecord = managerController.getMemberRecordFromFile(memberNumber);
+                    MemberReport thisMemberReport = managerController.requestSingleMemberReport(memberRecord);
+                    JTextArea textArea = new JTextArea();
+                    textArea.setEditable(false);
+                    JScrollPane scrollPane = new JScrollPane(textArea);
+                    scrollPane.setPreferredSize(new Dimension(800, 600));
+                    JFrame frame = new JFrame();
+                    frame.setTitle("Member Report");
+                    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    frame.add(scrollPane, BorderLayout.CENTER);
+                    frame.pack();
+                    frame.setVisible(true);
 
-        //             String memberNumber = JOptionPane.showInputDialog("Enter Member Number:");
-        //             // MemberReport memberReport = ManagerController.getMemberRecordFromFile(memberNumber);
-        //             //MemberReport memberName = ManagerController.RequestMemberReport();
+                    // Append text to the text area
+                    textArea.append(thisMemberReport.toString());
 
-        //             JTextArea textArea = new JTextArea();
-        //             textArea.setEditable(false);
-        //             textArea.setLineWrap(true);
-        //             textArea.setWrapStyleWord(true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        panel.add(memberReportBtn);
 
-        //             // Append the member report information to the text area
-        //             textArea.append("Name: " + memberReport.getMemberName() + "\n");
-        //             textArea.append("ID: " + memberNumber + "\n");
-        //             textArea.append("Address: " + memberReport.getMemberAddress() + "\n");
-        //             textArea.append("City: " + memberReport.getMemberCity() + "\n");
-        //             textArea.append("State: " + memberReport.getMemberState() + "\n");
-        //             textArea.append("Zipcode: " + memberReport.getMemberZipCode() + "\n");
-        //             textArea.append("Total number of providers: " + summaryReport.getAmountOfProviders() + "\n");
-        //             textArea.append("Total number of consultations: " + summaryReport.getAmountOfConsults() + "\n");
-        //             textArea.append("Total fee: $" + summaryReport.getTotalFee() + "\n\n");
-        //             textArea.append("Provider\tConsultations\tFee\n");
-        //             for (int i = 0; i < summaryReport.getAmountOfProviders(); i++) {
-        //                 textArea.append(
-        //                         summaryReport.getProviderNames().get(i) + "\t\t"
-        //                                 + summaryReport.getProviderConsultNums().get(i)
-        //                                 + "\t\t$" + summaryReport.getProviderTotalFees().get(i) + "\n");
-        //             }
-
-        //             // Create a JScrollPane to display the text area
-        //             JScrollPane scrollPane = new JScrollPane(textArea);
-        //             scrollPane.setPreferredSize(new Dimension(800, 600));
-
-        //             // Create a new JFrame to display the member report
-        //             JFrame frame = new JFrame();
-        //             frame.setTitle("Member Report");
-        //             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //             frame.add(scrollPane, BorderLayout.CENTER);
-        //             frame.pack();
-        //             frame.setVisible(true);
-
-        //         } catch (Exception E) {
-        //             System.out.println("Error");
-        //         }
-        //     }
-        // });
-        // panel.add(memberReportBtn);
 
         JButton providerReportBtn = new JButton("Provider Report");
         providerReportBtn.setBounds(250, 450, 300, 50);
-        WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
-        ManagerController managerController = new ManagerController();
+        WeeklyAccountingProcedure weeklyAccountingProcedure2 = new WeeklyAccountingProcedure();
+        ManagerController managerController2 = new ManagerController();
         providerReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
