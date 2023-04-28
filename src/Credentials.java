@@ -112,13 +112,4 @@ public class Credentials{
         }
     }
 
-    public static void main(String[] args){
-        Credentials test = new Credentials();
-        boolean search = test.searchManagerList(123456789);
-        if (search == false){
-            System.out.println("search not valid");
-        }
-        
-    }
-
 }
