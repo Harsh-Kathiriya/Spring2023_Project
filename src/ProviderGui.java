@@ -24,7 +24,6 @@ public class ProviderGui {
     JLabel serviceInfo;
 
     public ProviderGui() {
-        this.providerId = providerId;
         frame = new JFrame();
         frame.setSize(800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
