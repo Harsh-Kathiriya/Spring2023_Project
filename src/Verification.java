@@ -13,7 +13,7 @@ public class Verification{
     
     }
     */
-
+    
     /* Will return value based on role of user ie. manager, provider,
      or operator. -1 indicates user is not valid.*/
 
