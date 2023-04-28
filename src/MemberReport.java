@@ -109,9 +109,9 @@ class MemberReport {
 
     @Override
     public String toString() {
-        return "MemberReport [memberName=" + memberName + ", memberNumber=" + memberNumber + ", memberAddress="
-                + memberAddress + ", memberCity=" + memberCity + ", memberState=" + memberState + ", memberZipCode="
-                + memberZipCode + ", dateOfServices=" + dateOfServices + ", providerNames=" + providerNames
-                + ", serviceNames=" + serviceNames + "]";
+        return "MemberReport \n [memberName=" + memberName + ",\n memberNumber=" + memberNumber + ",\n memberAddress="
+                + memberAddress + ",\n memberCity=" + memberCity + ",\n memberState=" + memberState + ",\n memberZipCode="
+                + memberZipCode + ",\n dateOfServices=" + dateOfServices + ",\n providerNames=" + providerNames
+                + ",\n serviceNames=" + serviceNames + "]";
     }
 }
