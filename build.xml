@@ -1,0 +1,36 @@
+<project name="ChocAnDataCenter" default="jar">
+    
+  <property name="src.dir" value="src" />
+  <property name="build.dir" value="release" />
+
+  <target name="init">
+    <tstamp />
+    <mkdir dir="${build.dir}" />
+  </target>
+
+  <target name="compile" depends="init">
+    <javac srcdir="${src.dir}/classes" destdir="${build.dir}" />
+  </target>
+
+  <target name="makedir" depends="compile">
+    <mkdir dir="${build.dir}/data" />
+  </target>
+
+  <target name="copy-data" depends="makedir">
+    <copy file="${src.dir}/data/managerCreds" todir="${build.dir}/data" />
+    <copy file="${src.dir}/data/Member_Record" todir="${build.dir}/data" />
+    <copy file="${src.dir}/data/operatorCreds" todir="${build.dir}/data" />
+    <copy file="${src.dir}/data/provider_directory" todir="${build.dir}/data" />
+    <copy file="${src.dir}/data/Provider_Record" todir="${build.dir}/data" />
+    <copy file="${src.dir}/data/ServiceTest.txt" todir="${build.dir}/data" />
+  </target>
+
+
+  <target name="jar" depends="copy-data">
+    <jar destfile="${build.dir}/ChocAnDataCenter.jar" basedir="${build.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="classes.Main"/>
+      </manifest>
+    </jar>
+  </target>
+</project>
