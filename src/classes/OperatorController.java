@@ -127,7 +127,7 @@ public class OperatorController {
     * @param fileName the name of the file to check for existing numbers.
     * @return a unique 9-digit number.
     */
-    static String generateUniqueNumber(String fileName) {
+    public static String generateUniqueNumber(String fileName) {
         String number;
             do {
                 number = String.format("%09d", new Random().nextInt(1000000000));
