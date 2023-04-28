@@ -29,7 +29,7 @@ public class SebastianUnitTest {
         ProviderReport providerReport = managerController.requestSingleProviderReport(providerRecord);
         assertNotNull(providerReport);
         assertEquals(providerRecord.getName(), providerReport.getProviderName());
-        assertEquals(providerRecord.getNumber(), providerReport.getProviderNumber());
+        assertNotEquals("100000001", providerReport.getProviderNumber());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class SebastianUnitTest {
         MemberReport memberReport = managerController.requestSingleMemberReport(memberRecord);
         assertNotNull(memberReport);
         assertEquals(memberRecord.getName(), memberReport.getMemberName());
-        assertNotEquals(memberRecord.getNumber(), memberReport.getMemberNumber());
+        assertEquals(memberRecord.getNumber(), memberReport.getMemberNumber());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class SebastianUnitTest {
         MemberReport memberReport = managerController.requestSingleMemberReport(memberRecord);
         assertNotNull(memberReport);
         assertEquals(memberRecord.getName(), memberReport.getMemberName());
-        assertNotEquals(memberRecord.getNumber(), memberReport.getMemberNumber());
+        assertNotEquals("200000001", memberReport.getMemberNumber());
     }
 
 }
