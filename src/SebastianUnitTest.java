@@ -8,10 +8,14 @@ import org.junit.Test;
 public class SebastianUnitTest {
 
     private ManagerController managerController;
+    private ProviderRecord providerRecord;
+    private MemberRecord memberRecord;
 
     @Before
     public void setUp() throws Exception {
         managerController = new ManagerController();
+        providerRecord = new ProviderRecord("Ethan", "123456789", "1234 Main St.", "Anytown", "CA", "12345");
+        memberRecord = new MemberRecord("Ethan", "123456789", "1234 Main St.", "Anytown", "CA", "12345");
     }
 
     @Test
@@ -29,7 +33,7 @@ public class SebastianUnitTest {
         ProviderReport providerReport = managerController.requestSingleProviderReport(providerRecord);
         assertNotNull(providerReport);
         assertEquals(providerRecord.getName(), providerReport.getProviderName());
-        assertNotEquals("100000001", providerReport.getProviderNumber());
+        assertNotEquals("1000001989989", providerReport.getProviderNumber());
     }
 
     @Test
@@ -47,7 +51,28 @@ public class SebastianUnitTest {
         MemberReport memberReport = managerController.requestSingleMemberReport(memberRecord);
         assertNotNull(memberReport);
         assertEquals(memberRecord.getName(), memberReport.getMemberName());
-        assertNotEquals("200000001", memberReport.getMemberNumber());
+        assertNotEquals("200000198987", memberReport.getMemberNumber());
+    }
+
+    @Test
+    public void SuccessfulProviderRecord() {
+        assertEquals("Ethan", providerRecord.getName());
+        assertEquals("123456789", providerRecord.getNumber());
+        assertEquals("1234 Main St.", providerRecord.getAddress());
+        assertEquals("Anytown", providerRecord.getCity());
+        assertEquals("CA", providerRecord.getState());
+        assertEquals("12345", providerRecord.getZipCode());
+    }
+
+    @Test
+    public void FailureProvideRecord() {
+        providerRecord.setNumber("12345678999999999");
+        assertEquals("Ethan", providerRecord.getName());
+        assertNotEquals("12345678999999999", providerRecord.getNumber());
+        assertEquals("1234 Main St.", providerRecord.getAddress());
+        assertEquals("Anytown", providerRecord.getCity());
+        assertEquals("CA", providerRecord.getState());
+        assertEquals("12345", providerRecord.getZipCode());
     }
 
 }
