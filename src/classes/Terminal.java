@@ -1,3 +1,7 @@
+/**
+ * @author: Harsh Kathiriya
+ * {@summary: This class implements the main terminal GUI. The operator menu, provider menu and manager menu can be accessed through this terminal GUI.
+ */
 package classes;
 import java.awt.*;
 import java.awt.event.*;
@@ -5,6 +9,9 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+/**
+ * @summary Creates an instance of the Terminal class and initializes the GUI.
+ */
 public class Terminal {
 
     private JFrame frame;
