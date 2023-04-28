@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * {@summary A class that automagically generates all reports for providers and members as well as generating a summary report}
  * and an EFT report for each provider
+ * 
  **/
 public class WeeklyAccountingProcedure {
     ServiceList serviceList;
