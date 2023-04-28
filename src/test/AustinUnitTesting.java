@@ -16,7 +16,7 @@ public class AustinUnitTesting {
         Record_meth = new MemberRecord("Carry", "123456789","addy","bama","AL","12345");
     }
     @Test
-    public void testRecord(){
+    public void testRecordSuccess(){
        
         Record_meth.setName("Carry");
         assertEquals("Carry", Record_meth.getName());
@@ -25,7 +25,7 @@ public class AustinUnitTesting {
     }
 
     @Test
-    public void testRecordSt(){
+    public void testRecordStateSuccess(){
         assertEquals("AL",Record_meth.getState());
     
     
@@ -41,7 +41,7 @@ public class AustinUnitTesting {
     }
 
     @Test
-    public void testProvider(){
+    public void testProviderSuccess(){
         assertEquals(providerTest.feeLookup(223987), 100);
     }
 }
