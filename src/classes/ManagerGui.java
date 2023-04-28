@@ -1,9 +1,18 @@
 package classes;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
+
+/**
+ * @author Sebastian Shirk
+ *         {@summary A class that creates a GUI for the manager}
+ * @param none
+ * @return void
+ * 
+ **/
 
 public class ManagerGui {
 
@@ -44,6 +53,13 @@ public class ManagerGui {
         }
     }
 
+    /**
+     * @author Sebastian Shirk
+     *         {@summary The method that creates the GUI for the manager}
+     * @param none
+     * 
+     **/
+
     public ManagerGui() {
         frame = new JFrame();
         frame.setSize(800, 600);
@@ -61,19 +77,19 @@ public class ManagerGui {
         summaryReportBtn.setBounds(250, 250, 300, 50);
         summaryReportBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try{
+                try {
                     WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
                     SummaryReport summaryReport = weeklyAccountingProcedure.requestSummaryReport();
                     String summaryReportString = summaryReport.toString();
                     String[] summaryReportLines = summaryReportString.split("],");
 
-                        StringBuilder sb = new StringBuilder();
+                    StringBuilder sb = new StringBuilder();
 
-                        for (String line : summaryReportLines) {
-                            sb.append(line.trim()).append("\n");
-                        }
+                    for (String line : summaryReportLines) {
+                        sb.append(line.trim()).append("\n");
+                    }
 
-                        String formattedSummaryReport = sb.toString();
+                    String formattedSummaryReport = sb.toString();
                     System.out.println(summaryReport);
                     JTextArea textArea = new JTextArea();
                     textArea.setEditable(false);
@@ -90,7 +106,8 @@ public class ManagerGui {
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -122,12 +139,12 @@ public class ManagerGui {
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
         panel.add(memberReportBtn);
-
 
         JButton providerReportBtn = new JButton("Provider Report");
         providerReportBtn.setBounds(250, 450, 300, 50);
@@ -155,7 +172,8 @@ public class ManagerGui {
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "An error occurred: " + ex.getMessage(), "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
