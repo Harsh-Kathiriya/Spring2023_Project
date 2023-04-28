@@ -1,3 +1,7 @@
+/**
+ * @author Harsh Kathiriya
+ * @summary The terminal redirects users here to be verified. This class implement GUI for verification of user.
+ */
 package classes;
 import java.awt.*;
 import java.awt.event.*;
