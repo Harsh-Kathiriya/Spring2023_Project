@@ -1,3 +1,8 @@
+/**
+ * @author: Harsh Kathiriya
+ * {@summary: This class provides GUI for the operator menu.
+ */
+
 package classes;
 import java.awt.*;
 import java.awt.event.*;
@@ -24,6 +29,9 @@ public class OperatorGui {
     };
     private JLabel titleLabel;
 
+    /**
+     * @summary Constructs an OperatorGui object and initializes the GUI components.
+     */
     public OperatorGui() {
         frame = new JFrame();
         frame.setSize(1800, 1000);
@@ -59,6 +67,12 @@ public class OperatorGui {
         frame.setVisible(true);
     }
 
+
+    /**
+     * @summary Shows the available options (add, remove, edit) for the selected type (provider or member).
+     * 
+     * @param type The type of option to show (provider or member).
+     */
     private void showOptions(String type) {
         JFrame frame = new JFrame();
         frame.setSize(800, 600);
@@ -101,6 +115,12 @@ public class OperatorGui {
         frame.setVisible(true);
     }
 
+
+    /**
+     * @summary Shows the GUI when operator wants to add provider or member
+     * 
+     * @param type The type of user to add (provider or member).
+     */
     private void showAdd(String type){
             JFrame frame = new JFrame();
             frame.setSize(800, 600);
@@ -199,6 +219,13 @@ public class OperatorGui {
             frame.add(panel);
             frame.setVisible(true);
         }
+
+
+         /**
+         * @summary Shows the GUI to remove member or provider
+         * 
+         * @param type The type of user to remove (provider or member).
+         */
         private void showRemoveForm(String type) {
             JFrame removeFrame = new JFrame();
             removeFrame.setSize(800, 600);
@@ -247,6 +274,12 @@ public class OperatorGui {
             removeFrame.setVisible(true);
         }
 
+
+         /**
+         * @summary Shows the GUI when operator wants to edit provider or member
+         * 
+         * @param type The type of user to edit (provider or member).
+         */
         private void showEditForm(String type) {
             JFrame editFrame = new JFrame();
             editFrame.setSize(800, 600);
