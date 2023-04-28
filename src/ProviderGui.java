@@ -23,7 +23,7 @@ public class ProviderGui {
     JTextField serviceCodeField;
     JLabel serviceInfo;
 
-    public ProviderGui(String providerId) {
+    public ProviderGui() {
         this.providerId = providerId;
         frame = new JFrame();
         frame.setSize(800, 800);
@@ -361,7 +361,7 @@ public class ProviderGui {
             }
         }
         public static void main(String[] args) {
-            ProviderGui gui = new ProviderGui("369258147");
+            ProviderGui gui = new ProviderGui();
         }
 }
         
