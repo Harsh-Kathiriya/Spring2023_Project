@@ -24,7 +24,6 @@ public class ProviderGui {
     JLabel serviceInfo;
 
     public ProviderGui() {
-        this.providerId = providerId;
         frame = new JFrame();
         frame.setSize(800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -147,7 +146,7 @@ public class ProviderGui {
                  billChocAn.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         if(todayDateField.getText().matches("\\d{8}") && serviceCodeField.getText().matches("\\d{6}") && serviceDateField.getText().matches("\\d{8}")){
-                        File file = new File(System.getProperty("user.dir") + "/src/serviceTest.txt");
+                        File file = new File(System.getProperty("user.dir") + "/serviceTest");
                         FileWriter fileWriter;
                         try {
                             fileWriter = new FileWriter(file, true);
@@ -158,6 +157,7 @@ public class ProviderGui {
                                           memberId + "," +
                                           serviceCodeField.getText() + "," +
                                           comments.getText() + "\n");
+                
                            // Close the file
                           bufferedWriter.close();
                           frame.dispose();
@@ -167,6 +167,7 @@ public class ProviderGui {
                         else{
                             JOptionPane.showMessageDialog(billChocAnframe, "Please enter a valid Information");
                         }
+                        
                      }
                  });
                 
