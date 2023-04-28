@@ -4,6 +4,13 @@ import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
+    /**
+        * @author: Emily Curl
+        * {@summary: used to search through files that contain credentials to verify a user.}
+    */
+
+
+
 
 public class Credentials{
     public ArrayList<String> managerCredentialsList;
@@ -11,6 +18,14 @@ public class Credentials{
     public ArrayList<String> operatorCredentialsList;
     public ArrayList<String> memberCredentialsList;
 
+    /**
+        * @author: Emily Curl
+        * {@summary: used to search through a specified array to verify a user.}
+        * @param: integer
+        * @return: boolean
+    */
+
+    //pass in an integer value to search in the list
     public boolean searchManagerList(Integer var){
         if(var == null){
             throw new IllegalArgumentException("No credentials provided");
@@ -42,8 +57,16 @@ public class Credentials{
     public boolean searchMemberList(Integer var){
         return memberCredentialsList.contains(String.valueOf(var));
     }
+//
 
+    
 
+    /**
+        * @author: Emily Curl
+        * {@summary: reads in 4 files and creates an array of different credentials for different users.}
+    */
+
+//
     public Credentials(){
         managerCredentialsList = new ArrayList<String>();
         providerCredentialsList = new ArrayList<String>();
