@@ -27,7 +27,7 @@ public class OperatorGui {
     public OperatorGui() {
         frame = new JFrame();
         frame.setSize(1800, 1000);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         panel = new JPanel();
         panel.setLayout(null);
