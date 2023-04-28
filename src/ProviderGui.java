@@ -146,7 +146,7 @@ public class ProviderGui {
                  billChocAn.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         if(todayDateField.getText().matches("\\d{8}") && serviceCodeField.getText().matches("\\d{6}") && serviceDateField.getText().matches("\\d{8}")){
-                        File file = new File(System.getProperty("user.dir") + "/src/serviceTest");
+                        File file = new File(System.getProperty("user.dir") + "/src/serviceTest.txt");
                         FileWriter fileWriter;
                         try {
                             fileWriter = new FileWriter(file, true);
@@ -160,7 +160,7 @@ public class ProviderGui {
                 
                            // Close the file
                           bufferedWriter.close();
-                          frame.dispose();
+                          billChocAnframe.dispose();
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }}
@@ -209,6 +209,7 @@ public class ProviderGui {
                     if (id.matches("\\d{9}")) {
                         int a = Verification.userVerification(Integer.valueOf(id));
                         System.out.println("sss");
+                        System.out.println(a);
                         if(a==-1){
                             JOptionPane.showMessageDialog(frame, "Invalid ID. Try again");
                         }
