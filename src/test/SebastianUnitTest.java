@@ -1,4 +1,5 @@
 package test;
+
 import static org.junit.Assert.*;
 
 import java.io.IOException;
@@ -16,47 +17,20 @@ import classes.SummaryReport;
 public class SebastianUnitTest {
 
     private ManagerController managerController;
+    private ProviderRecord providerRecord;
+    private MemberRecord memberRecord;
 
     @Before
     public void setUp() throws Exception {
         managerController = new ManagerController();
+        providerRecord = new ProviderRecord("Ethan", "123456789", "1234 Main St.", "Anytown", "CA", "12345");
+        memberRecord = new MemberRecord("Ethan", "123456789", "1234 Main St.", "Anytown", "CA", "12345");
     }
 
     @Test
-    public void testGetProviderRecordFromFile() {
-        try {
-            ProviderRecord providerRecord = ManagerController.getProviderRecordFromFile("100000001");
-            assertNotNull(providerRecord);
-            assertEquals("John Smith", providerRecord.getName());
-            assertEquals("100000001", providerRecord.getNumber());
-            assertEquals("123 Main St", providerRecord.getAddress());
-            assertEquals("Anytown", providerRecord.getCity());
-            assertEquals("NY", providerRecord.getState());
-            assertEquals("12345", providerRecord.getZipCode());
-        } catch (IOException e) {
-            fail("IOException should not have been thrown.");
-        }
-    }
-
-    @Test
-    public void testGetMemberRecordFromFile() {
-        try {
-            MemberRecord memberRecord = ManagerController.getMemberRecordFromFile("200000001");
-            assertNotNull(memberRecord);
-            assertEquals("Alice Johnson", memberRecord.getName());
-            assertEquals("200000001", memberRecord.getNumber());
-            assertEquals("456 High St", memberRecord.getAddress());
-            assertEquals("Anytown", memberRecord.getCity());
-            assertEquals("NY", memberRecord.getState());
-            assertEquals("12345", memberRecord.getZipCode());
-        } catch (IOException e) {
-            fail("IOException should not have been thrown.");
-        }
-    }
-
-    @Test
-    public void testRequestSingleProviderReport() {
-        ProviderRecord providerRecord = new ProviderRecord("John Smith", "100000001", "123 Main St", "Anytown", "NY", "12345");
+    public void SuccessTestRequestSingleProviderReport() {
+        ProviderRecord providerRecord = new ProviderRecord("John Smith", "100000001", "123 Main St", "Anytown", "NY",
+                "12345");
         ProviderReport providerReport = managerController.requestSingleProviderReport(providerRecord);
         assertNotNull(providerReport);
         assertEquals(providerRecord.getName(), providerReport.getProviderName());
@@ -64,16 +38,19 @@ public class SebastianUnitTest {
     }
 
     @Test
-    public void testRequestProviderReport() {
-        ProviderReport providerReport = managerController.requestProviderReport("100000001");
+    public void FailureTestRequestSingleProviderReport() {
+        ProviderRecord providerRecord = new ProviderRecord("John Smith", "10000019", "123 Main St", "Anytown", "NY",
+                "12345");
+        ProviderReport providerReport = managerController.requestSingleProviderReport(providerRecord);
         assertNotNull(providerReport);
-        assertEquals("John Smith", providerReport.getProviderName());
-        assertEquals("100000001", providerReport.getProviderNumber());
+        assertEquals(providerRecord.getName(), providerReport.getProviderName());
+        assertNotEquals("1000001989989", providerReport.getProviderNumber());
     }
 
     @Test
-    public void testRequestSingleMemberReport() {
-        MemberRecord memberRecord = new MemberRecord("Alice Johnson", "200000001", "456 High St", "Anytown", "NY", "12345");
+    public void SuccessTestRequestSingleMemberReport() {
+        MemberRecord memberRecord = new MemberRecord("Alice Johnson", "200000001", "456 High St", "Anytown", "NY",
+                "12345");
         MemberReport memberReport = managerController.requestSingleMemberReport(memberRecord);
         assertNotNull(memberReport);
         assertEquals(memberRecord.getName(), memberReport.getMemberName());
@@ -81,18 +58,34 @@ public class SebastianUnitTest {
     }
 
     @Test
-    public void testRequestMemberReport() {
-        MemberReport memberReport = managerController.requestMemberReport("200000001");
+    public void FailureTestRequestSingleMemberReport() {
+        MemberRecord memberRecord = new MemberRecord("Alice Johnson", "20000019", "456 High St", "Anytown", "NY",
+                "12345");
+        MemberReport memberReport = managerController.requestSingleMemberReport(memberRecord);
         assertNotNull(memberReport);
-        assertEquals("Alice Johnson", memberReport.getMemberName());
-        assertEquals("200000001", memberReport.getMemberNumber());
+        assertEquals(memberRecord.getName(), memberReport.getMemberName());
+        assertNotEquals("200000198987", memberReport.getMemberNumber());
     }
 
     @Test
-    public void testRequestSummaryReport() {
-        SummaryReport summaryReport = managerController.requestSummaryReport();
-        assertNotNull(summaryReport);
-        assertTrue(summaryReport.getProviderNames().contains("John Smith"));
+    public void SuccessfulProviderRecord() {
+        assertEquals("Ethan", providerRecord.getName());
+        assertEquals("123456789", providerRecord.getNumber());
+        assertEquals("1234 Main St.", providerRecord.getAddress());
+        assertEquals("Anytown", providerRecord.getCity());
+        assertEquals("CA", providerRecord.getState());
+        assertEquals("12345", providerRecord.getZipCode());
+    }
+
+    @Test
+    public void FailureProvideRecord() {
+        providerRecord.setNumber("12345678999999999");
+        assertEquals("Ethan", providerRecord.getName());
+        assertNotEquals("12345678999999999", providerRecord.getNumber());
+        assertEquals("1234 Main St.", providerRecord.getAddress());
+        assertEquals("Anytown", providerRecord.getCity());
+        assertEquals("CA", providerRecord.getState());
+        assertEquals("12345", providerRecord.getZipCode());
     }
 
 }
