@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-//import java.io.IOException;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -9,10 +9,12 @@ public class verificationGui {
     private JFrame frame;
     private JPanel panel;
     private JLabel titleLabel;
+    private String id;
+   
 
     public verificationGui() {
         frame = new JFrame();
-        frame.setSize(800, 600);
+        frame.setSize(800, 800);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
 
@@ -36,33 +38,43 @@ public class verificationGui {
         submit.setBounds(350, 300, 100, 50);
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String id = idField.getText();
+                id = idField.getText();
                 if (id.matches("\\d{9}")) {
                     int a = Verification.userVerification(Integer.valueOf(id));
                     if(a==-1){
                         JOptionPane.showMessageDialog(frame, "Invalid ID. Try again");
                     }
                     else if(a==0){
+                        frame.dispose();
                         new ManagerGui();
+                        
                     }
                     else if(a==1){
-                        new ProviderGui();
+                        frame.dispose();
+                        ProviderGui proGui = new ProviderGui();
+                        proGui.setId(id);
+                        
                     }
                     else if(a==2){
+                        frame.dispose();
                         new OperatorGui();
+                        
                     }
                     
-                    frame.dispose();
                 } else {
                     JOptionPane.showMessageDialog(frame, "Please enter a valid 9-digit ID!");
                 }
-               
-            }
-        });
-        panel.add(submit);
+    }});
+    panel.add(submit);
+frame.setLocationRelativeTo(null);
+frame.add(panel);
+frame.setVisible(true);
+    }
+   
 
-        frame.add(panel);
-        frame.setVisible(true);
+    
+    public String getId(){
+        return id;
     }
    
 }
