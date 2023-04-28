@@ -23,7 +23,8 @@ public class ProviderGui {
     JTextField serviceCodeField;
     JLabel serviceInfo;
 
-    public ProviderGui() {
+    public ProviderGui(String providerId) {
+        this.providerId = providerId;
         frame = new JFrame();
         frame.setSize(800, 800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -166,7 +167,6 @@ public class ProviderGui {
                         else{
                             JOptionPane.showMessageDialog(billChocAnframe, "Please enter a valid Information");
                         }
-                        
                      }
                  });
                 
@@ -361,7 +361,7 @@ public class ProviderGui {
             }
         }
         public static void main(String[] args) {
-            ProviderGui gui = new ProviderGui();
+            ProviderGui gui = new ProviderGui("369258147");
         }
 }
         

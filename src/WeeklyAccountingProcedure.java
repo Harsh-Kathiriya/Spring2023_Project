@@ -20,7 +20,6 @@ public class WeeklyAccountingProcedure {
     WeeklyAccountingProcedure() {
         try {
             providerDirectory = new ProviderDirectory();
-            providerDirectory.requestProviderDirectory();
             serviceList = new ServiceList();
             ProviderRecordHash = new providerRecordHash();
             memberRecordHash = new MemberRecordHash();

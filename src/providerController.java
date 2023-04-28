@@ -11,7 +11,7 @@ public class providerController {
             System.out.println(name + " " +  code + " " + fee);
         }
     }
-
+    
     public static int feeLookup(int code){
         ProviderDirectory Directory = new ProviderDirectory();
         //System.out.println("Enter service code");
