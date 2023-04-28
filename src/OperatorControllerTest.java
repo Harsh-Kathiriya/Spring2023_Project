@@ -1,7 +1,4 @@
-
 import org.junit.Test;
-
-
 import static org.junit.Assert.*;
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +30,22 @@ public class OperatorControllerTest {
         assertFalse(OperatorController.recordNumberExistsInFile(fileName, uniqueNumber));
 
         Files.delete(path);
+    }
+
+    @Test
+    public void testGetMemberRecordFromFile() throws IOException {
+        MemberRecord member = OperatorController.getMemberRecordFromFile("258369258");
+        assertNotNull(member);
+        assertEquals("Joshua Garcia", member.getName());
+        assertEquals("258369258", member.getNumber());
+        assertEquals("456 Pine St", member.getAddress());
+        assertEquals("Anytown", member.getCity());
+        assertEquals("CA", member.getState());
+        assertEquals("90002", member.getZipCode());
+
+        //Id cannot have 0 at the beginning
+        MemberRecord member2 = OperatorController.getMemberRecordFromFile("011111111");
+        assertNull(member2);
     }
 
 }

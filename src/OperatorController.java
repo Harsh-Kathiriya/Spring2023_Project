@@ -3,17 +3,22 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-//import java.nio.file.Path;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Random;
 
 public class OperatorController {
-   private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/src/Member_Record";
-    private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/src/Provider_Record";
+    private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/Member_Record";
+    private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/Provider_Record";
 
     // Adds a new member record to the file
     public static void addMember(MemberRecord member) throws IOException {
+        // Generate a unique 9-digit number for the provider
+        String memberNumber = generateUniqueNumber(MEMBER_FILE_NAME);
+
+        // Set the provider's number to the generated number
+        member.setNumber(memberNumber);
         // Write the member record to the file
         writeRecordToFile(MEMBER_FILE_NAME, member);
     }
@@ -25,11 +30,13 @@ public class OperatorController {
     }
 
     // Edits the member record with the given number in the file
-    public static void editMember(String memberNumber, String name, String address, String city, String state, String zipcode)
+    public static boolean editMember(String memberNumber, String name, String address, String city, String state, String zipcode)
             throws IOException {
         // Get the member record with the given number from the file
         MemberRecord member = getMemberRecordFromFile(memberNumber);
-
+        if(member==null){
+            return false;
+        }
         // Update the member record with the new data
         member.setName(name);
         member.setAddress(address);
@@ -38,7 +45,9 @@ public class OperatorController {
         member.setZipCode(zipcode);
 
         // Write the updated member record to the file
+        removeRecordFromFile(MEMBER_FILE_NAME, memberNumber);
         writeRecordToFile(MEMBER_FILE_NAME, member);
+        return true;
     }
 
     // Adds a new provider record to the file
@@ -60,11 +69,13 @@ public class OperatorController {
     }
 
     // Edits the provider record with the given number in the file
-    public static void editProvider(String providerNumber, String name, String address, String city, String state, String zipcode)
+    public static boolean editProvider(String providerNumber, String name, String address, String city, String state, String zipcode)
             throws IOException {
         // Get the provider record with the given number from the file
         ProviderRecord provider = getProviderRecordFromFile(providerNumber);
-
+        if(provider == null){
+            return false;
+        }
         // Update the provider record with the new data
         provider.setName(name);
         provider.setAddress(address);
@@ -72,8 +83,10 @@ public class OperatorController {
         provider.setState(state);
         provider.setZipCode(zipcode);
 
+        removeRecordFromFile(PROVIDER_FILE_NAME, providerNumber);
         // Write the updated provider record to the file
         writeRecordToFile(PROVIDER_FILE_NAME, provider);
+        return true;
     }
 
     // Generates a unique 9-digit number for a new member or provider
@@ -99,7 +112,7 @@ public class OperatorController {
                           record.getState() + "," +
                           record.getZipCode() + "\n");
 
-    // Close the file
+
     bufferedWriter.close();
 }
 
@@ -136,7 +149,7 @@ public static boolean recordNumberExistsInFile(String fileName, String recordNum
 }
 
 // Returns the member record with the given number from the file
-private static MemberRecord getMemberRecordFromFile(String memberNumber) throws IOException {
+public static MemberRecord getMemberRecordFromFile(String memberNumber) throws IOException {
     // Read all the member records from the file
     List<String> lines = Files.readAllLines(Paths.get(MEMBER_FILE_NAME));
 
@@ -145,8 +158,8 @@ private static MemberRecord getMemberRecordFromFile(String memberNumber) throws 
         if (line.startsWith(memberNumber + ",")) {
             // Parse the member record data from the line
             String[] parts = line.split(",");
-            String name = parts[0];
-            String number = parts[1];
+            String number = parts[0];
+            String name = parts[1];
             String address = parts[2];
             String city = parts[3];
             String state = parts[4];
@@ -170,8 +183,8 @@ private static ProviderRecord getProviderRecordFromFile(String providerNumber) t
         if (line.startsWith(providerNumber + ",")) {
             // Parse the provider record data from the line
             String[] parts = line.split(",");
-            String name = parts[0];
-            String number = parts[1];
+            String number = parts[0];
+            String name = parts[1];
             String address = parts[2];
             String city = parts[3];
             String state = parts[4];
@@ -185,9 +198,6 @@ private static ProviderRecord getProviderRecordFromFile(String providerNumber) t
 
     // If no provider record with the given number was found, return null
     return null;
-}
-
-public static void addMember(String name, String address, String city, String state, String zip) {
 }
 
 }
