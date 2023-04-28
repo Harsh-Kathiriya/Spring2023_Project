@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 /**
  * {@summary A class that automagically generates all reports for providers and members as well as generating a summary report}
  * and an EFT report for each provider
- * 
+ * @author Chase Fetherling
  **/
 public class WeeklyAccountingProcedure {
     ServiceList serviceList;
