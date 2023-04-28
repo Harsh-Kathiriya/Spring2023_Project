@@ -43,7 +43,6 @@ public class Credentials{
 
             }
         }
-        System.out.print("variable " + Integer.toString(var));
         return managerCredentialsList.contains(Integer.toString(var));
     }
 
@@ -74,12 +73,10 @@ public class Credentials{
         memberCredentialsList = new ArrayList<String>();
         try{
             File managerFile = new File("./data/managerCreds");
-            System.out.println("null");
             Scanner managerReader = new Scanner(managerFile);
             while(managerReader.hasNextLine()) {
                 String data = managerReader.nextLine();
                 managerCredentialsList.add(data);
-                System.out.println(data);
             }
             managerReader.close();
         }
@@ -111,7 +108,6 @@ public class Credentials{
             while(memberReader.hasNextLine()) {
                 String data = memberReader.nextLine();
                 String[] temp = data.split(",");
-                System.out.println(temp[0]);
                 memberCredentialsList.add(temp[0]);
             }
             memberReader.close();

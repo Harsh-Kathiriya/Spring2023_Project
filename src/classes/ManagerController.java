@@ -30,7 +30,6 @@ public class ManagerController {
             providerDirectory = new ProviderDirectory();
             serviceList = new ServiceList();
             ProviderRecordHash = new providerRecordHash();
-            System.out.println("Working");
             memberRecordHash = new MemberRecordHash();
         } catch (Exception e) {
             System.out.println(e.getStackTrace());

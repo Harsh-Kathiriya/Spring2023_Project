@@ -26,7 +26,6 @@ public class WeeklyAccountingProcedure {
             providerDirectory = new ProviderDirectory();
             serviceList = new ServiceList();
             ProviderRecordHash = new providerRecordHash();
-            System.out.println("Working");
             memberRecordHash = new MemberRecordHash();
         }
         catch(Exception e) {
@@ -130,6 +129,7 @@ public class WeeklyAccountingProcedure {
 
     /**
      * {@summary Creates a provider report for every provider}
+     * @author Chase Fetherling
      */
     public ArrayList<ProviderReport> requestProviderReport() {
         // create a hash map... the key is the name, the value is an object of all the
@@ -194,9 +194,9 @@ public class WeeklyAccountingProcedure {
             for (int i = 0; i < serviceList.getSize(); i++) {
                 int currentMemberNum = serviceList.serviceAt(i).getMemberNum();
                 currentMember = memberRecordHash.memberAt(currentMemberNum);
-                if(!(memberNames.contains(currentMember.getName()))) {
+                if(memberNames.contains(currentMember.getName()) != true) {
                     MemberReport memberReport = requestSingleMemberReport(currentMember);
-                    memberReports.add(i,memberReport);
+                    memberReports.add(memberReport);
                     memberNames.add(currentMember.getName());
                 }
             }
@@ -250,6 +250,7 @@ public class WeeklyAccountingProcedure {
 
     
     /** 
+     * {@summary main function to test weekly accounting procedure}
      * @param args
      */
     public static void main(String[] args) {

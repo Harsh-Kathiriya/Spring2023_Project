@@ -20,7 +20,7 @@ public class ProviderReport {
     private ArrayList<Integer> memberNumbers;
 
     // default constructor does not intialize any values
-    ProviderReport() {
+    public ProviderReport() {
 
     }
 

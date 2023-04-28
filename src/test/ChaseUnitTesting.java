@@ -17,7 +17,8 @@ public class ChaseUnitTesting {
     public void memberReportFailure() {
         try {
             MemberReport memberReport = new MemberReport();
-            assertFalse(memberReport.getMemberName() != null);
+            memberReport.setMemberName("Jerry");
+            assertFalse(memberReport.getMemberName() == "Frank");
         }
         catch(Exception e) {
             System.out.println(e.getLocalizedMessage());
@@ -27,7 +28,8 @@ public class ChaseUnitTesting {
     public void MemberReportSuccess() {
         try {
             MemberReport memberReport = new MemberReport();
-            assertTrue(memberReport.getMemberName() == null);
+            memberReport.setMemberName("Gerald");
+            assertTrue(memberReport.getMemberName() == "Gerald");
         }
         catch(Exception e) {
             System.out.println(e.getLocalizedMessage());
@@ -35,9 +37,26 @@ public class ChaseUnitTesting {
     }
     @Test
     public void providerReportFailure() {
-
+        try {
+            ProviderReport providerReport = new ProviderReport();
+            providerReport.setProviderCity("New York");
+            assertFalse(providerReport.getProviderName() == "Chicago");
+        }
+        catch(Exception e) {
+            System.out.println(e.getLocalizedMessage());
+        }
     }
-
+    @Test
+    public void providerReportSuccess() {
+        try {
+            ProviderReport providerReport = new ProviderReport();
+            providerReport.setProviderName("Jerry");
+            assertTrue(providerReport.getProviderName() == "Jerry");
+        }
+        catch(Exception e) {
+            System.out.println(e.getLocalizedMessage());
+        }
+    }
     @Test
     public void recordSuccess() {
         try {
