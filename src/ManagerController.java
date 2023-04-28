@@ -223,7 +223,8 @@ public class ManagerController {
   }
 
   public static void main(String[] args) throws IOException {
-    WeeklyAccountingProcedure weeklyAccountingProcedure = new WeeklyAccountingProcedure();
-    weeklyAccountingProcedure.requestSummaryReport();
+    ManagerController managerController = new ManagerController();
+    MemberReport memberReport = managerController.requestMemberReport(Integer.toString(123123123));
+    System.out.println(memberReport);
   }
 }
