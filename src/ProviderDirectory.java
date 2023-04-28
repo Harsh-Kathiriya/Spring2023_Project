@@ -3,12 +3,24 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+/**
+ * @author Aaron Buff
+ * {@summary class allowing for the creation of ProviderDirectory objects, collections of three arraylists
+ * containing data on service codes, service names, and service fees. ProviderDirectory objects can also
+ * be searched}
+ */
 public class ProviderDirectory{
 
     ArrayList<String> serviceNames = new ArrayList<String>();
     ArrayList<Integer> serviceCodes = new ArrayList<Integer>();
     ArrayList<Integer> serviceFees = new ArrayList<Integer>();
     
+    /** 
+     * {@summary creates a directory of all service codes, service names, and service fees by
+     *  storing them into three arraylists}
+     * @param none
+     * @return void
+     */
     public void requestProviderDirectory(){
         try{
             //change file name to name of the file with the correct directory info
@@ -35,7 +47,7 @@ public class ProviderDirectory{
 
     
     /** 
-     * 
+     * {@summary returns the fee amount for a service, given its corresponding service code}
      * @param serviceNum
      * @return int
      */
@@ -54,7 +66,8 @@ public class ProviderDirectory{
     }
 
     
-    /** 
+    /**
+     * {@summary returns the name of a service, given its corresponding service code}
      * @param serviceNum
      * @return String
      */
