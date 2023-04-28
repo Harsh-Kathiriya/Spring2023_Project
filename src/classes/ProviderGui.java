@@ -1,3 +1,8 @@
+/**
+ * @author: Harsh Kathiriya
+ * {@summary: This class provides GUI for provider menu
+ * It allows providers to bill ChocAn, validate member, look up service/fee and request provider directory.
+ */
 package classes;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,6 +19,9 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ * Constructor that sets up the Provider menu GUI
+ */
 public class ProviderGui {
 
     private JFrame frame;
@@ -87,10 +95,18 @@ public class ProviderGui {
         frame.setVisible(true);
     }
     
-
+        /**
+         * Method to set the Provider Id
+         * @param id the id of the provider
+         */
         public void setId(String id){
             this.providerId = id;
         }
+
+        /**
+         * @summary Method for the bill ChocAn feature of the Provider Menu.
+         * Sets up a GUI to enter service, date, comments, and bills the member if valid.
+         */
         public void billChocAn () {
             JFrame billChocAnframe = new JFrame();
                 billChocAnframe.setSize(800, 700);
@@ -178,6 +194,12 @@ public class ProviderGui {
                 billChocAnframe.setVisible(true);
 
         }
+
+
+        /**
+         * @summary Method for the Validate Member feature of the Provider Menu.
+         * Sets up a GUI to enter member number.
+         */
         public void validateMemberGui(){
             frame = new JFrame();
             frame.setSize(800, 800);
@@ -228,6 +250,13 @@ public class ProviderGui {
         frame.setVisible(true);
     }
         
+
+        /**
+         * @summary Method for the fee lookup and service lookup feature of the Provider Menu.
+         * Sets up a GUI to enter service code, and shows its corresponding fees or service name
+         * @param type Whether user wants to know fees or name of service corresponding to service code
+         * @return
+         */
         public void lookupGui(String type) {
             // Set up the components
             JFrame LookupFrame = new JFrame();
@@ -284,6 +313,11 @@ public class ProviderGui {
             LookupFrame.setLocationRelativeTo(null);
             LookupFrame.setVisible(true);
         }
+
+        /**
+         * @summary Method for the Request Provider Directory feature of the Provider Menu.
+         * Sets up a GUI to show table of service code and their corresponding fees and names.
+         */
         public void requestProviderDir(){
             JFrame frame = new JFrame();
             frame.setSize(500, 500);
@@ -307,6 +341,10 @@ public class ProviderGui {
             frame.setVisible(true);
 
         }
+
+        /**
+         * @summary Inner class to restrict JTextArea comments to a certain length
+         */
         public class CommentDocument extends PlainDocument {
             private static final int MAX_LENGTH = 100;
         
@@ -332,6 +370,10 @@ public class ProviderGui {
                 super.insertString(offs, str, a);
             }
         }
+
+        /**
+         * @summary Inner class to handle document listener for serviceCodeField
+         */
         public class serviceCodeDoc implements DocumentListener {
             public void insertUpdate(DocumentEvent e) {
                 showServiceInfo();
@@ -362,9 +404,6 @@ public class ProviderGui {
                 }
             }
         }
-        public static void main(String[] args) {
-            ProviderGui gui = new ProviderGui();
-            gui.setId("951753852");
-        }
+    
 }
         
