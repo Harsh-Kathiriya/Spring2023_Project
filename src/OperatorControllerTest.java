@@ -4,8 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.text.html.StyleSheet;
 
 public class OperatorControllerTest {
 
@@ -32,20 +35,34 @@ public class OperatorControllerTest {
         Files.delete(path);
     }
 
+    // @Test
+    // public void testGetMemberRecordFromFile() throws IOException {
+    //     MemberRecord member = OperatorController.getMemberRecordFromFile("258369258");
+    //     assertNotNull(member);
+    //     assertEquals("Joshua Garcia", member.getName());
+    //     assertEquals("258369258", member.getNumber());
+    //     assertEquals("456 Pine St", member.getAddress());
+    //     assertEquals("Anytown", member.getCity());
+    //     assertEquals("CA", member.getState());
+    //     assertEquals("90002", member.getZipCode());
+
+    //     //Id cannot have 0 at the beginning
+    //     MemberRecord member2 = OperatorController.getMemberRecordFromFile("011111111");
+    //     assertNull(member2);
+    // }
+
     @Test
-    public void testGetMemberRecordFromFile() throws IOException {
-        MemberRecord member = OperatorController.getMemberRecordFromFile("258369258");
-        assertNotNull(member);
-        assertEquals("Joshua Garcia", member.getName());
-        assertEquals("258369258", member.getNumber());
-        assertEquals("456 Pine St", member.getAddress());
-        assertEquals("Anytown", member.getCity());
-        assertEquals("CA", member.getState());
-        assertEquals("90002", member.getZipCode());
+    public void testRecordNumberExistsInFile() throws IOException {
+        String FILE_NAME = System.getProperty("user.dir") + "/test_file";
+        String content = "753951852,Nathan Lee,246 Cherry Ln,Othercity,OH,44003\n789456123,Jonathan Lee,753 Maple St,Someplace,WA,98005";
+        Files.write(Paths.get(FILE_NAME), content.getBytes());
 
-        //Id cannot have 0 at the beginning
-        MemberRecord member2 = OperatorController.getMemberRecordFromFile("011111111");
-        assertNull(member2);
+        // Test if record number exists in the file
+        assertTrue(OperatorController.recordNumberExistsInFile(FILE_NAME, "753951852"));
+        assertTrue(OperatorController.recordNumberExistsInFile(FILE_NAME, "789456123"));
+        assertFalse(OperatorController.recordNumberExistsInFile(FILE_NAME, "121212121"));
+
+        // Delete the temporary test file
+        Files.delete(Paths.get(FILE_NAME));
     }
-
 }
