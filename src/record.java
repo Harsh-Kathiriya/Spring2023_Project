@@ -29,7 +29,12 @@ abstract class Record {
      * @param number the number to set
      */
     public void setNumber(String number) {
-        this.number = number;
+        if (this.checkNumber(number)){
+            this.number = number;
+        }
+        else {
+            System.out.println("Invalid number");
+        }
     }
     /**
      * @return the address
@@ -87,5 +92,11 @@ abstract class Record {
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
+    }
+    private boolean checkNumber(String number) {
+        if (number.length() != 9) {
+            return false;
+        }
+        return true;
     }
 }
