@@ -22,11 +22,11 @@ public class WeeklyAccountingProcedure {
             providerDirectory = new ProviderDirectory();
             serviceList = new ServiceList();
             ProviderRecordHash = new providerRecordHash();
+            System.out.println("Working");
             memberRecordHash = new MemberRecordHash();
-
         }
         catch(Exception e) {
-            System.out.println("Error");
+            System.out.println(e.getStackTrace());
         }
     }
     /**
