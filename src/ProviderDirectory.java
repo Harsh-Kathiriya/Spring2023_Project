@@ -39,14 +39,17 @@ public class ProviderDirectory{
      * @return int
      */
     public int feeLookup(int serviceNum){
-        int marker = 0;
+        int marker = 999;
         requestProviderDirectory();
         for(int i = 0; i < serviceCodes.size(); i++){
             if(serviceCodes.get(i) == serviceNum){
                 marker = i;
             }
         }
-        return serviceFees.get(marker);
+        if(marker==999){
+            return 99999;
+        }
+        else return serviceFees.get(marker);
     }
 
     
