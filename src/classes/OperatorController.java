@@ -1,4 +1,10 @@
 package classes;
+
+/**
+ * @author: Harsh Kathiriya
+ * {@summary: This class controlls all the logic of operatorGui. All the feature like adding,
+ * removing and editing members and providers are written here.
+ */
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -10,74 +16,101 @@ import java.util.List;
 import java.util.Random;
 
 public class OperatorController {
-    private static final String MEMBER_FILE_NAME = "./data/Member_Record";
-    private static final String PROVIDER_FILE_NAME = "./data/Provider_Record";
+    private static final String MEMBER_FILE_NAME = System.getProperty("user.dir") + "/src/Member_Record";
+    private static final String PROVIDER_FILE_NAME = System.getProperty("user.dir") + "/src/Provider_Record";
 
-    // Adds a new member record to the file
+    /**
+     * @summary: Adds a new member record to the file.
+     *
+     * @param member The MemberRecord object to be added to the file.
+     * @throws IOException If an I/O error occurs while writing to the file.
+     */
     public static void addMember(MemberRecord member) throws IOException {
-        // Generate a unique 9-digit number for the provider
         String memberNumber = generateUniqueNumber(MEMBER_FILE_NAME);
-
-        // Set the provider's number to the generated number
         member.setNumber(memberNumber);
-        // Write the member record to the file
         writeRecordToFile(MEMBER_FILE_NAME, member);
     }
 
-    // Removes the member record with the given number from the file
+     /**
+     * @summary: Removes the member record with the given member number from the file.
+     *
+     * @param memberNumber The member number of the member record to be removed.
+     * @throws IOException If an I/O error occurs while writing to the file.
+     */
     public static void removeMember(String memberNumber) throws IOException {
-        // Remove the member record with the given number from the file
         removeRecordFromFile(MEMBER_FILE_NAME, memberNumber);
     }
 
-    // Edits the member record with the given number in the file
+    /**
+     * @summary: Edits the member record with the given member number in the file.
+     *
+     * @param memberNumber The member number of the member record to be edited.
+     * @param name The new name of the member.
+     * @param address The new address of the member.
+     * @param city The new city of the member.
+     * @param state The new state of the member.
+     * @param zipcode The new ZIP code of the member.
+     * @return true if the record was edited successfully, false otherwise.
+     * @throws IOException If an I/O error occurs while writing to the file.
+     */
     public static boolean editMember(String memberNumber, String name, String address, String city, String state, String zipcode)
             throws IOException {
-        // Get the member record with the given number from the file
         MemberRecord member = getMemberRecordFromFile(memberNumber);
         if(member==null){
             return false;
         }
-        // Update the member record with the new data
         member.setName(name);
         member.setAddress(address);
         member.setCity(city);
         member.setState(state);
         member.setZipCode(zipcode);
 
-        // Write the updated member record to the file
         removeRecordFromFile(MEMBER_FILE_NAME, memberNumber);
         writeRecordToFile(MEMBER_FILE_NAME, member);
         return true;
     }
 
-    // Adds a new provider record to the file
+     /**
+     * @summary: Adds a new provider record to the file.
+     *
+     * @param provider The ProviderRecord object to be added to the file.
+     * @throws IOException If an I/O error occurs while writing to the file.
+     */
     public static void addProvider(ProviderRecord provider) throws IOException {
-        // Generate a unique 9-digit number for the provider
         String providerNumber = generateUniqueNumber(PROVIDER_FILE_NAME);
-
-        // Set the provider's number to the generated number
         provider.setNumber(providerNumber);
-
-        // Write the provider record to the file
         writeRecordToFile(PROVIDER_FILE_NAME, provider);
     }
 
-    // Removes the provider record with the given number from the file
+    /**
+     * Removes the provider record with the given provider number from the file.
+     *
+     * @param providerNumber The provider number of the provider record to be removed.
+     * @throws IOException If an I/O error occurs while writing to the file.
+     */
     public static void removeProvider(String providerNumber) throws IOException {
-        // Remove the provider record with the given number from the file
         removeRecordFromFile(PROVIDER_FILE_NAME, providerNumber);
     }
 
-    // Edits the provider record with the given number in the file
+
+    /**
+     * @summary: Edits the provider record with the given provider number in the file.
+     *
+     * @param providerNumber The provider number of the provider record to be edited.
+     * @param name The new name of the provider.
+     * @param address The new address of the provider.
+     * @param city The new city of the provider.
+     * @param state The new state of the provider.
+     * @param zipcode The new ZIP code of the provider.
+     * @return true if the record was edited successfully, false otherwise.
+     * @throws IOException If an I/O error occurs while writing to the file.
+     */
     public static boolean editProvider(String providerNumber, String name, String address, String city, String state, String zipcode)
             throws IOException {
-        // Get the provider record with the given number from the file
         ProviderRecord provider = getProviderRecordFromFile(providerNumber);
         if(provider == null){
             return false;
         }
-        // Update the provider record with the new data
         provider.setName(name);
         provider.setAddress(address);
         provider.setCity(city);
@@ -85,14 +118,16 @@ public class OperatorController {
         provider.setZipCode(zipcode);
 
         removeRecordFromFile(PROVIDER_FILE_NAME, providerNumber);
-        // Write the updated provider record to the file
         writeRecordToFile(PROVIDER_FILE_NAME, provider);
         return true;
     }
 
-    // Generates a unique 9-digit number for a new member or provider
-    public static String generateUniqueNumber(String fileName) {
-        // Generate a random 9-digit number
+    /**
+    * @summary: Generates a unique 9-digit number for a new member or provider.
+    * @param fileName the name of the file to check for existing numbers.
+    * @return a unique 9-digit number.
+    */
+    static String generateUniqueNumber(String fileName) {
         String number;
             do {
                 number = String.format("%09d", new Random().nextInt(1000000000));
@@ -100,9 +135,13 @@ public class OperatorController {
         return number;
     }
 
-    // Writes a record to the given file
+    /**
+    * @summary: Writes a record to the given file.
+    * @param fileName the name of the file to write the record to.
+    * @param record the record to be written.
+    * @throws IOException if there is an error writing to the file.
+    */
     private static void writeRecordToFile(String fileName, Record record) throws IOException {
-        // Open the file for appending
         File file = new File(fileName);
         FileWriter fileWriter = new FileWriter(file, true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -117,88 +156,90 @@ public class OperatorController {
     bufferedWriter.close();
 }
 
-// Removes a record with the given number from the given file
-private static void removeRecordFromFile(String fileName, String recordNumber) throws IOException {
-    // Read all the records from the file
-    List<String> lines = Files.readAllLines(Paths.get(fileName));
+    /**
+    * @summary: Removes a record with the given number from the given file.
+    * @param fileName the name of the file to remove the record from.
+    * @param recordNumber the unique id of the record to be removed.
+    * @throws IOException if there is an error reading or writing to the file.
+    */
+    private static void removeRecordFromFile(String fileName, String recordNumber) throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get(fileName));
+        lines.removeIf(line -> line.startsWith(recordNumber + ","));
+        Files.write(Paths.get(fileName), lines);
+    }
 
-    // Remove the record with the given number from the list
-    lines.removeIf(line -> line.startsWith(recordNumber + ","));
+    /**
+    * @summary: Checks if a given record number exists in a specified file.
+    * @param fileName the name of the file to search in
+    * @param recordNumber the record number to search for
+    * @return true if the record number exists in the file, false otherwise
+    */
+    public static boolean recordNumberExistsInFile(String fileName, String recordNumber) {
+        List<String> lines;
+        try {
+            lines = Files.readAllLines(Paths.get(fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
 
-    // Write the updated list of records back to the file
-    Files.write(Paths.get(fileName), lines);
-}
-
-public static boolean recordNumberExistsInFile(String fileName, String recordNumber) {
-    // Read all the records from the file
-    List<String> lines;
-    try {
-        lines = Files.readAllLines(Paths.get(fileName));
-    } catch (IOException e) {
-        e.printStackTrace();
+        for (String line : lines) {
+            if (line.startsWith(recordNumber + ",")) {
+                return true;
+            }
+        }
         return false;
     }
 
-    // Check if any record in the file has the given number
-    for (String line : lines) {
-        if (line.startsWith(recordNumber + ",")) {
-            return true;
+    /**
+    @summary: Returns the member record with the given number from the member file.
+    @param memberNumber the member number to search for
+    @return the MemberRecord object if found, null otherwise
+    @throws IOException if there was an error reading the file
+    */
+    public static MemberRecord getMemberRecordFromFile(String memberNumber) throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get(MEMBER_FILE_NAME));
+
+        for (String line : lines) {
+            if (line.startsWith(memberNumber + ",")) {
+                String[] parts = line.split(",");
+                String number = parts[0];
+                String name = parts[1];
+                String address = parts[2];
+                String city = parts[3];
+                String state = parts[4];
+                String zipcode = parts[5];
+
+                MemberRecord member = new MemberRecord(name, number, address, city, state, zipcode);
+                return member;
+            }
         }
+
+        return null;
     }
 
-    return false;
-}
-
-// Returns the member record with the given number from the file
-public static MemberRecord getMemberRecordFromFile(String memberNumber) throws IOException {
-    // Read all the member records from the file
-    List<String> lines = Files.readAllLines(Paths.get(MEMBER_FILE_NAME));
-
-    // Find the member record with the given number
-    for (String line : lines) {
-        if (line.startsWith(memberNumber + ",")) {
-            // Parse the member record data from the line
-            String[] parts = line.split(",");
-            String number = parts[0];
-            String name = parts[1];
-            String address = parts[2];
-            String city = parts[3];
-            String state = parts[4];
-            String zipcode = parts[5];
-
-            // Create a new member record object with the parsed data
-            MemberRecord member = new MemberRecord(name, number, address, city, state, zipcode);
-            return member;
+    /**
+    @summary:Returns the provider record with the given number from the provider file.
+    @param providerNumber the provider number to search for
+    @return the provider record object if found, null otherwise
+    @throws IOException if there was an error reading the file
+    */
+    private static ProviderRecord getProviderRecordFromFile(String providerNumber) throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get(PROVIDER_FILE_NAME));
+        for (String line : lines) {
+            if (line.startsWith(providerNumber + ",")) {
+                String[] parts = line.split(",");
+                String number = parts[0];
+                String name = parts[1];
+                String address = parts[2];
+                String city = parts[3];
+                String state = parts[4];
+                String zipcode = parts[5];
+                ProviderRecord provider = new ProviderRecord(name, number, address, city, state, zipcode);
+                return provider;
+            }
         }
+        return null;
     }
-
-    // If no member record with the given number was found, return null
-    return null;
-}
-private static ProviderRecord getProviderRecordFromFile(String providerNumber) throws IOException {
-    // Read all the provider records from the file
-    List<String> lines = Files.readAllLines(Paths.get(PROVIDER_FILE_NAME));
-
-    // Find the provider record with the given number
-    for (String line : lines) {
-        if (line.startsWith(providerNumber + ",")) {
-            // Parse the provider record data from the line
-            String[] parts = line.split(",");
-            String number = parts[0];
-            String name = parts[1];
-            String address = parts[2];
-            String city = parts[3];
-            String state = parts[4];
-            String zipcode = parts[5];
-
-            // Create a new provider record object with the parsed data
-            ProviderRecord provider = new ProviderRecord(name, number, address, city, state, zipcode);
-            return provider;
-        }
-    }
-
-    // If no provider record with the given number was found, return null
-    return null;
-}
 
 }
