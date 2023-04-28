@@ -26,7 +26,7 @@ public class ProviderGui {
     public ProviderGui() {
         frame = new JFrame();
         frame.setSize(800, 800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         panel = new JPanel();
         panel.setLayout(null);
@@ -146,7 +146,7 @@ public class ProviderGui {
                  billChocAn.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         if(todayDateField.getText().matches("\\d{8}") && serviceCodeField.getText().matches("\\d{6}") && serviceDateField.getText().matches("\\d{8}")){
-                        File file = new File(System.getProperty("user.dir") + "/src/serviceTest.txt");
+                        File file = new File(System.getProperty("user.dir") + "/src/serviceTest");
                         FileWriter fileWriter;
                         try {
                             fileWriter = new FileWriter(file, true);
@@ -157,6 +157,7 @@ public class ProviderGui {
                                           memberId + "," +
                                           serviceCodeField.getText() + "," +
                                           comments.getText() + "\n");
+                
                            // Close the file
                           bufferedWriter.close();
                           frame.dispose();
@@ -166,6 +167,7 @@ public class ProviderGui {
                         else{
                             JOptionPane.showMessageDialog(billChocAnframe, "Please enter a valid Information");
                         }
+                        
                      }
                  });
                 
@@ -206,6 +208,7 @@ public class ProviderGui {
                     String id = idField.getText();
                     if (id.matches("\\d{9}")) {
                         int a = Verification.userVerification(Integer.valueOf(id));
+                        System.out.println("sss");
                         if(a==-1){
                             JOptionPane.showMessageDialog(frame, "Invalid ID. Try again");
                         }
