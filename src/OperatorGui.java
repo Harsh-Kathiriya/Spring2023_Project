@@ -321,8 +321,15 @@ public class OperatorGui {
         
                     if (type.equals("provider")) {
                         try {
-                            OperatorController.editProvider(number, name, address, city, state, zip);
+                            
+                            if(OperatorController.editProvider(number, name, address, city, state, zip)){
                             JOptionPane.showMessageDialog(editFrame, "Record updated successfully.");
+                            editFrame.dispose();}
+                            else{
+                                JOptionPane.showMessageDialog(editFrame, "Error. Check details entered.");
+                            editFrame.dispose();
+                            }
+
                         } catch (IOException e1) {
                             JOptionPane.showMessageDialog(editFrame, "Error updating record.");
                         editFrame.dispose();
@@ -330,8 +337,13 @@ public class OperatorGui {
                         }
                     } else if (type.equals("member")) {
                         try {
-                            OperatorController.editMember(number, name, address, city, state, zip);
-                            JOptionPane.showMessageDialog(editFrame, "Record updated successfully.");
+                            if(OperatorController.editMember(number, name, address, city, state, zip)){
+                                JOptionPane.showMessageDialog(editFrame, "Record updated successfully.");
+                                editFrame.dispose();}
+                                else{
+                                    JOptionPane.showMessageDialog(editFrame, "Error. Check details entered.");
+                                editFrame.dispose();
+                                }
                         } catch (IOException e1) {
                             JOptionPane.showMessageDialog(editFrame, "Error updating record.");
                             e1.printStackTrace();
